@@ -1,0 +1,1 @@
+"D:\Study\微信小程序开发工具\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-5gsoed6vd0569551 --n quickstartFunctions --r --project "D:\Study\微信小程序开发工具\WeChatStudy\miniprogram-3" --report_first --report

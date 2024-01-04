@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    swiperList: [
+      {
+        id: 1,
+        src: "../../images/swiper01.png",
+      },
+      {
+        id: 2,
+        src: "../../images/swiper03.png"
+      },
+      {
+        id: 3,
+        src: "../../images/swiper01.gif"
+      },
+      {
+        id: 4,
+        src: "../../images/swiper03.gif"
+      }
+    ],
+    bannerList: [
+      {
+        id: 1,
+        src: "../../images/CtwiPGVj5kyABrQZAAJIfoE5CU073.png"
+      },
+      {
+        id: 2,
+        src: "../../images/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
+      }
+    ]
   },
 
   /**

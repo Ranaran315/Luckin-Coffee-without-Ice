@@ -63,6 +63,7 @@
   "style": "v2",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "Avatar": "./components/avatar/index"
+    "Avatar": "./components/avatar/index",
+    "Banner": "./components/banner/index"
   }
 }

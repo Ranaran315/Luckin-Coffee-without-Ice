@@ -9,7 +9,7 @@
 	<view class="main">
 		<view class="home-operation main-item">
 			<view class="profile-card">
-				<Avatar src="" class="avatar"/>
+				<Avatar src="" class="avatar" />
 				<text>Lucky you~跟幸运打个招呼</text>
 			</view>
 			<view class="main">
@@ -40,11 +40,7 @@
 				</view>
 			</view>
 		</view>
-		<swiper class="banner main-item" autoplay="true" indicator-dots="true" indicator-color="#c1c1c1" indicator-active-color="#fff">
-			<swiper-item wx:for="{{bannerList}}" wx:key="id">
-				<image src="{{item.src}}" mode="aspectFill" />
-			</swiper-item>
-		</swiper>
+		<Banner></Banner>
 	</view>
 
 </view>

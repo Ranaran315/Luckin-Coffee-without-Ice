@@ -23,16 +23,6 @@ Page({
         src: "../../images/swiper03.gif"
       }
     ],
-    bannerList: [
-      {
-        id: 1,
-        src: "../../images/CtwiPGVj5kyABrQZAAJIfoE5CU073.png"
-      },
-      {
-        id: 2,
-        src: "../../images/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
-      }
-    ]
   },
 
   /**

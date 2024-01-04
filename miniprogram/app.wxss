@@ -1,18 +1,12 @@
 /**app.wxss**/
-view {
-  box-sizing: border-box;
-}
+@import "./styles/var.wxss";
 
 .container {
-  --bg-01: #f4f4f4;
-  --bg-02: #ffffff;
-  --bg-03: #2d3035;
-  --color-01: #c79347;
-  --br: 15rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  min-height: 100vh;
 } 
 
 button {

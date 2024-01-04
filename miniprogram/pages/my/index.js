@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {
+      nickname: "luckin coffee",
+      backgroundImage: "../../images/header_bg.png",
+      level: {
+        level: "LV.0",
+        name: "小迷鹿"
+      }
+    },
+    bannerList: [
+      {
+        id: 1,
+        src: "../../images/CtwiPGVj5kyABrQZAAJIfoE5CU073.png"
+      },
+      {
+        id: 2,
+        src: "../../images/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
+      }
+    ]
   },
 
   /**

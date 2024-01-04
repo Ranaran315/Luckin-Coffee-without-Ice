@@ -1,7 +1,7 @@
 /* pages/home/index.wxss */
 .container > .main {
 	width: 100%;
-	padding: 0 25rpx;
+	padding: var(--page-padding);
 	background-color: var(--bg-01);
 }
 
@@ -19,6 +19,7 @@
 	background-color: var(--bg-02);
 	--row-first-height: 210rpx;
 	position: relative;
+	border-radius: var(--br);
 }
 
 .home-operation > .profile-card {
@@ -56,6 +57,7 @@
 	padding: 20rpx 30rpx;
 	border-bottom-left-radius: var(--br);
 	border-bottom-right-radius: var(--br);
+	overflow: hidden;
 }
 
 .home-operation .main-row {
@@ -76,8 +78,5 @@
 	flex: 1;
 }
 
-.banner {
-	height: 180rpx;
-	border-radius: var(--br);
-}
+
 

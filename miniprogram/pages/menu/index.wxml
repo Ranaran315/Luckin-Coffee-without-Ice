@@ -1,2 +1,59 @@
 <!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<view class="container">
+	<view class="header">
+		<view class="pindan">
+			<text>拼单</text>
+		</view>
+		<view class="search">
+			<icon class="icon" type="search"></icon>
+			<input type="text" placeholder="2024心想事成🍊" />
+		</view>
+	</view>
+	<view class="center">
+		<view class="left">
+			<view class="store-name">{{store.name}}></view>
+			<view class="store-desc">{{store.desc}}</view>
+		</view>
+		<view class="right">
+			<view class="self right-item {{isSelf ? 'selected' : ''}}" bind:tap="selectBuyType" data-flag="{{true}}">自提</view>
+			<view class="outside right-item {{!isSelf ? 'selected' : ''}}" bind:tap="selectBuyType" data-flag="{{false}}">外送</view>
+		</view>
+	</view>
+	<view class="main">
+		<scroll-view class="left" scroll-y="true">
+			<block wx:for="{{categoryList}}" wx:key="id">
+				<view class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}">
+					<view class="before"></view>
+					{{item.name}}
+				</view>
+			</block>
+		</scroll-view>
+		<scroll-view class="right" scroll-y="true">
+			<block wx:for="{{dataList}}" wx:for-item="data">
+				<view class="right-item">
+					<view class="header">
+						<text class="title">{{data.name}}</text>
+						<text class="desc">{{data.desc}}</text>
+					</view>
+					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee">
+						<view class="coffee-item">
+							<image class="cover-image" src="{{coffee.coverImg}}" mode="aspectFill"></image>
+							<view class="sale-info">
+								<text class="title">{{coffee.name}}</text>
+								<text class="desc">{{coffee.desc}}</text>
+								<view class="price">
+									<text class="price-sale">￥{{coffee.price_sale}}</text>
+									<text class="price-face">(面价<text style="text-decoration: line-through;">￥{{coffee.price_face}}</text>)</text>
+								</view>
+							</view>
+							<image class="icon-add" src="../../images/icon_add.png" mode="aspectFill"/>
+						</view>
+					</block>
+				</view>
+			</block>
+		</scroll-view>
+		<view class="cart">
+			<image src="../../images/cart_icon.png" mode="aspectFill"/>
+		</view>
+	</view>
+</view>

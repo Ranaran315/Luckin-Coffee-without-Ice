@@ -1,1 +1,258 @@
 /* pages/order/index.wxss */
+@import "../../styles/var.wxss";
+
+.container {
+	height: 100vh;
+	--header-height: 60rpx;
+	--center-height: 70rpx;
+	--margin: 15rpx;
+	background-color: var(--bg-02);
+}
+
+.header,.center {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin: var(--margin) 0;
+	padding: var(--page-padding);
+}
+
+.header .pindan {
+	display: flex;
+	align-items: center;
+	height: var(--header-height);
+	line-height: var(--header-height);
+	border: 3px solid var(--bg-01);
+	padding: 0 20rpx;
+	border-radius: 50rpx;
+	margin-right: 10rpx;
+}
+
+.header .search {
+	display: flex;
+	align-items: center;
+	height: var(--header-height);
+	background-color: var(--bg-01);
+	padding: 10rpx 20rpx;
+	border-radius: 50rpx;
+	font-size: .8rem;
+}
+
+.header .search .icon {
+	margin-right: 10rpx;
+}
+
+.center {
+	height: var(--center-height);
+	justify-content: space-between;
+}
+
+.center .left {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+}
+
+.center .left .store-name {
+	font-size: 1.2rem;
+	margin-bottom: 10rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.center .left .store-desc {
+	color: var(--color-03);
+	font-size: 0.95rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.center .right {
+	width: 25%;
+	display: flex;
+	background-color: var(--bg-01);
+	border-radius: 50rpx;
+}
+
+.center .right .right-item {
+	width: 50%;
+	text-align: center;
+	padding: 10rpx 15rpx;
+	border-radius: 50rpx;
+}
+
+.center .right .selected {
+	background-color: var(--primary-color);
+	color: var(--color-02);
+}
+
+.main {
+	--flex-left: .25;
+	width: 100%;
+	height: calc(100% - var(--header-height) - var(--center-height) - 4 * var(--margin));
+	background-color: var(--bg-01);
+	display: flex;
+	padding: 20rpx;
+	padding-left: 0;
+	padding-bottom: 0;
+	background-color: var(--bg-01);
+	position: relative;
+}
+
+.main .left,.main .right {
+	height: 100%;
+}
+
+.main .left {
+	flex: var(--flex-left);
+	padding-right: 20rpx;
+}
+
+.main .left .left-item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 25rpx 0 25rpx 20rpx;
+	margin: 20rpx 0;
+}
+
+.main .left .left-item:first-child {
+	margin-top: 0;
+}
+
+.main .left .selected {
+	--border-radius: 50rpx;
+	background-color: var(--bg-04);
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+/* 实现伪元素before的效果 */
+.main .left .left-item .before {
+	--size: 20rpx;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	background-color: var(--primary-color);
+	display: none;
+	position: absolute;
+	left: 0;
+	transform: translateX(-50%);
+}
+
+.main .left .selected .before {
+	display: block;
+}
+
+.main .right {
+	flex: calc(1 - var(--flex-left));
+	background-color: var(--bg-02);
+	border-radius: var(--br);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 20rpx;
+}
+
+.main .right .right-item {
+	display: flex;
+	flex-direction: column;
+	font-size: .8rem;
+	color: var(--color-03);
+}
+
+.main .right .right-item > .header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 20rpx;
+	padding: 0;
+}
+
+.main .right .right-item .header > .title {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--color-05);
+}
+
+.main .right .right-item .coffee-item {
+	--cover-width: 25%;
+	--icon-add-width: 10%;
+	width: 100%;
+	height: 150rpx;
+	display: flex;
+	align-items: center;
+	margin: 20rpx 0;
+	position: relative;
+}
+
+.main .right .right-item .coffee-item .cover-image {
+	width: var(--cover-width);
+}
+
+.main .right .right-item .coffee-item .sale-info {
+	width: calc(100% - var(--cover-width) - var(--icon-add-width));
+	display: flex;
+	flex-direction: column;
+	margin-left: 30rpx;
+}
+
+.main .right .right-item .coffee-item .sale-info > .title {
+	font-size: 1rem;
+	color: var(--color-05);
+}
+
+.main .right .right-item .coffee-item .sale-info > .desc {
+	color: var(--color-03);
+	margin-top: 5rpx;
+}
+
+.main .right .right-item .coffee-item .sale-info > .price {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	color: var(--color-03);
+	margin-top: 20rpx;
+	white-space: pre-wrap;
+}
+
+.main .right .right-item .coffee-item .sale-info > .price > .price-sale {
+	letter-spacing: -.2rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-04);
+	margin-right: 10rpx;
+}
+
+.main .right .right-item .coffee-item .icon-add {
+	--size: 50rpx;
+	max-width: var(--size);
+	max-height: var(--size);
+	border-radius: 50%;
+	right: 0;
+	bottom: 0;
+	align-self: flex-end;
+}
+
+.main .cart {
+	--size: 100rpx;
+	width: var(--size);
+	height: var(--size);
+	position: fixed;
+	right: 25rpx;
+	bottom: 50rpx;
+	background-color: var(--bg-02);
+	border-radius: 50%;
+	box-shadow: 0 0 20rpx 5rpx var(--bg-04);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main .cart image {
+	width: 60%;
+	height: 75%;
+}

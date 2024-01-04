@@ -1,11 +1,141 @@
 // pages/order/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    // 门店信息
+    store: {
+      name: "宜宾大学城路店",
+      desc: "宜宾大学城路大学城路大学城路大学城路大学城路大学城路大学城路"
+    },
+    // 是否为自提，true为自提，false为外送
+    isSelf: true,
+    // 分类信息
+    categoryList: [
+      {
+        id: 1,
+        name: "人气Top"
+      },
+      {
+        id: 2,
+        name: "爆款套餐"
+      },
+      {
+        id: 3,
+        name: "新年第一杯"
+      },
+      {
+        id: 4,
+        name: "酱香拿铁"
+      },
+      {
+        id: 5,
+        name: "生椰拿铁"
+      },
+      {
+        id: 6,
+        name: "秋冬暖咖"
+      },
+      {
+        id: 7,
+        name: "大师咖啡"
+      },
+      {
+        id: 8,
+        name: "美式家族"
+      },
+      {
+        id: 9,
+        name: "小黑杯"
+      },
+      {
+        id: 10,
+        name: "丝绒拿铁"
+      },
+      {
+        id: 11,
+        name: "生酪拿铁"
+      }
+    ],
+    // 当前所选中的分类索引
+    currentCategoryIndex: 0,
+    dataList: [
+      {
+        id: 1,
+        name: "人气Top",
+        desc: "瑞幸必喝爆款，无限回购",
+        coffeeList: [
+          {
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+          {
+            id: 2,
+            name: "马斯卡彭生酪拿铁",
+            desc: "含丹麦芝士，奶味提升24%",
+            price_face: 29,
+            price_sale: 18,
+            coverImg: "../../images/coffee02.png"
+          },
+          {
+            id: 3,
+            name: "褚橙拿铁",
+            desc: "含当季褚橙果汁*，新年限量供应",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee03.png"
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "爆款套餐",
+        desc: "",
+        coffeeList: [
+          {
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+          {
+            id: 2,
+            name: "马斯卡彭生酪拿铁",
+            desc: "含丹麦芝士，奶味提升24%",
+            price_face: 29,
+            price_sale: 18,
+            coverImg: "../../images/coffee02.png"
+          },
+          {
+            id: 3,
+            name: "褚橙拿铁",
+            desc: "含当季褚橙果汁*，新年限量供应",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee03.png"
+          }
+        ]
+      }
+    ]
+  },
 
+  selectBuyType(e) {
+    this.setData({
+      isSelf: e.currentTarget.dataset.flag
+    })
+  },
+
+  selectCategory(e) {
+    this.setData({
+      currentCategoryIndex: e.currentTarget.dataset.index
+    })
   },
 
   /**

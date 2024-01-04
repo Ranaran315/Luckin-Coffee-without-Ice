@@ -35,6 +35,7 @@
 
 .main-item {
 	transform: translateY(calc(0rpx - var(--transformY)));
+	margin-bottom: 50rpx;
 }
 
 .level-card {

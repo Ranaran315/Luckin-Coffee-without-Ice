@@ -1,10 +1,15 @@
 view {
   box-sizing: border-box;
+  --primary-color: #333999;
   --bg-01: #f4f4f4;
   --bg-02: #ffffff;
   --bg-03: #2d3035;
+  --bg-04: #e5e5e5;
   --color-01: #c79347;
   --color-02: #ffffff;
+  --color-03: #666666;
+  --color-04: #f95e3a;
+  --color-05: #000000;
   --br: 15rpx;
   --page-padding: 0 25rpx;
 }

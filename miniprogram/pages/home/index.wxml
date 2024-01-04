@@ -14,15 +14,15 @@
 			</view>
 			<view class="main">
 				<view class="main-row">
-					<view class="main-row-item">
+					<navigator url="../menu/index" open-type="switchTab"  class="main-row-item">
 						<image src="../../images/operation01.png" mode="aspectFill" />
-					</view>
-					<view class="main-row-item">
+					</navigator>
+					<navigator url="../menu/index" open-type="switchTab" class="main-row-item">
 						<image src="../../images/operation02.png" mode="aspectFill" />
-					</view>
-					<view class="main-row-item">
+					</navigator>
+					<navigator url="../shop/index" open-type="switchTab" class="main-row-item">
 						<image src="../../images/operation03.png" mode="aspectFill" />
-					</view>
+					</navigator>
 				</view>
 				<view class="main-row">
 					<view class="main-row-item">

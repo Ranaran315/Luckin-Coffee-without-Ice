@@ -1,0 +1,46 @@
+<!--pages/home/index.wxml-->
+
+<view class="container">
+	<swiper indicator-dots="true" circular="true" class="home-main-swiper" autoplay="true" indicator-color="#c1c1c1" indicator-active-color="#fff">
+		<swiper-item class="home-main-swiper-item" wx:for="{{swiperList}}" wx:key="id">
+			<image src="{{item.src}}" mode="aspectFill"></image>
+		</swiper-item>
+	</swiper>
+	<view class="main">
+		<view class="home-operation main-item">
+			<view class="profile-card">
+				<Avatar src="" class="avatar" />
+				<text>Lucky you~跟幸运打个招呼</text>
+			</view>
+			<view class="main">
+				<view class="main-row">
+					<view class="main-row-item">
+						<image src="../../images/operation01.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation02.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation03.png" mode="aspectFill" />
+					</view>
+				</view>
+				<view class="main-row">
+					<view class="main-row-item">
+						<image src="../../images/operation-small01.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small02.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small03.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small04.png" mode="aspectFill" />
+					</view>
+				</view>
+			</view>
+		</view>
+		<Banner></Banner>
+	</view>
+
+</view>

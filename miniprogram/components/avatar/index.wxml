@@ -1,0 +1,2 @@
+<!--components/avatar/index.wxml-->
+<image src="{{avatarSrc}}" mode="aspectFill" class="avatar"/>

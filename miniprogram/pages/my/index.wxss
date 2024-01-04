@@ -33,13 +33,16 @@
 	background-color: var(--bg-01);
 }
 
+.main-item {
+	transform: translateY(calc(0rpx - var(--transformY)));
+}
+
 .level-card {
 	height: calc(var(--transformY) * 2);
 	background-color: var(--bg-02);
 	padding: 10rpx 20rpx;
 	font-weight: 700;
 	border-radius: var(--br);
-	transform: translateY(calc(0rpx - var(--transformY)));
 }
 
 .function-panel {
@@ -61,7 +64,7 @@
 }
 
 .function-icon {
-	--size: 70rpx;
+	--size: 60rpx;
 	width: var(--size);
 	height: var(--size);
 	margin-bottom: 10rpx;

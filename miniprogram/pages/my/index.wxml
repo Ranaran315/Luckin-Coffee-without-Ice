@@ -8,10 +8,10 @@
 		</view>
 	</view>
 	<view class="main">
-		<view class="level-card">
+		<view class="level-card main-item">
 			<text>{{userInfo.level.level}} {{userInfo.level.name}}</text>
 		</view>
-		<view class="function-panel">
+		<view class="function-panel main-item">
 			<view class="function-panel-item">
 				<image src="../../images/我的订单.png" mode="aspectFill" class="function-icon" />
 				<text>我的订单</text>
@@ -41,6 +41,8 @@
 				<text>账户余额</text>
 			</view>
 		</view>
-		<Banner></Banner>
+		<view class="main-item">
+			<Banner></Banner>
+		</view>
 	</view>
 </view>

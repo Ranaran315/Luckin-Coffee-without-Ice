@@ -1,5 +1,14 @@
 /**app.wxss**/
+view {
+  box-sizing: border-box;
+}
+
 .container {
+  --bg-01: #f4f4f4;
+  --bg-02: #ffffff;
+  --bg-03: #2d3035;
+  --color-01: #c79347;
+  --br: 15rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,4 +33,9 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+image {
+  width: 100%;
+  height: 100%;
 }

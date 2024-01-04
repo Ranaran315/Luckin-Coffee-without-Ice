@@ -1,2 +1,62 @@
 <!--pages/home/index.wxml-->
-<text>pages/home/index.wxml</text>
+
+<view class="container">
+	<swiper indicator-dots="true" circular="true" class="home-main-swiper" autoplay="true" indicator-color="#c1c1c1" indicator-active-color="#fff">
+		<swiper-item class="home-main-swiper-item">
+			<image src="../../images/swiper01.png" mode="aspectFill"></image>
+		</swiper-item>
+		<swiper-item class="home-main-swiper-item">
+			<image src="../../images/swiper03.png" mode="aspectFill"></image>
+		</swiper-item>
+		<swiper-item class="home-main-swiper-item">
+			<image src="../../images/swiper01.gif" mode="aspectFill"></image>
+		</swiper-item>
+		<swiper-item class="home-main-swiper-item">
+			<image src="../../images/swiper03.gif" mode="aspectFill"></image>
+		</swiper-item>
+	</swiper>
+	<view class="main">
+		<view class="home-operation main-item">
+			<view class="profile-card">
+				<image src="../../images/default_avatar.png" mode="aspectFill" class="avatar"/>
+				<text>Lucky you~跟幸运打个招呼</text>
+			</view>
+			<view class="main">
+				<view class="main-row">
+					<view class="main-row-item">
+						<image src="../../images/operation01.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation02.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation03.png" mode="aspectFill" />
+					</view>
+				</view>
+				<view class="main-row">
+					<view class="main-row-item">
+						<image src="../../images/operation-small01.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small02.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small03.png" mode="aspectFill" />
+					</view>
+					<view class="main-row-item">
+						<image src="../../images/operation-small04.png" mode="aspectFill" />
+					</view>
+				</view>
+			</view>
+		</view>
+		<swiper class="banner main-item" autoplay="true" indicator-dots="true" indicator-color="#c1c1c1" indicator-active-color="#fff">
+			<swiper-item>
+				<image src="../../images/CtwiPGVj5kyABrQZAAJIfoE5CU073.png" mode="aspectFill" />
+			</swiper-item>
+			<swiper-item>
+				<image src="../../images/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png" mode="aspectFill" />
+			</swiper-item>
+		</swiper>
+	</view>
+
+</view>

@@ -4,6 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 头部样式
+    headerStyle: "",
     // 门店信息
     store: wx.getStorageSync('store'),
     // 地址信息
@@ -152,6 +154,7 @@ Page({
     ]
   },
 
+  // 选择配送方式
   selectDeliveryType(e) {
     const value = e.detail.value
     this.setData({
@@ -160,20 +163,28 @@ Page({
     wx.navigateTo({
       url: '/pages/delivery/index?isSelf=' + value,
     })
-
   },
 
+  // 选择分类
   selectCategory(e) {
     this.setData({
       currentCategoryIndex: e.currentTarget.dataset.index
     })
+    const coffeeList = this.createSelectorQuery().select("#coffee-list")
+    coffeeList.scrollIntoView(e.currentTarget.dataset.id)
+    console.log(coffeeList);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const {top,height} = wx.getMenuButtonBoundingClientRect();
+    let centerPosition = top + height / 2;
+    let headerStyle = "margin-top: calc(" + centerPosition + "px - 30rpx" // 这个30rpxheader的高度的一半 
+    this.setData({
+      headerStyle:headerStyle
+    })
   },
 
   /**
@@ -187,7 +198,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.setData({
+      address: wx.getStorageSync('address')
+    })
   },
 
   /**

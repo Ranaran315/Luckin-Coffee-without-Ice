@@ -1,6 +1,6 @@
 <!--pages/order/index.wxml-->
 <view class="container">
-	<view class="header">
+	<view class="header" style="{{headerStyle}}">
 		<view class="pindan">
 			<text>拼单</text>
 		</view>
@@ -12,11 +12,17 @@
 	<view class="center">
 		<view class="left">
 			<view class="store" wx:if="{{isSelf}}">
-				<view class="store-name">{{store.name}}</view>
+				<view class="store-name">
+					<view class="name">{{store.name}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
 				<view class="store-desc">{{store.desc}}</view>
 			</view>
 			<view class="address" wx:else>
-				<view class="address-name">{{address.address}}</view>
+				<view class="address-name">
+					<view class="name">{{address.address}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
 				<view class="meta">
 					<view class="meta-item">{{address.phone}}</view>
 					<view class="meta-item">{{address.name}}{{address.gender.name}}</view>
@@ -24,21 +30,22 @@
 			</view>
 		</view>
 		<view class="right">
-			<SwitchTab value="{{isSelf}}" leftText="自提"  rightText="外送" bind:change="selectDeliveryType"></SwitchTab>
+			<SwitchTab value="{{isSelf}}" leftText="自提" rightText="外送" bind:change="selectDeliveryType"></SwitchTab>
 		</view>
 	</view>
 	<view class="main">
 		<scroll-view class="left" scroll-y="true">
 			<block wx:for="{{categoryList}}" wx:key="id">
-				<view class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}">
+				<view class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}" 
+				data-id="{{item.id}}">
 					<view class="before"></view>
 					{{item.name}}
 				</view>
 			</block>
 		</scroll-view>
-		<scroll-view class="right" scroll-y="true">
+		<scroll-view id="coffee-list" class="right" scroll-y="true">
 			<block wx:for="{{dataList}}" wx:for-item="data" wx:key="id">
-				<view class="right-item">
+				<view class="right-item" id="{{item.id}}">
 					<view class="header">
 						<text class="title">{{data.name}}</text>
 						<text class="desc">{{data.desc}}</text>
@@ -54,14 +61,14 @@
 									<text class="price-face">(面价<text style="text-decoration: line-through;">￥{{coffee.price_face}}</text>)</text>
 								</view>
 							</view>
-							<image class="icon-add" src="../../images/icon_add.png" mode="aspectFill"/>
+							<image class="icon-add" src="../../images/icon_add.png" mode="aspectFill" />
 						</view>
 					</block>
 				</view>
 			</block>
 		</scroll-view>
 		<view class="cart">
-			<image src="../../images/cart_icon.png" mode="aspectFill"/>
+			<image src="../../images/cart_icon.png" mode="aspectFill" />
 		</view>
 	</view>
 </view>

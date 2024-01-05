@@ -7,6 +7,13 @@
       "list": [
         {
           "name": "",
+          "pathName": "pages/addAddress/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/delivery/index",
           "query": "",
           "launchMode": "default",

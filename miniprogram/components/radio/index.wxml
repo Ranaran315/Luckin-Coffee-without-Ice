@@ -3,4 +3,5 @@
 	<view class="checked" wx:if="{{valueSync}}" 
 	style="background-color: {{checkedColor}};">√</view>
 	<view class="unchecked" wx:else></view>
+	<slot></slot>
 </view>

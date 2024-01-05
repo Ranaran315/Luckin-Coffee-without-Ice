@@ -1,0 +1,5 @@
+<!--components/form/form-item/index.wxml-->
+<view class="form-item">
+			<view class="label">{{label}}</view>
+			<slot></slot>
+</view>

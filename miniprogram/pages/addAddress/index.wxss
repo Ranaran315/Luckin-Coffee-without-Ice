@@ -1,0 +1,10 @@
+/* pages/addAddress/index.wxss */
+@import "../../styles/var.wxss";
+
+.container {
+	background-color: var(--bg-01);
+}
+
+.address-form {
+	background-color: var(--bg-02);
+}

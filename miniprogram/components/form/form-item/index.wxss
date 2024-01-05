@@ -1,0 +1,8 @@
+/* components/form/form-item/index.wxss */
+.form-item {
+	display: flex;
+}
+
+.form-item .label {
+	margin-right: 10rpx;
+}

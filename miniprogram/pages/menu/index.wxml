@@ -11,11 +11,20 @@
 	</view>
 	<view class="center">
 		<view class="left">
-			<view class="store-name">{{store.name}}></view>
-			<view class="store-desc">{{store.desc}}</view>
+			<view class="store" wx:if="{{isSelf}}">
+				<view class="store-name">{{store.name}}</view>
+				<view class="store-desc">{{store.desc}}</view>
+			</view>
+			<view class="address" wx:else>
+				<view class="address-name">{{address.address}}</view>
+				<view class="meta">
+					<view class="meta-item">{{address.phone}}</view>
+					<view class="meta-item">{{address.name}}{{address.gender.name}}</view>
+				</view>
+			</view>
 		</view>
 		<view class="right">
-			<SwitchTab value="{{isSelf}}" leftText="自提"  rightText="外送" bind:change="selectBuyType"></SwitchTab>
+			<SwitchTab value="{{isSelf}}" leftText="自提"  rightText="外送" bind:change="selectDeliveryType"></SwitchTab>
 		</view>
 	</view>
 	<view class="main">

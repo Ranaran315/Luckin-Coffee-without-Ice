@@ -43,17 +43,26 @@ Page({
     isSelf: false
   },
 
+  // 更改配送方式
   switchDeliveryType(e) {
     this.setData({
       isSelf: e.detail.value
     })
   },
 
+  // 选择收货地址
+  chooseAddress(e) {
+    wx.setStorageSync('address', e.currentTarget.dataset.item)
+    wx.navigateBack()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      isSelf: options.isSelf == "true" ? true : false
+    })
   },
 
   /**

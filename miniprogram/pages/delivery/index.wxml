@@ -16,7 +16,7 @@
 			<view class="address-box" wx:else>
 				<text class="title">我的收货地址</text>
 				<block wx:for="{{addressList}}" wx:key="id">
-					<view class="address-item">
+					<view class="address-item" bind:tap="chooseAddress" data-item="{{item}}">
 						<view class="left">
 							<view class="address">
 							{{item.address}}

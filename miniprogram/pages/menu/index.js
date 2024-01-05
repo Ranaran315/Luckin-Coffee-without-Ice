@@ -5,15 +5,13 @@ Page({
    */
   data: {
     // 门店信息
-    store: {
-      name: "宜宾大学城路店",
-      desc: "宜宾大学城路大学城路大学城路大学城路大学城路大学城路大学城路"
-    },
+    store: wx.getStorageSync('store'),
+    // 地址信息
+    address: wx.getStorageSync('address'),
     // 是否为自提，true为自提，false为外送
     isSelf: true,
     // 分类信息
-    categoryList: [
-      {
+    categoryList: [{
         id: 1,
         name: "人气Top"
       },
@@ -61,13 +59,11 @@ Page({
     // 当前所选中的分类索引
     currentCategoryIndex: 0,
     // 咖啡列表
-    dataList: [
-      {
+    dataList: [{
         id: 1,
         name: "人气Top",
         desc: "瑞幸必喝爆款，无限回购",
-        coffeeList: [
-          {
+        coffeeList: [{
             id: 1,
             name: "烤椰拿铁",
             desc: "易烊千玺同款，冬天喝烤椰",
@@ -97,8 +93,7 @@ Page({
         id: 2,
         name: "爆款套餐",
         desc: "",
-        coffeeList: [
-          {
+        coffeeList: [{
             id: 1,
             name: "烤椰拿铁",
             desc: "易烊千玺同款，冬天喝烤椰",
@@ -128,8 +123,7 @@ Page({
         id: 3,
         name: "新年第一杯",
         desc: "开启你的2024年",
-        coffeeList: [
-          {
+        coffeeList: [{
             id: 1,
             name: "烤椰拿铁",
             desc: "易烊千玺同款，冬天喝烤椰",
@@ -158,10 +152,15 @@ Page({
     ]
   },
 
-  selectBuyType(e) {
+  selectDeliveryType(e) {
+    const value = e.detail.value
     this.setData({
-      isSelf: e.detail.value
+      isSelf: value
     })
+    wx.navigateTo({
+      url: '/pages/delivery/index?isSelf=' + value,
+    })
+
   },
 
   selectCategory(e) {

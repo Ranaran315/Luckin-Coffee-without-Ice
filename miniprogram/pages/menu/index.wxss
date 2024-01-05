@@ -54,20 +54,25 @@
 	flex-direction: column;
 }
 
-.center .left .store-name {
-	font-size: 1.2rem;
+.center .left .store-name, .center .left .address-name {
+	font-size: 1rem;
 	margin-bottom: 10rpx;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
-.center .left .store-desc {
+.center .left .store-desc , .center .left .meta {
 	color: var(--color-03);
-	font-size: 0.95rem;
+	font-size: 0.8rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	display: flex;
+}
+
+.center .left .meta .meta-item {
+	margin-right: 10rpx;
 }
 
 .center .right {

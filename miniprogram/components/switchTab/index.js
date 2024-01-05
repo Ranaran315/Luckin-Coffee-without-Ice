@@ -15,6 +15,7 @@ Component({
       type: String,
       value: "左边"
     },
+    // 按钮右边的文字
     rightText: {
       type: String,
       value: "右边"

@@ -1,0 +1,2 @@
+<!--components/icon/index.wxml-->
+<text class="iconfont icon-{{name}}"></text>

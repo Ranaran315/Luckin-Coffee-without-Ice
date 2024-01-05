@@ -1,0 +1,51 @@
+<!--pages/chooseAddress/index.wxml-->
+<view class="container">
+	<view class="header">
+		<SwitchTab leftText="门店自提" rightText="送货上门" value="{{isSelf}}" bind:change="switchDeliveryType"></SwitchTab>
+	</view>
+	<view class="main">
+		<!-- 自提 -->
+		<view class="self-pickup" wx:if="{{isSelf}}">
+			自提
+		</view>
+		<!-- 外送 -->
+		<view class="provide-home" wx:else>
+			<view class="no-address" wx:if="{{addressList.length === 0}}">
+				<image src="../../images/bg_location_fail.png" mode="widthFix" />
+			</view>
+			<view class="address-box" wx:else>
+				<text class="title">我的收货地址</text>
+				<block wx:for="{{addressList}}" wx:key="id">
+					<view class="address-item">
+						<view class="left">
+							<view class="address">
+							{{item.address}}
+						</view>
+						<view class="meta">
+							<view class="meta-item tag">
+								{{item.tag.name}}
+							</view>
+							<view class="meta-item">
+								{{item.phone}}
+							</view>
+							<view class="meta-item">
+								{{item.name}}
+							</view>
+							<view class="meta-item">
+								{{item.gender.name}}
+							</view>
+							<view class="meta-item default" wx:if="{{item.isDefault}}">
+								默认地址
+							</view>
+						</view>
+						</view>
+						<view class="right">
+							<Icon name="xiugai"></Icon>
+						</view>
+					</view>
+				</block>
+			</view>
+			<button class="address-add-btn">+ 新增收获地址</button>
+		</view>
+	</view>
+</view>

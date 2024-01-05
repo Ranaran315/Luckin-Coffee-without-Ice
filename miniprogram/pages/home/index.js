@@ -21,6 +21,10 @@ Page({
       {
         id: 4,
         src: "../../images/swiper03.gif"
+      },
+      {
+        id: 5,
+        src: "../../images/swiper05.gif"
       }
     ],
   },

@@ -17,7 +17,8 @@
     "pages/updateRecordSuccess/index",
     "pages/sumRecord/index",
     "pages/sumRecordResult/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/delivery/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -68,6 +69,7 @@
     "Avatar": "./components/avatar/index",
     "Banner": "./components/banner/index",
     "SwitchTab": "./components/switchTab/index",
-    "Radio": "./components/radio/index"
+    "Radio": "./components/radio/index",
+    "Icon": "./components/icon/index"
   }
 }

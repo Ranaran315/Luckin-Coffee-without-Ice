@@ -1,6 +1,7 @@
 view {
   box-sizing: border-box;
   --primary-color: #0028ab;
+  --secondary-color: #eaeeff;
   --wx-color: #30ad37;
   --bg-01: #f4f4f4;
   --bg-02: #ffffff;

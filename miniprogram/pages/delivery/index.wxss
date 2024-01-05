@@ -1,0 +1,119 @@
+/* pages/chooseAddress/index.wxss */
+
+.container {
+	--height: 100rpx;
+}
+
+.header {
+	width: 100%;
+	height: var(--height);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--bg-02);
+}
+
+.main {
+	width: 100%;
+	height: calc(100vh - 2 * var(--height));
+	background-color: var(--bg-01);
+	padding: var(--page-padding);
+	padding-top: 20rpx;
+}
+
+.main .self-pickup , .main .provide-home {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.main .provide-home .no-address {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main .provide-home .no-address image {
+	width: 50%;
+}
+
+.main .provide-home .address-add-btn {
+	width: 90%;
+	position: fixed;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	background-color: var(--primary-color);
+	color: var(--color-02);
+	font-weight: 500;
+	border-radius: 50rpx;
+	margin: 50rpx 0;
+}
+
+.address-box {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--bg-02);
+	padding: 20rpx;
+	border-radius: var(--br);
+}
+
+.address-box .title {
+	font-size: .8rem;
+	color: var(--color-03);
+}
+
+.address-box .address-item {
+	width: 100%;
+	display: flex;
+	margin: 20rpx 0;
+}
+
+.address-box .address-item .left {
+	width: 90%;
+}
+
+.address-box .address-item .right {
+	width: 10%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.address-box .address-item .address {
+	margin-bottom: 30rpx;
+	color: #000;
+	font-weight: 700;
+	font-size: .95rem;
+}
+
+.address-box .address-item .meta {
+	display: flex;
+	align-items: center;
+	font-size: .75rem;
+}
+
+.address-box .address-item .meta .meta-item {
+	margin-right: 10rpx;
+	color: var(--color-03);
+}
+
+.address-box .address-item .meta .meta-item.tag {
+	color: var(--color-01);
+	border: 1rpx solid var(--color-01);
+	border-radius: 10rpx;
+	padding: 5rpx 10rpx;
+}
+
+.address-box .address-item .meta .meta-item.default {
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
+	border-radius: 10rpx;
+	padding: 5rpx 10rpx;
+}

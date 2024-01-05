@@ -1,0 +1,19 @@
+/* components/switchTab/index.wxss */
+.switch-tab {
+	width: 100%;
+	display: flex;
+	background-color: var(--bg-01);
+	border-radius: 50rpx;
+}
+
+.switch-tab > .left,.switch-tab > .right {
+	width: 50%;
+	text-align: center;
+	padding: 10rpx 15rpx;
+	border-radius: 50rpx;
+}
+
+.switch-tab > .selected {
+	background-color: var(--primary-color);
+	color: var(--color-02);
+}

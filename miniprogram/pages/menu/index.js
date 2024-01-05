@@ -60,6 +60,7 @@ Page({
     ],
     // 当前所选中的分类索引
     currentCategoryIndex: 0,
+    // 咖啡列表
     dataList: [
       {
         id: 1,
@@ -122,13 +123,44 @@ Page({
             coverImg: "../../images/coffee03.png"
           }
         ]
+      },
+      {
+        id: 3,
+        name: "新年第一杯",
+        desc: "开启你的2024年",
+        coffeeList: [
+          {
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+          {
+            id: 2,
+            name: "马斯卡彭生酪拿铁",
+            desc: "含丹麦芝士，奶味提升24%",
+            price_face: 29,
+            price_sale: 18,
+            coverImg: "../../images/coffee02.png"
+          },
+          {
+            id: 3,
+            name: "褚橙拿铁",
+            desc: "含当季褚橙果汁*，新年限量供应",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee03.png"
+          }
+        ]
       }
     ]
   },
 
   selectBuyType(e) {
     this.setData({
-      isSelf: e.currentTarget.dataset.flag
+      isSelf: e.detail.value
     })
   },
 

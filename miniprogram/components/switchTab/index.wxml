@@ -1,0 +1,5 @@
+<!--components/switchTab/index.wxml-->
+<view class="switch-tab">
+	<view class="left {{valueSync ? 'selected' : ''}}" bind:tap="switchTab" data-flag="{{true}}">{{leftText}}</view>
+	<view class="right {{!valueSync ? 'selected' : ''}}" bind:tap="switchTab" data-flag="{{false}}">{{rightText}}</view>
+</view>

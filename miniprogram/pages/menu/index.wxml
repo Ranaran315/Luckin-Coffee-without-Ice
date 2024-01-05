@@ -15,8 +15,7 @@
 			<view class="store-desc">{{store.desc}}</view>
 		</view>
 		<view class="right">
-			<view class="self right-item {{isSelf ? 'selected' : ''}}" bind:tap="selectBuyType" data-flag="{{true}}">自提</view>
-			<view class="outside right-item {{!isSelf ? 'selected' : ''}}" bind:tap="selectBuyType" data-flag="{{false}}">外送</view>
+			<SwitchTab value="{{isSelf}}" leftText="自提"  rightText="外送" bind:change="selectBuyType"></SwitchTab>
 		</view>
 	</view>
 	<view class="main">
@@ -29,13 +28,13 @@
 			</block>
 		</scroll-view>
 		<scroll-view class="right" scroll-y="true">
-			<block wx:for="{{dataList}}" wx:for-item="data">
+			<block wx:for="{{dataList}}" wx:for-item="data" wx:key="id">
 				<view class="right-item">
 					<view class="header">
 						<text class="title">{{data.name}}</text>
 						<text class="desc">{{data.desc}}</text>
 					</view>
-					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee">
+					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee" wx:key="id">
 						<view class="coffee-item">
 							<image class="cover-image" src="{{coffee.coverImg}}" mode="aspectFill"></image>
 							<view class="sale-info">

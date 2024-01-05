@@ -64,6 +64,7 @@
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
     "Avatar": "./components/avatar/index",
-    "Banner": "./components/banner/index"
+    "Banner": "./components/banner/index",
+    "SwitchTab": "./components/switchTab/index"
   }
 }

@@ -8,9 +8,6 @@ Component({
     src: {
       type: String,
       value: '',
-      observer: function(newVal) {
-       
-      }
     }
   },
 

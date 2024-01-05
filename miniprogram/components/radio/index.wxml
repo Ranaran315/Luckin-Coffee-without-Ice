@@ -1,0 +1,6 @@
+<!--components/radio/index.wxml-->
+<view class="radio" bind:tap="change" style="width: {{size + 'rpx'}};height: {{size + 'rpx'}};font-size: {{size / 1.5 + 'rpx'}};">
+	<view class="checked" wx:if="{{valueSync}}" 
+	style="background-color: {{checkedColor}};">√</view>
+	<view class="unchecked" wx:else></view>
+</view>

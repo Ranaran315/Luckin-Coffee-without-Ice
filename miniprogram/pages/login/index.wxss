@@ -1,0 +1,46 @@
+/* pages/login/index.wxss */
+.container {
+	height: 100vh;
+	background-color: var(--bg-01);
+	padding: 0 20rpx;
+	justify-content: space-between;
+}
+
+.container .main {
+	width: 100%;
+	background-color: var(--bg-02);
+	height: 75vh;
+}
+
+.container .background {
+	width: 100%;
+	height: 60%;
+}
+
+.phone-safe-login-btn,.one-click-login-btn {
+	width: 500rpx !important;
+	border-radius: 50rpx;
+	color: var(--color-02);
+	margin: 50rpx 0;
+	font-weight: 500;
+}
+
+.phone-safe-login-btn {
+	background-color: var(--primary-color);
+}
+
+.one-click-login-btn {
+	background-color: var(--wx-color);
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	font-size: .7rem;
+	white-space: nowrap;
+	padding: 100rpx 0;
+}
+
+.footer .agreement {
+	color: var(--primary-color);
+}

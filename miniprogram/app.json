@@ -16,7 +16,8 @@
     "pages/updateRecordResult/index",
     "pages/updateRecordSuccess/index",
     "pages/sumRecord/index",
-    "pages/sumRecordResult/index"
+    "pages/sumRecordResult/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -27,7 +28,8 @@
   },
   "tabBar": {
     "selectedColor": "#333999",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/index",
         "text": "首页",
         "iconPath": "images/icons/home.png",
@@ -65,6 +67,7 @@
   "usingComponents": {
     "Avatar": "./components/avatar/index",
     "Banner": "./components/banner/index",
-    "SwitchTab": "./components/switchTab/index"
+    "SwitchTab": "./components/switchTab/index",
+    "Radio": "./components/radio/index"
   }
 }

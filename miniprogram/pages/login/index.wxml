@@ -1,0 +1,14 @@
+<!--pages/login/index.wxml-->
+<view class="container">
+	<view class="main">
+		<image class="background" src="../../images/img_login_bg1.png" mode="aspectFit" />
+		<button class="phone-safe-login-btn">手机号安全登录</button>
+		<button class="one-click-login-btn">一键登录</button>
+	</view>
+	<view class="footer">
+		<Radio value="{{isChecked}}" size="25" bind:change="handlerChange" />我已阅读并同意
+		<navigator class="agreement" url="">《瑞幸咖啡用户协议》</navigator>
+		<navigator class="agreement" url="">《隐私协议》</navigator>
+		<navigator class="agreement" url="">《支付协议》</navigator>
+	</view>
+</view>

@@ -1,0 +1,27 @@
+/* components/radio/index.wxss */
+.radio {
+	width: 50rpx;
+	height: 50rpx;
+	position: relative;
+	border-radius: 50%;
+	margin: 10rpx;
+	color: var(--color-02);
+}
+
+.checked,.unchecked {
+	width: 100%;
+	height: 100%;
+	padding: 10%;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checked {
+	background-color: var(--primary-color);
+}
+
+.unchecked {
+	border: 2rpx solid var(--color-03);
+}

@@ -6,6 +6,8 @@ Page({
   data: {
     // 头部样式
     headerStyle: "",
+    // 主体样式
+    mainStyle: "",
     // 门店信息
     store: wx.getStorageSync('store'),
     // 地址信息
@@ -60,6 +62,10 @@ Page({
     ],
     // 当前所选中的分类索引
     currentCategoryIndex: 0,
+    // 用于scroll-into-view
+    currentCategoryId: 0,
+    // 是否为手动滑动
+    isManualScroll: true,
     // 咖啡列表
     dataList: [{
         id: 1,
@@ -150,8 +156,66 @@ Page({
             coverImg: "../../images/coffee03.png"
           }
         ]
-      }
-    ]
+      },
+      {
+        id: 4,
+        name: "酱香拿铁",
+        desc: "",
+        coffeeList: [{
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+        ]
+      },
+      {
+        id: 5,
+        name: "生椰拿铁",
+        desc: "",
+        coffeeList: [{
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+        ]
+      },
+      {
+        id: 6,
+        name: "秋冬暖咖",
+        desc: "在这么冷的天来一杯暖咖",
+        coffeeList: [{
+            id: 1,
+            name: "烤椰拿铁",
+            desc: "易烊千玺同款，冬天喝烤椰",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee01.png",
+          },
+          {
+            id: 2,
+            name: "马斯卡彭生酪拿铁",
+            desc: "含丹麦芝士，奶味提升24%",
+            price_face: 29,
+            price_sale: 18,
+            coverImg: "../../images/coffee02.png"
+          },
+          {
+            id: 3,
+            name: "褚橙拿铁",
+            desc: "含当季褚橙果汁*，新年限量供应",
+            price_face: 32,
+            price_sale: 19,
+            coverImg: "../../images/coffee03.png"
+          }
+        ]
+      },
+    ],
   },
 
   // 选择配送方式
@@ -168,23 +232,70 @@ Page({
   // 选择分类
   selectCategory(e) {
     this.setData({
-      currentCategoryIndex: e.currentTarget.dataset.index
+      currentCategoryId: e.currentTarget.dataset.id,
+      currentCategoryIndex: e.currentTarget.dataset.index,
+      isManualScroll: false, // 注意设置此时不是手动滚动
     })
-    const coffeeList = this.createSelectorQuery().select("#coffee-list")
-    coffeeList.scrollIntoView(e.currentTarget.dataset.id)
-    console.log(coffeeList);
+    // 当点击完后设置手动滚动
+    setTimeout(() => {
+      this.setData({
+        isManualScroll: true
+      })
+    }, 10)
+  },
+
+  // 处理右边的滚动
+  handlerRightScroll(e) {
+    const query = wx.createSelectorQuery()
+    query.select("#coffee-scroll-view").boundingClientRect()
+    query.selectAll(".right-item .header").boundingClientRect()
+    if (this.data.isManualScroll) {
+      query.exec(res => {
+        const scrollViewTop = res[0].top
+        res[1].forEach((item, index) => {
+          if (item.top < scrollViewTop + 50 && item.bottom > scrollViewTop) {
+            this.setData({
+              currentCategoryIndex: index,
+            })
+          }
+        })
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const {top,height} = wx.getMenuButtonBoundingClientRect();
+    const {
+      top,
+      height
+    } = wx.getMenuButtonBoundingClientRect();
     let centerPosition = top + height / 2;
-    let headerStyle = "margin-top: calc(" + centerPosition + "px - 30rpx" // 这个30rpxheader的高度的一半 
+    let headerStyle = "margin-top: calc(" + centerPosition + "px - 30rpx)" // 这个30rpxheader的高度的一半 
     this.setData({
-      headerStyle:headerStyle
+      headerStyle: headerStyle
     })
+
+    const query = wx.createSelectorQuery()
+    query.select(".container > .header").boundingClientRect();
+    query.select(".container > .center").boundingClientRect()
+    query.exec(res => {
+      let headerHeight = res[0].height
+      let centerHeight = res[0].height
+      let mainStyle = "height: calc(100% - " +
+        headerHeight + "px" +
+        " - " +
+        centerPosition + "px" +
+        "- 30rpx - 15rpx - " +
+        centerHeight + "px" +
+        "- 30rpx"
+
+      this.setData({
+        mainStyle: mainStyle
+      })
+    })
+
   },
 
   /**

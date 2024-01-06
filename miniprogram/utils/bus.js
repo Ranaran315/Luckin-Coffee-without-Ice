@@ -14,6 +14,7 @@ class Bus {
 		}
 		// 订阅需要把回调添加到队列里
 		queue.push(callback)
+
 		// 检查缓存队列时是否有订阅者的消息
 		let cache = this.cache[fnName]
 		if (cache) {
@@ -21,6 +22,7 @@ class Bus {
 			cache.forEach(data => {
 				queue[0](data)
 			})
+			// 置空表示此时的订阅者处理完了缓存事件
 			queue = []
 		}
 	}

@@ -1,0 +1,4 @@
+<!--components/radioGroup/index.wxml-->
+<view class="radio-group">
+	<slot></slot>
+</view>

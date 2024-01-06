@@ -1,0 +1,4 @@
+<!--components/tab/index.wxml-->
+<view class="tab {{value ? 'checked' : 'unchecked'}}" bind:tap="handlerTab">
+	<view class="tab-bar"></view>
+</view>

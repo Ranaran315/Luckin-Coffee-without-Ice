@@ -1,11 +1,17 @@
 /* components/radio/index.wxss */
 .radio {
-	width: 50rpx;
 	height: 50rpx;
 	position: relative;
-	border-radius: 50%;
 	margin: 10rpx;
 	color: var(--color-02);
+	display: flex;
+	align-items: center;
+}
+
+.radio-box {
+	width: 50rpx;
+	height: 100%;
+	border-radius: 50%;
 }
 
 .checked,.unchecked {
@@ -24,4 +30,10 @@
 
 .unchecked {
 	border: 2rpx solid var(--color-03);
+}
+
+.show-value {
+	height: 100%;
+	color: #000;
+	margin-left: 10rpx;
 }

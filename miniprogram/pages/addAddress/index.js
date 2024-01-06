@@ -11,7 +11,7 @@ Page({
       phone: "",
       address: "",
       houseNumber: "",
-      tagId: 1,
+      tagId: 0,
       isDefault: false
     },
     tagList: [
@@ -27,7 +27,31 @@ Page({
         id: 3,
         name: "学校"
       }
-    ]
+    ],
+  },
+
+  // 处理输入框事件
+  handlerInput(e) {
+    const id = e.currentTarget.dataset.id
+    const value = e.detail.value
+    this.setData({
+      [`address.${id}`]: value
+    })
+  },
+
+  // 选择标签
+  chooseTag(e) {
+    console.log(e.currentTarget.dataset.id);
+    this.setData({
+      "address.tagId": e.currentTarget.dataset.id
+    })
+  },
+
+  // 选择是否为默认地址
+  changeIsDefault(e) {
+    this.setData({
+      "address.isDefault": e.detail.value
+    })
   },
 
   /**

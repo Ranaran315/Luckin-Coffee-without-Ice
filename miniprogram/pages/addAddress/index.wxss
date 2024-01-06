@@ -15,17 +15,52 @@
 	border-radius: var(--br);
 	padding: 0 30rpx;
 	box-sizing: border-box;
-	font-size: 1.2rem;
+	font-size: 1rem;
 }
 
 .address-form .address-form-item {
 	border-bottom: 2rpx solid var(--bg-04);
+	position: relative;
 }
 
 .address-form .address-form-item:last-child {
 	border-bottom: none;
 }
 
+.address-form .address-form-item input {
+	width: 100%;
+}
+
+.address-form .address-form-item .tag {
+	background-color: var(--bg-04);
+	font-size: .8rem;
+	padding: 10rpx 30rpx;
+	margin: 0 10rpx;
+	border-radius: 50rpx;
+}
+
+.address-form .address-form-item .address {
+	width: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.address-form .address-form-item .address-icon {
+	color: var(--color-03);
+}
+
+.address-form .address-form-item .default-address-tab {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
 .save-btn {
 	width: 90%;
+}
+
+.selected {
+	background-color: var(--primary-color) !important;
+	color: var(--color-02);
 }

@@ -10,6 +10,8 @@ Component({
       type: Boolean,
       value: true
     },
+    // 展示的值
+    showValue: String,
     // 选中的颜色
     checkedColor: String,
     // 按钮大小

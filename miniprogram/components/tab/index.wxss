@@ -1,0 +1,38 @@
+/* components/tab/index.wxss */
+@import "../../styles/var.wxss";
+
+.tab {
+	--size: 50rpx;
+	position: relative;
+	width: calc(1.7 * var(--size));
+	height: var(--size);
+	border-radius: var(--size);
+	background-color: var(--bg-02);
+	border: 2rpx solid var(--bg-04);
+	transition: all .3s;
+}
+
+.checked.tab {
+	background-color: var(--primary-color);
+	justify-content: flex-end;
+}
+
+.tab-bar {
+	position: absolute;
+	bottom: 0;
+	width: calc(var(--size) - 5rpx);
+	height: calc(var(--size) - 5rpx);
+	border-radius: 50%;
+	background-color: var(--bg-02);
+	box-shadow: 0 0 10rpx 2rpx var(--bg-04);
+	transition: all .7s;
+}
+
+.unchecked .tab-bar {
+	left: 0;
+}
+
+.checked .tab-bar {
+	right: 0;
+}
+

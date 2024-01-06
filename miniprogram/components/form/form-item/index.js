@@ -32,7 +32,6 @@ Component({
         this.setData({
           labelWidth: store.states.labelWidth
         })
-        console.log(this.data.labelWidth);
       })
     }
   }

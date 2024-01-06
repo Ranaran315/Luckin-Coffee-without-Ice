@@ -2,25 +2,32 @@
 <view class="container">
 	<Form class="address-form" data="{{address}}" label-width="120">
 		<FormItem class="address-form-item" label="联系人">
-			<input type="text" placeholder="用于取餐时对您的称呼"/>
+			<input type="text" placeholder="用于取餐时对您的称呼" bind:input="handlerInput" data-id="name" />
 		</FormItem>
 		<FormItem class="address-form-item" label="性别">
+			<Radio show-value="先生" size="35"></Radio>
+			<Radio show-value="女士" size="35"></Radio>
 		</FormItem>
 		<FormItem class="address-form-item" label="手机号">
-			<input type="text" placeholder="请输入您的手机号"/>
+			<input type="text" placeholder="请输入您的手机号" bind:input="handlerInput" data-id="phone" />
 		</FormItem>
 		<FormItem class="address-form-item" label="地址">
-			<input type="text" placeholder="选择收货地址"/>
+			<view class="address">
+				<input type="text" placeholder="选择收货地址" disabled="true" />
+				<Icon name="jinqv" class="address-icon"></Icon>
+			</view>
 		</FormItem>
 		<FormItem class="address-form-item" label="门牌号">
-			<input type="text" placeholder="如：5号楼208室"/>
+			<input type="text" placeholder="如：5号楼208室" bind:input="handlerInput" data-id="houseNumber" />
 		</FormItem>
 		<FormItem class="address-form-item" label="标签">
 			<block wx:for="{{tagList}}" wx:key="id">
-				<view>{{item.name}}</view>
+				<view class="tag {{address.tagId == item.id ? 'selected' : ''}}" bind:tap="chooseTag" data-id="{{item.id}}">{{item.name}}</view>
 			</block>
 		</FormItem>
-		<FormItem class="address-form-item" class="address-form-item" label="默认地址"></FormItem>
+		<FormItem class="address-form-item" class="address-form-item" label="默认地址">
+			<view class="default-address-tab"><Tab value="{{address.isDefault}}" bind:change="changeIsDefault"></Tab></view>
+		</FormItem>
 	</Form>
 	<LuckinButton class="save-btn" type="primary">保存</LuckinButton>
 </view>

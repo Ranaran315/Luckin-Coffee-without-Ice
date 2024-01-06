@@ -1,6 +1,6 @@
 <!--pages/addAddress/index.wxml-->
 <view class="container">
-	<Form data="{{address}}" class="address-form">
+	<Form data="{{address}}" label-width="1" class="address-form">
 		<FormItem label="联系人">
 			<input type="text" placeholder="用于取餐时对您的称呼"/>
 		</FormItem>

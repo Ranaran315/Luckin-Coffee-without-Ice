@@ -13,9 +13,17 @@
 	background-color: var(--bg-02);
 	width: 100%;
 	border-radius: var(--br);
-	padding: 40rpx 30rpx;
+	padding: 0 30rpx;
 	box-sizing: border-box;
 	font-size: 1.2rem;
+}
+
+.address-form .address-form-item {
+	border-bottom: 2rpx solid var(--bg-04);
+}
+
+.address-form .address-form-item:last-child {
+	border-bottom: none;
 }
 
 .save-btn {

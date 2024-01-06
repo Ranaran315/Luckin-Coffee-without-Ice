@@ -1,4 +1,6 @@
 // components/form/form-item/index.js
+import bus from "../../../utils/bus"
+
 Component({
 
   /**
@@ -7,6 +9,7 @@ Component({
   properties: {
     // 提示文本
     label: String,
+    labelWidth: "",
   },
 
   /**
@@ -21,5 +24,16 @@ Component({
    */
   methods: {
 
+  },
+
+  lifetimes: {
+    attached() {
+      bus.$on("setStore",store => {
+        this.setData({
+          labelWidth: store.states.labelWidth
+        })
+        console.log(this.data.labelWidth);
+      })
+    }
   }
 })

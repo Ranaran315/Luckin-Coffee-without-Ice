@@ -1,26 +1,26 @@
 <!--pages/addAddress/index.wxml-->
 <view class="container">
-	<Form data="{{address}}" label-width="1" class="address-form">
-		<FormItem label="联系人">
+	<Form class="address-form" data="{{address}}" label-width="120">
+		<FormItem class="address-form-item" label="联系人">
 			<input type="text" placeholder="用于取餐时对您的称呼"/>
 		</FormItem>
-		<FormItem label="性别">
+		<FormItem class="address-form-item" label="性别">
 		</FormItem>
-		<FormItem label="手机号">
+		<FormItem class="address-form-item" label="手机号">
 			<input type="text" placeholder="请输入您的手机号"/>
 		</FormItem>
-		<FormItem label="地址">
+		<FormItem class="address-form-item" label="地址">
 			<input type="text" placeholder="选择收货地址"/>
 		</FormItem>
-		<FormItem label="门牌号">
+		<FormItem class="address-form-item" label="门牌号">
 			<input type="text" placeholder="如：5号楼208室"/>
 		</FormItem>
-		<FormItem label="标签">
+		<FormItem class="address-form-item" label="标签">
 			<block wx:for="{{tagList}}" wx:key="id">
 				<view>{{item.name}}</view>
 			</block>
 		</FormItem>
-		<FormItem label="默认地址"></FormItem>
+		<FormItem class="address-form-item" class="address-form-item" label="默认地址"></FormItem>
 	</Form>
 	<LuckinButton class="save-btn" type="primary">保存</LuckinButton>
 </view>

@@ -1,5 +1,6 @@
 // components/form/index.js
 import Store from "./src/store"
+import bus from "../../utils/bus"
 
 Component({
 
@@ -15,7 +16,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    store: null
+    store: null,
   },
 
   /**
@@ -29,13 +30,14 @@ Component({
     "labelWidth": function(newVal) {
       const store = this.data.store
       store.dispatch("setLabelWidth",newVal)
+      bus.$emit("setStore",store)
     }
   },
 
   lifetimes: {
     created() {
       this.setData({
-        store: new Store()
+        store: new Store(),
       })
     }
   }

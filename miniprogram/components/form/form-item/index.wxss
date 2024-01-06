@@ -7,4 +7,5 @@
 
 .form-item .label {
 	margin-right: 20rpx;
+	white-space: nowrap;
 }

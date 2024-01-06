@@ -45,7 +45,9 @@
 					</view>
 				</block>
 			</view>
-			<button class="address-add-btn">+ 新增收获地址</button>
+			<LuckinButton class="address-add-btn" type="primary">
+				<navigator url="../addAddress/index">+ 新增收获地址</navigator>
+			</LuckinButton>
 		</view>
 	</view>
 </view>

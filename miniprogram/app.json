@@ -73,6 +73,7 @@
     "Radio": "./components/radio/index",
     "Icon": "./components/icon/index",
     "Form": "./components/form/index",
-    "FormItem": "./components/form/form-item/index"
+    "FormItem": "./components/form/form-item/index",
+    "LuckinButton": "./components/button/index"
   }
 }

@@ -1,0 +1,21 @@
+/* components/button/index.wxss */
+@import "../../styles/var.wxss";
+
+.button {
+	width: 100%;
+	font-weight: 500;
+	border-radius: 50rpx;
+	margin: 50rpx 0 !important;
+	padding: 30rpx 20rpx;
+	text-align: center;
+}
+
+.primary {
+	background-color: var(--primary-color);
+	color: var(--color-02);
+}
+
+.default {
+	background-color: var(--wx-color);
+	color: var(--color-02);
+}

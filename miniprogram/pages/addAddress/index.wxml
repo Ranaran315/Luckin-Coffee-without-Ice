@@ -22,4 +22,5 @@
 		</FormItem>
 		<FormItem label="默认地址"></FormItem>
 	</Form>
+	<LuckinButton class="save-btn" type="primary">保存</LuckinButton>
 </view>

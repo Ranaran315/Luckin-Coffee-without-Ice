@@ -21,6 +21,10 @@ button::after{
   border: none;
 }
 
+navigator {
+  text-decoration: none;
+}
+
 
 page {
   background: #f6f6f6;

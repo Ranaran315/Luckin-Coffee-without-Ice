@@ -48,11 +48,6 @@
 	left: 50%;
 	bottom: 0;
 	transform: translateX(-50%);
-	background-color: var(--primary-color);
-	color: var(--color-02);
-	font-weight: 500;
-	border-radius: 50rpx;
-	margin: 50rpx 0;
 }
 
 .address-box {

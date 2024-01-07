@@ -12,7 +12,7 @@
 		</FormItem>
 		<FormItem class="address-form-item" label="地址">
 			<view class="address" bind:tap="chooseAddress">
-				<input type="text" placeholder="选择收货地址" disabled="true" />
+				<input type="text" placeholder="选择收货地址" disabled="true" value="{{address.address}}" />
 				<Icon name="jinqv" class="address-icon"></Icon>
 			</view>
 		</FormItem>

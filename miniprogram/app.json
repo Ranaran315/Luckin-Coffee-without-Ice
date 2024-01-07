@@ -19,7 +19,8 @@
     "pages/sumRecordResult/index",
     "pages/login/index",
     "pages/delivery/index",
-    "pages/addAddress/index"
+    "pages/addAddress/index",
+    "pages/login/loginByPhone/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

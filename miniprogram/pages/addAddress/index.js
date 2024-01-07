@@ -66,6 +66,7 @@ Page({
 
   // 选择收货地址
   chooseAddress() {
+    const _this = this
     wx.chooseLocation({
       success: function (res) {
         wx.showToast({
@@ -73,7 +74,9 @@ Page({
           icon: 'none',
           duration:  1000
         })
-        console.log(res); // 拿到地址
+        _this.setData({
+          "address.address": res.address
+        }); // 拿到地址
       },
       fail: function () {
         wx.showToast({

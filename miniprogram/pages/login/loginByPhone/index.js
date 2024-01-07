@@ -1,12 +1,23 @@
-// pages/login/index.js
+// pages/loginByPhone/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 是否已同意用户协议等
+    form: {
+      phone: "",
+      checkedNumber: ""
+    },
     isChecked: false
+  },
+
+  // 处理输入框的双向绑定
+  handlerInput(e) {
+    const type = e.currentTarget.dataset.type
+    this.setData({
+      [`form.${type}`]: e.detail.value
+    })
   },
 
   // 处理单选框事件
@@ -16,36 +27,26 @@ Page({
     })
   },
 
-  // 判断是否勾选 用于协议
-  determineIsChecked() {
-    return new Promise((resolve,rejected) => {
-      if (!this.data.isChecked) {
-        wx.showToast({
-          title: '请先同意用户协议',
-          icon: "none"
-        })
-        rejected()
-      }
-      resolve()
-    })
-  },
-
-  // 手机号安全登录
-  loginByPhone() {
-    this.determineIsChecked().then(() => {
-      wx.navigateTo({
-        url: 'loginByPhone/index',
+  // 登录
+  login() {
+    console.log(/^1[3-9]\d{9}$/.test(this.data.form.phone));
+    if (! /^1[3-9]\d{9}$/.test(this.data.form.phone)) {
+      wx.showToast({
+        title: '请输入正确的手机号',
+        icon: "none"
       })
-    })
-  },
+      return
+    }
 
-  // 一键登录
-  loginByOneClick() {
-    this.determineIsChecked().then(() => {
-      wx.navigateTo({
-        url: 'url',
+    if (!this.data.isChecked) {
+      wx.showToast({
+        title: '请先同意用户协议',
+        icon: "none"
       })
-    })
+      return
+    }
+    
+    // TODO：登录逻辑
   },
 
   /**

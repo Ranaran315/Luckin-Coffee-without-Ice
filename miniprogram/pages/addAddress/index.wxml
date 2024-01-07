@@ -5,14 +5,13 @@
 			<input type="text" placeholder="用于取餐时对您的称呼" bind:input="handlerInput" data-id="name" />
 		</FormItem>
 		<FormItem class="address-form-item" label="性别">
-			<Radio show-value="先生" size="35"></Radio>
-			<Radio show-value="女士" size="35"></Radio>
+			<RadioGroup options="{{gender}}" name="name" checked="{{address.genderId}}" checkedRule="id" size="35" bind:change="chooseGender"></RadioGroup>
 		</FormItem>
 		<FormItem class="address-form-item" label="手机号">
 			<input type="text" placeholder="请输入您的手机号" bind:input="handlerInput" data-id="phone" />
 		</FormItem>
 		<FormItem class="address-form-item" label="地址">
-			<view class="address">
+			<view class="address" bind:tap="chooseAddress">
 				<input type="text" placeholder="选择收货地址" disabled="true" />
 				<Icon name="jinqv" class="address-icon"></Icon>
 			</view>

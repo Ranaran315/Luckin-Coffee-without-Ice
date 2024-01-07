@@ -14,6 +14,16 @@ Page({
       tagId: 0,
       isDefault: false
     },
+    gender: [
+      {
+        id: 1,
+        name: "先生"
+      },
+      {
+        id: 2,
+        name: "女士"
+      }
+    ],
     tagList: [
       {
         id: 1,
@@ -51,6 +61,36 @@ Page({
   changeIsDefault(e) {
     this.setData({
       "address.isDefault": e.detail.value
+    })
+  },
+
+  // 选择收货地址
+  chooseAddress() {
+    wx.chooseLocation({
+      success: function (res) {
+        wx.showToast({
+          title: '获取成功',
+          icon: 'none',
+          duration:  1000
+        })
+        console.log(res); // 拿到地址
+      },
+      fail: function () {
+        wx.showToast({
+          title: '获取失败, 请确定您的设备情况',
+          icon: 'none',
+          duration: 1000
+        })
+      },
+      complete: function () {
+      }
+    })
+  },
+
+  // 选择性别
+  chooseGender(e) {
+    this.setData({
+      "address.genderId": e.detail.checked
     })
   },
 

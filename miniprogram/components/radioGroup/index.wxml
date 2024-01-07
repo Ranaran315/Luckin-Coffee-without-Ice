@@ -1,4 +1,13 @@
 <!--components/radioGroup/index.wxml-->
 <view class="radio-group">
-	<slot></slot>
+	<block wx:for="{{options}}" wx:key="index">
+		<Radio 
+			show-value="{{name == '' ? item : item[name]}}" 
+			value="{{checkedRule == '' ? checked == item : checked == item[checkedRule]}}" 
+			bind:change="handlerChange" 
+			data-item="{{item}}"
+			checkedColor="{{checkedColor}}"
+			size="{{size}}"
+		></Radio>
+	</block>
 </view>

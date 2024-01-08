@@ -216,6 +216,11 @@ Page({
         ]
       },
     ],
+    price: 32,
+    preferential: 25.8,
+    goodsNumber: 1,
+    // 购物车动画
+    cartIsShowing: false           
   },
 
   // 选择配送方式
@@ -263,9 +268,18 @@ Page({
     }
   },
 
+  // 选择咖啡
   checkCoffee(e) {
     wx.navigateTo({
       url: `../coffeeDetail/index?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
+  // 展示购物车
+  showCart() {
+    const newValue = !this.data.cartIsShowing
+    this.setData({
+      cartIsShowing: newValue
     })
   },
 

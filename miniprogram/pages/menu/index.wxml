@@ -36,8 +36,7 @@
 	<view class="main">
 		<scroll-view class="left" scroll-y="true" scroll-into-view="left-item-{{currentCategoryIndex}}" scroll-with-animation="true" style="{{mainStyle}}">
 			<block wx:for="{{categoryList}}" wx:key="id">
-				<view id="left-item-{{index}}" class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}" data-id="{{item.id}}" 
-				data-id="{{item.id}}">
+				<view id="left-item-{{index}}" class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}" data-id="{{item.id}}" data-id="{{item.id}}">
 					<view class="before"></view>
 					{{item.name}}
 				</view>
@@ -67,8 +66,25 @@
 				</view>
 			</block>
 		</scroll-view>
-		<view class="cart">
-			<image src="../../images/cart_icon.png" mode="aspectFill" />
+		<view class="cart {{cartIsShowing ? '' : 'hidden-cart'}}">
+			<view class="cart-left" bind:tap="showCart">
+				<image class="cart-icon" src="../../images/cart_icon.png" mode="aspectFill" />
+				<view class="superscript">
+					<view>{{goodsNumber}}</view>
+				</view>
+			</view>
+			<view class="cart-center">
+				<text style="display: flex;align-items: center;">
+					<text>预计到手</text>
+					<text style="color: var(--color-04)">￥</text>
+					<text style="color: var(--color-04);font-size: 1rem">{{price}}</text>
+				</text>
+				<text style="font-size: .7rem; color: var(--color-03);">已享受更低优惠，共减免￥{{preferential}}</text>
+			</view>
+			<view class="cart-right">
+				<view wx:if="{{goodsNumber > 0}}">去结算</view>
+				<view wx:else class="unable">不可结算</view>
+			</view>
 		</view>
 	</view>
 </view>

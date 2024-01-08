@@ -250,20 +250,100 @@
 
 .main .cart {
 	--size: 100rpx;
-	width: var(--size);
+	width: 90%;
 	height: var(--size);
 	position: fixed;
-	right: 25rpx;
+	right: 50%;
 	bottom: 50rpx;
+	transform: translateX(50%);
 	background-color: var(--bg-02);
-	border-radius: 50%;
+	border-radius: calc(var(--size) / 2);
 	box-shadow: 0 0 20rpx 5rpx var(--bg-04);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 20rpx;
+	transition: all .7s;
+	overflow: hidden;
+}
+
+.main .cart .cart-left {
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.main .cart image {
+.main .cart .cart-left .superscript {
+	--size: 50rpx;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: var(--bg-02);
+	width: var(--size);
+	height: var(--size);
+	text-align: center;
+	color: var(--color-02);
+	font-weight: 700;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: inherit;
+}
+
+.main .cart .cart-left .superscript view {
+	width: 80%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-01);
+	border-radius: inherit;   
+	font-size: .85rem;       
+}
+
+.main .cart .cart-left .cart-icon {
 	width: 60%;
 	height: 75%;
+}
+
+.main .cart .cart-center {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 0 20rpx;
+	transition: inherit;
+}
+
+.main .cart .cart-right {
+	width: calc(var(--size) * 2);
+	height: var(--size);
+	line-height: var(--size);
+	text-align: center;
+	background-color: var(--primary-color);
+	color: var(--color-02);
+	font-size: 1.2rem;
+	border-top-right-radius: calc(var(--size) / 2);
+	border-bottom-right-radius: calc(var(--size) / 2);
+	transition: inherit;
+}
+
+.main .cart .cart-right .unable {
+	background-color: var(--secondary-color);
+	border-radius: inherit;
+}
+
+.main .hidden-cart {
+	width: var(--size);
+	padding-left: 0;
+	right: 20rpx;
+	transform: translateX(0);
+}
+
+.main .hidden-cart .cart-center , .main .hidden-cart .cart-right , .main .hidden-cart .cart-left .superscript {
+	display: none;
 }

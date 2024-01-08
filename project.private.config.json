@@ -7,7 +7,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/login/loginByPhone/index",
+          "pathName": "pages/coffeeDetail/index",
           "query": "",
           "launchMode": "default",
           "scene": null

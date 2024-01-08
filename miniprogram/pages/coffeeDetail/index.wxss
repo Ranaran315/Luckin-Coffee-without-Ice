@@ -1,0 +1,100 @@
+/* pages/coffeeDetail/index.wxss */
+
+.container {
+	--purchase-height: 200rpx;
+	height: 100vh;
+}
+
+.container .box {
+	width: 100%;
+	height: calc(100% - var(--purchase-height) - 20rpx);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20rpx;
+}
+
+.container .box .intro-banner {
+	height: 40vh;
+}
+
+.container .box .base-info {
+	display: flex;
+	flex-direction: column;
+	padding: 20rpx 30rpx;
+	background-color: var(--bg-02);
+}
+
+.container .box .base-info .title {
+	font-size: 1.5rem;
+	margin-bottom: 20rpx;
+}
+
+.container .box .base-info .meta {
+	display: flex;
+	flex-direction: column;
+	font-size: .9rem;
+}
+
+.container .box .base-info .meta .meta-item {
+	display: flex;
+	align-items: center;
+	margin: 20rpx 0;
+}
+
+.container .box .base-info .meta .meta-item .meta-value {
+	width: 160rpx;
+	height: 75rpx;
+	line-height: 75rpx;
+	text-align: center;
+	margin-right: 20rpx;
+	background-color: var(--bg-01);
+	border-radius: var(--br);
+}
+
+.container .box .base-info .meta .meta-item .selected {
+	background-color: var(--thrid-color);
+	color: var(--primary-color);
+	border: 2rpx solid var(--primary-color);
+}
+
+.container .box .detail-info , .container .box .raw-material {
+	margin: 20rpx;
+	padding: 30rpx 20rpx;
+	background-color: var(--bg-02);
+	border-radius: var(--br); 
+}
+
+.container .box .detail-info .detail-long-image {
+	width: 100%;
+}
+
+.container .box .title {
+	margin-bottom: 20rpx;
+}
+
+.container .box .raw-material .content , .container .box .raw-material .tip  {
+	font-size: .85rem;
+	color: var(--color-03);
+}
+
+.container .purchase-box {
+	width: 100%;
+	height: var(--purchase-height);
+	background-color: var(--bg-02);
+	padding: 30rpx 20rpx;
+}
+
+.container .purchase-box .top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container .purchase-box .bottom .opeartion {
+	display: flex;
+	align-items: center;
+}
+
+.container .purchase-box .bottom .opeartion .purchase-btn , .container .purchase-box .bottom .opeartion .cart-btn {
+	flex: 1;
+	margin: 0 20rpx;
+}

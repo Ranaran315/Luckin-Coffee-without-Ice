@@ -8,6 +8,10 @@ Component({
     type: {
       type: String,
       value: "default"
+    },
+    size: {
+      type: String,
+      value: "normal"
     }
   },
 

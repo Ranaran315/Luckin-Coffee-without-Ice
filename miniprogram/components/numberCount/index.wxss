@@ -1,0 +1,29 @@
+/* components/numberCount/index.wxss */
+.number-count {
+	display: flex;
+	align-items: center;
+}
+
+.number_reduce , .number_add {
+	--size: 50rpx;
+	width: var(--size);
+	height: var(--size);
+	line-height: var(--size);
+	text-align: center;
+	border-radius: 50%;
+}
+
+.number_reduce {
+	border: 2rpx solid var(--primary-color);
+	color: var(--primary-color);
+}
+
+.number_add {
+	background-color: var(--primary-color);
+	color: var(--color-02);
+}
+
+.number_show-area {
+	width: 80rpx;
+	text-align: center;
+}

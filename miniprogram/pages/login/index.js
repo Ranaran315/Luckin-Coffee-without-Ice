@@ -18,7 +18,7 @@ Page({
 
   // 判断是否勾选 用于协议
   determineIsChecked() {
-    return new Promise((resolve,rejected) => {
+    return new Promise((resolve, rejected) => {
       if (!this.data.isChecked) {
         wx.showToast({
           title: '请先同意用户协议',
@@ -32,10 +32,8 @@ Page({
 
   // 手机号安全登录
   loginByPhone() {
-    this.determineIsChecked().then(() => {
-      wx.navigateTo({
-        url: 'loginByPhone/index',
-      })
+    wx.navigateTo({
+      url: 'loginByPhone/index',
     })
   },
 

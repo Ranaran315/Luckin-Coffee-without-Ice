@@ -20,7 +20,8 @@
     "pages/login/index",
     "pages/delivery/index",
     "pages/addAddress/index",
-    "pages/login/loginByPhone/index"
+    "pages/login/loginByPhone/index",
+    "pages/coffeeDetail/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -77,6 +78,7 @@
     "Form": "./components/form/index",
     "FormItem": "./components/form/form-item/index",
     "LuckinButton": "./components/button/index",
-    "Tab": "./components/tab/index"
+    "Tab": "./components/tab/index",
+    "NumberCount": "./components/numberCount/index"
   }
 }

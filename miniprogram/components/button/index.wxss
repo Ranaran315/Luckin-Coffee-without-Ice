@@ -5,11 +5,11 @@
 	width: 100%;
 	font-weight: 500;
 	border-radius: 50rpx;
-	margin: 50rpx 0 !important;
-	padding: 30rpx 20rpx;
+	margin: 20rpx 0 !important;
 	text-align: center;
 }
 
+/* 样式 */
 .primary {
 	background-color: var(--primary-color);
 	color: var(--color-02);
@@ -18,4 +18,19 @@
 .default {
 	background-color: var(--wx-color);
 	color: var(--color-02);
+}
+
+.gold {
+	background-color: var(--bg-02);
+	border: 2rpx solid var(--color-01);
+	color: var(--color-01);
+}
+
+/* 大小 */
+.normal {
+	padding: 30rpx 20rpx;
+}
+
+.mini {
+	padding: 10rpx;
 }

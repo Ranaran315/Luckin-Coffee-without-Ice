@@ -1,0 +1,12 @@
+<!--components/numberCount/index.wxml-->
+<view class="number-count">
+	<view class="number_reduce" bind:tap="reduceNumber">
+		<Icon name="jianhao"></Icon>
+	</view>
+	<view class="number_show-area">
+		{{value}}
+	</view>
+	<view class="number_add" bind:tap="addNumber">
+		<Icon name="jiahao"></Icon>
+	</view>
+</view>

@@ -51,7 +51,7 @@
 						<text class="desc">{{data.desc}}</text>
 					</view>
 					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee" wx:key="id">
-						<view class="coffee-item">
+						<view class="coffee-item" bind:tap="checkCoffee" data-id="{{coffee.id}}">
 							<image class="cover-image" src="{{coffee.coverImg}}" mode="aspectFill"></image>
 							<view class="sale-info">
 								<text class="title">{{coffee.name}}</text>

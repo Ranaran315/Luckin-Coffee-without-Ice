@@ -116,7 +116,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    // TODO 根据id获取详情数据
+    console.log(options.id);
   },
 
   /**

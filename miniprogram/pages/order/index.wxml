@@ -1,0 +1,27 @@
+<!--pages/order/index.wxml-->
+<view class="container">
+	<view class="estimated-time-info-box">
+		<view class="left">
+			<view wx:if="{{isSelf}}">立即自取，约{{estimatedTime}}可取</view>
+			<view wx:else>立即配送，约{{estimatedTime}}送达</view>
+			<view style="font-size: .86rem;color: var(--color-03);margin-top: 20rpx;">金牌咖啡师正在等待你下单</view>
+		</view>
+		<view class="right"></view>
+	</view>
+	<view class="delivery-info-box">
+		<view class="left">
+			<view wx:if="{{isSelf}}">
+				<view class="store-name">
+					<view>环球中心E3店aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+				<view class="store-detail-address">
+					武侯区锦悦西路147号新世纪环球购物中心E3一层大堂
+				</view>
+			</view>
+		</view>
+		<view class="right">
+			<SwitchTab leftText="自提" rightText="外送" value="{{isSelf}}"></SwitchTab>	
+		</view>
+	</view>
+</view>

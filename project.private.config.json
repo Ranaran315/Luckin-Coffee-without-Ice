@@ -7,6 +7,13 @@
       "list": [
         {
           "name": "",
+          "pathName": "pages/order/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/coffeeDetail/index",
           "query": "",
           "launchMode": "default",

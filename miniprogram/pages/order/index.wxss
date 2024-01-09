@@ -1,0 +1,38 @@
+/* pages/order/index.wxss */
+.container {
+	--box-padding: 30rpx 20rpx;
+	padding: var(--page-padding);
+}
+
+.container .estimated-time-info-box , .container .delivery-info-box {
+	width: 100%;
+	background-color: var(--bg-02);
+	border-radius: var(--br);
+	padding: var(--box-padding);
+	margin-bottom: 20rpx;
+	display: flex;
+}
+
+.container .estimated-time-info-box .left , .container .delivery-info-box .left {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+}
+
+.container .estimated-time-info-box .right , .container .delivery-info-box .right {
+	width: 30%;
+}
+
+.container .delivery-info-box .left .store-name {
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.container .delivery-info-box .left .store-detail-address {
+	margin-top: 10rpx;
+	font-size: .8rem;
+	color: var(--color-03);
+}

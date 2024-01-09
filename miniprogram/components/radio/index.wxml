@@ -1,7 +1,9 @@
 <!--components/radio/index.wxml-->
 <view class="radio" bind:tap="change" style="{{size !== '' ? 'height: '+ size +'rpx' : ''}}">
 	<view class="radio-box" style="{{size !== '' ? 'height: '+ size +'rpx;' + 'width: ' + size + 'rpx;' + 'font-size: calc(' + size + ' / 1.2 )rpx' : ''}}">
-		<view class="checked" wx:if="{{valueSync}}" style="background-color: {{checkedColor}};">√</view>
+		<view class="checked" wx:if="{{valueSync}}" style="background-color: {{checkedColor}};">
+			<Icon name="dui"></Icon>
+		</view>
 		<view class="unchecked" wx:else></view>
 	</view>
 	<text class="show-value">{{showValue}}</text>

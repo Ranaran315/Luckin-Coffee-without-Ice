@@ -1,6 +1,10 @@
 // components/numberCount/index.js
 Component({
 
+  //@event change 当值改变时
+  //@event reduceFail 减少失败时
+  //@event addFail 增加失败时
+
   /**
    * 组件的属性列表
    */

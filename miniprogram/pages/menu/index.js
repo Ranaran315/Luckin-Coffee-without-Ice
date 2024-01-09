@@ -9,9 +9,9 @@ Page({
     // 主体样式
     mainStyle: "",
     // 门店信息
-    store: wx.getStorageSync('store'),
+    store: "",
     // 地址信息
-    address: wx.getStorageSync('address'),
+    address: "",
     // 是否为自提，true为自提，false为外送
     isSelf: true,
     // 分类信息
@@ -216,11 +216,18 @@ Page({
         ]
       },
     ],
-    price: 32,
-    preferential: 25.8,
-    goodsNumber: 1,
+    // 减免
+    preferential: 0,
     // 购物车动画
-    cartIsShowing: false           
+    cartIsShowing: false,
+    // 购物车
+    cart: {},
+    // 购物车中商品的数量
+    cartNumber: 0,
+    // 总价
+    totalPrice: 0,
+    // 控制展示购物车详细信息
+    cartDetailInfoVisiablity: false       
   },
 
   // 选择配送方式
@@ -283,10 +290,129 @@ Page({
     })
   },
 
+  // 计算购物车中商品的总数量
+  computedCartNumber() {
+    const cart = this.data.cart
+    let number = 0;
+    if (Array.isArray(cart)) {
+      cart.forEach(item => {
+        number += item.number
+      })
+    }
+    
+    this.setData({
+      cartNumber: number
+    })
+  },
+
+  // 计算购物车中商品的总价格
+  computedCartPrice() {
+    const cart = this.data.cart
+    let totalPrice = 0
+    if (Array.isArray(cart)) {
+      cart.forEach(item => {
+        totalPrice += item.number * item.price_sale
+      })
+    }
+
+    this.setData({
+      totalPrice: totalPrice
+    })
+  },
+
+  // 改变是否展示购物车详细信息
+  changeCartDetailInfoVisiablity() {
+    this.setData({
+      cartDetailInfoVisiablity: !this.data.cartDetailInfoVisiablity
+    })
+  },
+
+  // 清空购物车
+  clearAllCart() {
+    wx.showModal({
+      title: '',
+      content: '确定不要了吗',
+      complete: (res) => {
+        if (res.cancel) {
+          
+        }
+    
+        if (res.confirm) {
+          wx.removeStorageSync('cart')
+          this.setData({
+            cart: {}
+          })
+          this.computedCartNumber()
+          this.computedCartPrice()
+          this.changeCartDetailInfoVisiablity()
+        }
+      }
+    })
+    
+  },
+
+  // 从购物车中删除商品
+  removeGoodFromCart(e) {
+    let good = e.currentTarget.dataset.item
+    let cart = this.data.cart
+    let meta = ""
+    good.sku.metaList.forEach(item => {
+      meta += `/${item.value.name}`
+    })
+
+    const _this = this
+
+    wx.showModal({
+      title: '',
+      content: `是否要删除"${good.name}${meta}"`,
+      complete: (res) => {
+        if (res.cancel) {
+          return
+        }
+    
+        if (res.confirm) {
+          cart.forEach((item,index) => {
+            if (item.sku.id == good.sku.id) {
+              cart.splice(index,1)
+              return
+            }
+          })
+          wx.setStorageSync('cart', cart)
+          _this.setData({
+            cart: cart
+          })
+          _this.computedCartNumber()
+          _this.computedCartPrice()
+        }
+      }
+    })
+    
+    
+  },
+
+  // 处理购物车中数量的改变
+  handlerChangeGoodsNumber(e) {
+    console.log("@@@");
+    let number = e.detail.value // 获取numbercount传过来的数据
+    let good = e.currentTarget.dataset.item // 获取sku商品信息
+    good.number = number // 改变购物车中对应sku商品的数量
+    // 改变本地存储
+    let cart = this.data.cart
+    cart = cart.map(item => item.sku.id == good.sku.id ? good : item)
+    wx.setStorageSync('cart', cart)
+    cart = wx.getStorageSync('cart')
+    this.setData({
+      cart:cart
+    })
+    this.computedCartNumber()
+    this.computedCartPrice()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // 动态设置导航栏的位置
     const {
       top,
       height
@@ -297,6 +423,7 @@ Page({
       headerStyle: headerStyle
     })
 
+    // 动态设置菜单的高度
     const query = wx.createSelectorQuery()
     query.select(".container > .header").boundingClientRect();
     query.select(".container > .center").boundingClientRect()
@@ -315,7 +442,6 @@ Page({
         mainStyle: mainStyle
       })
     })
-
   },
 
   /**
@@ -330,15 +456,19 @@ Page({
    */
   onShow() {
     this.setData({
-      address: wx.getStorageSync('address')
+      address: wx.getStorageSync('address'),
+      cart: wx.getStorageSync("cart")
     })
+    // 计算购物车商品中的数量
+    this.computedCartNumber()
+    // 计算价格
+    this.computedCartPrice()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
   },
 
   /**

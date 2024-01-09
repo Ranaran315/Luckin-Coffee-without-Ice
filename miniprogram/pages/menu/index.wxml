@@ -1,5 +1,6 @@
 <!--pages/order/index.wxml-->
 <view class="container">
+	<!-- 顶部 -->
 	<view class="header" style="{{headerStyle}}">
 		<view class="pindan">
 			<text>拼单</text>
@@ -9,18 +10,25 @@
 			<input type="text" placeholder="2024心想事成🍊" />
 		</view>
 	</view>
+	<!-- 中间 -->
 	<view class="center">
 		<view class="left">
 			<view class="store" wx:if="{{isSelf}}">
 				<view class="store-name">
-					<view class="name">{{store.name}}</view>
+					<view class="name">
+						<view wx:if="{{store == ''}}">请选择门店</view>
+						<view wx:eles>{{store.name}}</view>
+					</view>
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="store-desc">{{store.desc}}</view>
 			</view>
 			<view class="address" wx:else>
 				<view class="address-name">
-					<view class="name">{{address.address}}</view>
+					<view class="name">
+						<view wx:if="{{address == ''}}">请选择收货地址</view>
+						<view wx:else>{{address.address}}</view>
+					</view>
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="meta">
@@ -33,7 +41,9 @@
 			<SwitchTab value="{{isSelf}}" leftText="自提" rightText="外送" bind:change="selectDeliveryType"></SwitchTab>
 		</view>
 	</view>
+	<!-- 主体内容 -->
 	<view class="main">
+		<!-- 菜单栏左边 -->
 		<scroll-view class="left" scroll-y="true" scroll-into-view="left-item-{{currentCategoryIndex}}" scroll-with-animation="true" style="{{mainStyle}}">
 			<block wx:for="{{categoryList}}" wx:key="id">
 				<view id="left-item-{{index}}" class="left-item {{currentCategoryIndex == index ? 'selected' : ''}}" bind:tap="selectCategory" data-index="{{index}}" data-id="{{item.id}}" data-id="{{item.id}}">
@@ -42,6 +52,7 @@
 				</view>
 			</block>
 		</scroll-view>
+		<!-- 菜单栏右边 -->
 		<scroll-view id="coffee-scroll-view" scroll-into-view="right-item-{{currentCategoryId}}" class="right" scroll-y="true" bindscroll="handlerRightScroll">
 			<block wx:for="{{dataList}}" wx:for-item="data" wx:key="id">
 				<view class="right-item" id="right-item-{{data.id}}">
@@ -66,25 +77,58 @@
 				</view>
 			</block>
 		</scroll-view>
+		<!-- 购物车 -->
 		<view class="cart {{cartIsShowing ? '' : 'hidden-cart'}}">
 			<view class="cart-left" bind:tap="showCart">
 				<image class="cart-icon" src="../../images/cart_icon.png" mode="aspectFill" />
 				<view class="superscript">
-					<view>{{goodsNumber}}</view>
+					<view>{{cartNumber}}</view>
 				</view>
 			</view>
-			<view class="cart-center">
+			<view class="cart-center" bind:tap="changeCartDetailInfoVisiablity">
 				<text style="display: flex;align-items: center;">
 					<text>预计到手</text>
 					<text style="color: var(--color-04)">￥</text>
-					<text style="color: var(--color-04);font-size: 1rem">{{price}}</text>
+					<text style="color: var(--color-04);font-size: 1rem">{{totalPrice}}</text>
 				</text>
 				<text style="font-size: .7rem; color: var(--color-03);">已享受更低优惠，共减免￥{{preferential}}</text>
 			</view>
 			<view class="cart-right">
-				<view wx:if="{{goodsNumber > 0}}">去结算</view>
+				<view wx:if="{{cartNumber > 0}}">去结算</view>
 				<view wx:else class="unable">不可结算</view>
 			</view>
+		</view>
+		<!-- 遮罩层 -->
+		<view class="mask" wx:if="{{cartDetailInfoVisiablity}}" bind:tap="changeCartDetailInfoVisiablity"></view>
+		<!-- 购物车详细信息 -->
+		<view class="cart-detail" wx:if="{{cartDetailInfoVisiablity}}">
+				<view class="cart-detail-header">
+					<view>已选购商品（{{cartNumber}}件）</view>
+					<view bind:tap="clearAllCart"><Icon name="shanchu"></Icon>清空购物车</view>
+				</view>
+				<view class="cart-detail-main">
+					<block wx:for="{{cart}}" wx:for-item="good" wx:key="id">
+						<view class="goods">
+							<view class="goods-item coverImage">
+								<image src="{{good.coverImageUrl}}" mode="heightFix"/>
+							</view>
+							<view class="goods-item info">
+								<view class="title" style="font-weight: 700;">{{good.name}}</view>
+								<view class="meta">
+									<block wx:for="{{good.sku.metaList}}" wx:for-item="meta" wx:key="id">
+										<view class="meta-item">{{meta.value.name}}</view>
+									</block>
+								</view>
+								<view class="price" style="margin-top: auto;">
+									<view class="price_sale" style="font-size: 1.1rem;font-weight: 700;color: var(--color-04);">￥{{good.price_sale}}</view>
+								</view>
+							</view>
+							<view class="goods-item">
+								<NumberCount value="{{good.number}}" bind:change="handlerChangeGoodsNumber" data-item="{{good}}" reduce-limit="1" bind:reduceFail="removeGoodFromCart"></NumberCount>
+							</view>
+						</view>
+					</block>
+				</view>
 		</view>
 	</view>
 </view>

@@ -13,7 +13,7 @@
 	<!-- 中间 -->
 	<view class="center">
 		<view class="left">
-			<view class="store" wx:if="{{isSelf}}">
+			<navigator url="../delivery/index?isSelf=true" class="store" wx:if="{{isSelf}}">
 				<view class="store-name">
 					<view class="name">
 						<view wx:if="{{store == ''}}">请选择门店</view>
@@ -22,8 +22,8 @@
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="store-desc">{{store.desc}}</view>
-			</view>
-			<view class="address" wx:else>
+			</navigator>
+			<navigator url="../delivery/index?isSelf=false" class="address" wx:else>
 				<view class="address-name">
 					<view class="name">
 						<view wx:if="{{address == ''}}">请选择收货地址</view>
@@ -35,7 +35,7 @@
 					<view class="meta-item">{{address.phone}}</view>
 					<view class="meta-item">{{address.name}}{{address.gender.name}}</view>
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<view class="right">
 			<SwitchTab value="{{isSelf}}" leftText="自提" rightText="外送" bind:change="selectDeliveryType"></SwitchTab>

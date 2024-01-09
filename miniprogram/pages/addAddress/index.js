@@ -42,6 +42,7 @@ Page({
 
   // 处理输入框事件
   handlerInput(e) {
+    console.log(e);
     const id = e.currentTarget.dataset.id
     const value = e.detail.value
     this.setData({
@@ -97,11 +98,39 @@ Page({
     })
   },
 
+  // 从微信导入地址
+  importAddressFromWx() {
+    const _this = this
+    wx.chooseAddress({
+      success: res => {
+        const {userName,telNumber,provinceName,countyName,cityName,detailInfo} = res
+        _this.setData({
+          "address.name": userName,
+          "address.phone": telNumber,
+          "address.address": `${provinceName}${cityName}${countyName}`,
+          "address.houseNumber": detailInfo
+        })
+      },
+      fail: err => {
+        console.error(err);
+        wx.showToast({
+          title: '获取用户地址失败',
+          icon: 'none'
+        })
+      }
+    })
+  },
+
+  // 保存
+  save() {
+    // TODO：保存新增地址
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
   },
 
   /**

@@ -15,7 +15,7 @@
 	border-radius: var(--br);
 	padding: 0 30rpx;
 	box-sizing: border-box;
-	font-size: 1rem;
+	font-size: .8rem;
 }
 
 .address-form .address-form-item {
@@ -54,6 +54,14 @@
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
+}
+
+.import-from-wx {
+	display: flex;
+	align-items: center;
+	font-size: .9rem;
+	flex-wrap: nowrap;
+	white-space: nowrap;
 }
 
 .save-btn {

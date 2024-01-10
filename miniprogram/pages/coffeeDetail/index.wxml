@@ -60,7 +60,8 @@
 		</view>
 		<view class="bottom">
 			<view class="opeartion">
-				<LuckinButton type="gold" size="mini" class="purchase-btn">立即购买</LuckinButton>
+				<LuckinButton type="gold" size="mini" class="purchase-btn"
+				 bind:tap="purchaseNow">立即购买</LuckinButton>
 				<LuckinButton type="primary" size="mini" class="cart-btn" bind:tap="addCart">加入购物车</LuckinButton>
 			</view>
 		</view>

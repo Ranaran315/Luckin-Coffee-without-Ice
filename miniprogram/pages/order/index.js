@@ -83,6 +83,8 @@ Page({
       "price_face": 32,
       "number": 2
     }],
+    // 应付价格
+    computedPrice: 0,
     // 订单备注展示
     notesBoxDialogVisiablity: false,
     // 订单备注项
@@ -118,13 +120,19 @@ Page({
     ],
     // 订单备注内容
     note: "",
-    computedNote: ""
+    computedNote: "",
+    // 优惠价格
+    preferential: 16
   },
 
   // 改变配送方式
   changeIsSelf(e) {
+    const value = e.detail.value
     this.setData({
-      isSelf: e.detail.value
+      isSelf: value
+    })
+    wx.navigateTo({
+      url: '/pages/delivery/index?isSelf=' + value,
     })
   },
 
@@ -175,14 +183,34 @@ Page({
     this.changeNotesBoxDialog({currentTarget: {dataset: {flag: false}}})
   },
 
+  // 计算价格
+  computedPrice() {
+    const _this = this
+    let price = 0
+    _this.data.goods.forEach(item => {
+      price += item.price_sale * item.number
+    })
+    _this.setData({
+      computedPrice: price - _this.data.preferential
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options);
+    // 设置预计时间
+    let time = options.time
+    let minute = time.substring(3)
+    time = time.split('')
+    time.splice(3,2,new Number(minute) + 30 + '')
     this.setData({
-      store: wx.getStorageSync('store'),
-      address: wx.getStorageSync('address')
+      estimatedTime: time.join(''),
+      goods: JSON.parse(decodeURIComponent(options.goods))
     })
+    // 计算应付价格
+    this.computedPrice()
   },
 
   /**
@@ -196,7 +224,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.setData({
+      store: wx.getStorageSync('store'),
+      address: wx.getStorageSync('address')
+    })
   },
 
   /**

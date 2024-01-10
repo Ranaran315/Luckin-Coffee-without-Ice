@@ -1,4 +1,6 @@
 // pages/coffeeDetail/index.js
+import {getCurrentTime} from "../../utils/timeFormat"
+
 Page({
 
   /**
@@ -276,7 +278,9 @@ Page({
     // 商品数量
     goodsNumber: 1,
     reduceNumberLimit: 1,
-    addNumberLimit: 50
+    addNumberLimit: 50,
+    // 当前的sku商品
+    currentSku: {}
   },
 
   // 选择规格
@@ -303,6 +307,7 @@ Page({
       "spu.metaList": newMetaList
     })
     this.computedPrice()
+    this.getSku()
   },
 
   // 处理改变选择商品的数量
@@ -345,14 +350,8 @@ Page({
     })
   },
 
-  // 加入购物车
-  addCart() {
-    // 获取spu商品名称，封面图
-    const {
-      name,
-      coverImageUrl,
-      price_face
-    } = this.data.spu
+  // 计算当前的sku商品
+  getSku() {
     // 查找SKU
     let sku
     for (let sku_1 of this.data.spu.skuList) {
@@ -372,6 +371,21 @@ Page({
         sku = sku_1
       }
     }
+    this.setData({
+      currentSku: sku
+    })
+  },
+
+  // 加入购物车
+  addCart() {
+    // 获取spu商品名称，封面图
+    const {
+      name,
+      coverImageUrl,
+      price_face
+    } = this.data.spu
+    // 获取sku
+    const sku = this.data.currentSku
     // 获取本地存取的购物车商品
     const cart = wx.getStorageSync('cart')
     // 判断购物车中是否已添加该sku商品，若添加了，则商品数量增加
@@ -408,7 +422,33 @@ Page({
 
     setTimeout(() => {
       wx.navigateBack()
-    },500)
+    }, 500)
+  },
+
+  // 立即购买
+  purchaseNow() {
+    // 获取spu的商品名称、封面、价格
+    const {
+      name,
+      coverImageUrl,
+      price_face
+    } = this.data.spu
+    // 获取sku
+    const sku = this.data.currentSku
+    const goods = [{
+      sku,
+      name,
+      coverImageUrl,
+      price_sale: this.data.priceComputed,
+      price_face,
+      number: this.data.goodsNumber
+    }]
+
+    const paramStr = JSON.stringify(goods)
+    let time = getCurrentTime()
+    wx.navigateTo({
+      url: `../order/index?goods=${encodeURIComponent(paramStr)}&time=${time}`,
+    })
   },
 
   /**

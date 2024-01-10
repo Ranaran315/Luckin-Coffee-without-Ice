@@ -1,4 +1,7 @@
 // pages/order/index.js
+
+import {getCurrentTime} from "../../utils/timeFormat"
+
 Page({
   /**
    * 页面的初始数据
@@ -392,7 +395,6 @@ Page({
 
   // 处理购物车中数量的改变
   handlerChangeGoodsNumber(e) {
-    console.log("@@@");
     let number = e.detail.value // 获取numbercount传过来的数据
     let good = e.currentTarget.dataset.item // 获取sku商品信息
     good.number = number // 改变购物车中对应sku商品的数量
@@ -406,6 +408,15 @@ Page({
     })
     this.computedCartNumber()
     this.computedCartPrice()
+  },
+
+  // 去结算
+  settlement() {
+    let paramStr = JSON.stringify(this.data.cart)
+    let time = getCurrentTime()
+    wx.navigateTo({
+      url: `../order/index?goods=${encodeURIComponent(paramStr)}&time=${time}`,
+    })
   },
 
   /**

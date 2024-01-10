@@ -94,7 +94,7 @@
 				<text style="font-size: .7rem; color: var(--color-03);">已享受更低优惠，共减免￥{{preferential}}</text>
 			</view>
 			<view class="cart-right">
-				<view wx:if="{{cartNumber > 0}}">去结算</view>
+				<view wx:if="{{cartNumber > 0}}" bind:tap="settlement">去结算</view>
 				<view wx:else class="unable">不可结算</view>
 			</view>
 		</view>

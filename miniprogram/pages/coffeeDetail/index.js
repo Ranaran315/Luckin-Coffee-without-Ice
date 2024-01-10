@@ -8,14 +8,14 @@ Page({
     // 商品详情
     spu: {
       id: 1,
-      coverImageUrl: "../../images/coffee01.png",
+      coverImageUrl: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
       bannerList: [{
           id: 1,
-          src: "../../images/coffeeDetail02.png",
+          src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetail02.png",
         },
         {
           id: 2,
-          src: "../../images/coffeeDetail01.png"
+          src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetail01.png"
         },
       ],
       name: "马斯卡彭生酪拿铁",
@@ -268,7 +268,7 @@ Page({
       ],
       price_sale: 20,
       price_face: 32,
-      detailImage: "../../images/coffeeDetailLongImg01.png",
+      detailImage: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetailLongImg01.png",
       rawMaterial: "纯牛奶、马斯卡彭风味厚奶（配置型含乳饮料）、浓缩咖啡"
     },
     // 计算后的商品价格

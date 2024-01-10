@@ -456,6 +456,7 @@ Page({
    */
   onLoad(options) {
     this.computedPrice()
+    this.getSku()
     // TODO 根据id获取详情数据 options.id
   },
 

@@ -60,7 +60,32 @@
 .container .goods-info-box .good-item	{
 	height: 150rpx;
 	display: flex;
-	padding: 15rpx 0;
+	padding: 15rpx 20rpx;
+	margin-bottom: 20rpx;
+	background-color: var(--thrid-color);
+	border-radius: var(--br);
+}
+
+.container .goods-info-box .good-item .left.cover-image {
+	--cover-width: 150rpx;
+	position: relative;
+	z-index: 1;
+}
+
+.container .goods-info-box .good-item .left.cover-image image {
+	position: relative;
+	z-index: 1;
+}
+
+.container .goods-info-box .good-item .left.cover-image .after {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	width: calc(var(--cover-width) / 1.5);
+	height: calc(var(--cover-width) / 1.5);
+	border-radius: 50%;
+	background-color: var(--color-01);
 }
 
 .container .goods-info-box .good-item .center.detail-info {

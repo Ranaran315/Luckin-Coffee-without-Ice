@@ -62,7 +62,11 @@
 					</view>
 					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee" wx:key="id">
 						<view class="coffee-item" bind:tap="checkCoffee" data-id="{{coffee.id}}">
-							<image class="cover-image" src="{{coffee.coverImg}}" mode="aspectFill"></image>
+							<view class="cover-image">
+								<image src="{{coffee.coverImg}}" mode="aspectFill">
+								</image>
+								<view class="after"></view>
+							</view>
 							<view class="sale-info">
 								<text class="title">{{coffee.name}}</text>
 								<text class="desc">{{coffee.desc}}</text>
@@ -102,33 +106,36 @@
 		<view class="mask" wx:if="{{cartDetailInfoVisiablity}}" bind:tap="changeCartDetailInfoVisiablity"></view>
 		<!-- 购物车详细信息 -->
 		<view class="cart-detail" wx:if="{{cartDetailInfoVisiablity}}">
-				<view class="cart-detail-header">
-					<view>已选购商品（{{cartNumber}}件）</view>
-					<view bind:tap="clearAllCart"><Icon name="shanchu"></Icon>清空购物车</view>
+			<view class="cart-detail-header">
+				<view>已选购商品（{{cartNumber}}件）</view>
+				<view bind:tap="clearAllCart">
+					<Icon name="shanchu"></Icon>清空购物车
 				</view>
-				<view class="cart-detail-main">
-					<block wx:for="{{cart}}" wx:for-item="good" wx:key="id">
-						<view class="goods">
-							<view class="goods-item coverImage">
-								<image src="{{good.coverImageUrl}}" mode="heightFix"/>
+			</view>
+			<scroll-view  scroll-y="true" class="cart-detail-main">
+				<block wx:for="{{cart}}" wx:for-item="good" wx:key="id">
+					<view class="goods">
+						<view class="goods-item coverImage">
+							<image src="{{good.coverImageUrl}}" mode="heightFix" />
+							<view class="after"></view>
+						</view>
+						<view class="goods-item info">
+							<view class="title" style="font-weight: 700;">{{good.name}}</view>
+							<view class="meta">
+								<block wx:for="{{good.sku.metaList}}" wx:for-item="meta" wx:key="id">
+									<view class="meta-item">{{meta.value.name}}</view>
+								</block>
 							</view>
-							<view class="goods-item info">
-								<view class="title" style="font-weight: 700;">{{good.name}}</view>
-								<view class="meta">
-									<block wx:for="{{good.sku.metaList}}" wx:for-item="meta" wx:key="id">
-										<view class="meta-item">{{meta.value.name}}</view>
-									</block>
-								</view>
-								<view class="price" style="margin-top: auto;">
-									<view class="price_sale" style="font-size: 1.1rem;font-weight: 700;color: var(--color-04);">￥{{good.price_sale}}</view>
-								</view>
-							</view>
-							<view class="goods-item">
-								<NumberCount value="{{good.number}}" bind:change="handlerChangeGoodsNumber" data-item="{{good}}" reduce-limit="1" bind:reduceFail="removeGoodFromCart"></NumberCount>
+							<view class="price" style="margin-top: auto;">
+								<view class="price_sale" style="font-size: 1.1rem;font-weight: 700;color: var(--color-04);">￥{{good.price_sale}}</view>
 							</view>
 						</view>
-					</block>
-				</view>
+						<view class="goods-item">
+							<NumberCount value="{{good.number}}" bind:change="handlerChangeGoodsNumber" data-item="{{good}}" reduce-limit="1" bind:reduceFail="removeGoodFromCart"></NumberCount>
+						</view>
+					</view>
+				</block>
+			</scroll-view >
 		</view>
 	</view>
 </view>

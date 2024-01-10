@@ -10,7 +10,7 @@
 	</view>
 	<view class="delivery-info-box">
 		<view class="left">
-			<view wx:if="{{isSelf}}">
+			<navigator url="../delivery/index?isSelf=true" wx:if="{{isSelf}}">
 				<view class="store-name">
 					<view class="name">
 						<view wx:if="{{store != ''}}">{{store.name}}</view>
@@ -21,8 +21,8 @@
 				<view class="store-detail-address">
 					{{store.desc}}
 				</view>
-			</view>
-			<view wx:else>
+			</navigator>
+			<navigator url="../delivery/index?isSelf=false" wx:else>
 				<view class="address-name">
 					<view class="name">
 						<view wx:if="{{address != ''}}">{{address.address}}</view>
@@ -35,7 +35,7 @@
 					<view class="name">{{address.name}}</view>
 					<view class="gender">{{address.gender.name}}</view>
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<view class="right">
 			<SwitchTab leftText="自提" rightText="外送" value="{{isSelf}}" bind:change="changeIsSelf"></SwitchTab>
@@ -46,6 +46,7 @@
 			<view class="good-item">
 				<view class="left cover-image">
 					<image src="{{good.coverImageUrl}}" mode="heightFix" />
+					<view class="after"></view>
 				</view>
 				<view class="center detail-info">
 					<view class="name" style="font-weight: 700;">{{good.name}}</view>

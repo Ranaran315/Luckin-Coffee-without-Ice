@@ -193,7 +193,7 @@
 }
 
 .main .right .right-item .coffee-item {
-	--cover-width: 25%;
+	--cover-width: 150rpx;
 	--icon-add-width: 10%;
 	width: 100%;
 	min-height: 150rpx;
@@ -206,6 +206,25 @@
 .main .right .right-item .coffee-item .cover-image {
 	width: var(--cover-width);
 	height: var(--cover-image-height);
+	position: relative;
+	z-index: 1;
+}
+
+.main .right .right-item .coffee-item .cover-image image {
+	position: relative;
+	z-index: 2;
+}
+
+.main .right .right-item .coffee-item .cover-image .after {
+	width: calc(var(--cover-width) / 1.2);
+	height: calc(var(--cover-width) / 1.2);
+	background-color: var(--color-01);
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	z-index: 1;
 }
 
 .main .right .right-item .coffee-item .sale-info {
@@ -390,6 +409,7 @@
 
 .main .cart-detail .cart-detail-main {
 	margin: 20rpx 0;
+	max-height: 500rpx;
 	border-radius: var(--br);
 	background-color: var(--thrid-color);
 }
@@ -403,7 +423,26 @@
 }
 
 .main .cart-detail .cart-detail-main .goods-item.coverImage {
-	height: var(--cover-image-height);
+	height: var(--cover-image-height); 
+	position: relative;
+	z-index: 1;
+}
+
+.main .cart-detail .cart-detail-main .goods-item.coverImage image {
+	position: relative;
+	z-index: 2;
+}
+
+.main .cart-detail .cart-detail-main .goods-item.coverImage .after {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	width: calc(var(--cover-image-height) / 1.2);
+	height: calc(var(--cover-image-height) / 1.2);
+	border-radius: 50%;
+	background-color: var(--color-01);
+	z-index: 1;
 }
 
 .main .cart-detail .cart-detail-main .goods-item.info {

@@ -82,7 +82,43 @@ Page({
       "price_sale": 20,
       "price_face": 32,
       "number": 2
-    }]
+    }],
+    // 订单备注展示
+    notesBoxDialogVisiablity: false,
+    // 订单备注项
+    noteMetaList: [
+      {
+      id: 1,
+      name: "无接触配送",
+      value: [{
+          id: 1,
+          name: "不需要",
+        },
+        {
+          id: 2,
+          name: "需要"
+        }
+      ],
+      checkedValueId: 1 
+    },
+    {
+      id: 2,
+      name: "纸巾",
+      value: [{
+          id: 1,
+          name: "不需要"
+        },
+        {
+          id: 2,
+          name: "需要"
+        }
+      ],
+      checkedValueId: 1 
+    }
+    ],
+    // 订单备注内容
+    note: "",
+    computedNote: ""
   },
 
   // 改变配送方式
@@ -90,6 +126,53 @@ Page({
     this.setData({
       isSelf: e.detail.value
     })
+  },
+
+  // 改变订单弹窗展示
+  changeNotesBoxDialog(e) {
+    this.setData({
+      notesBoxDialogVisiablity: e.currentTarget.dataset.flag
+    })
+  },
+
+  // 改变订单备注选项
+  changeNoteValue(e) {
+    const metaId = e.currentTarget.dataset.metaId
+    const itemId = e.currentTarget.dataset.itemId
+    const newNoteMetaList = this.data.noteMetaList.map(meta => {
+       if (metaId == meta.id) {
+         meta.checkedValueId = itemId
+       }
+       return meta
+    })
+    this.setData({
+      noteMetaList: newNoteMetaList
+    })
+  },
+
+  // 备注输入框的双向绑定
+  handlerInputNote(e) {
+    this.setData({
+      note: e.detail.value
+    })
+  },
+
+  // 确定订单备注
+  confirmNote() {
+    let newNote = this.data.note
+    this.data.noteMetaList.forEach(meta => {
+      meta.value.forEach(item => {
+        if (meta.checkedValueId == item.id) {
+          newNote += "," + item.name + meta.name
+        }
+      })
+    })
+    this.setData({
+      computedNote: newNote
+    })
+
+    // 关闭弹窗
+    this.changeNotesBoxDialog({currentTarget: {dataset: {flag: false}}})
   },
 
   /**

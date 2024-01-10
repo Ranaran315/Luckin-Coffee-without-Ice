@@ -139,6 +139,15 @@
 	align-items: center;
 }
 
+.container .notes-box .note {
+	width: 300rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 700;
+	font-size: .9rem;
+}
+
 .container .payment-box {
 	width: 100%;
 	height: var(--payment-box-height);
@@ -203,10 +212,14 @@
 	text-align: center;
 	height: 80rpx;
 	line-height: 80rpx;
+	display: flex;
+	justify-content: center;
+	padding: 0 20rpx;
 }
 
-.container .notes-box-dialog .dialog .center {
-	padding: 30rpx;
+.container .notes-box-dialog .dialog .center,
+.container .notes-box-dialog .dialog .bottom {
+	padding: 0 30rpx;
 }
 
 .container .notes-box-dialog .dialog .center .meta {
@@ -216,6 +229,7 @@
 
 .container .notes-box-dialog .dialog .center .meta .meta-item {
 	display: flex;
+	align-items: center;
 	margin: 20rpx 0;
 }
 
@@ -230,5 +244,19 @@
 	padding: 10rpx 20rpx;
 	background-color: var(--bg-01);
 	border-radius: 50rpx;
+}
+
+.container .notes-box-dialog .dialog .center .meta .meta-item .right .right-item.selected {
+	border: 2rpx solid var(--primary-color);
+	color: var(--primary-color);
+}
+
+.container .notes-box-dialog .dialog .center textarea {
+	width: 100%;
+	background-color: var(--bg-01);
+	border-radius: var(--br);
+	padding: 20rpx;
+	box-sizing: border-box;
+	height: 200rpx;
 }
 

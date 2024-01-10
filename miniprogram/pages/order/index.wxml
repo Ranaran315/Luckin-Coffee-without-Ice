@@ -12,16 +12,22 @@
 		<view class="left">
 			<view wx:if="{{isSelf}}">
 				<view class="store-name">
-					<view class="name">环球中心E3店aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+					<view class="name">
+						<view wx:if="{{store != ''}}">{{store.name}}</view>
+						<view wx:else>请选择门店</view>
+					</view>
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="store-detail-address">
-					武侯区锦悦西路147号新世纪环球购物中心E3一层大堂
+					{{store.desc}}
 				</view>
 			</view>
 			<view wx:else>
 				<view class="address-name">
-					<view class="name">{{address.address}}</view>
+					<view class="name">
+						<view wx:if="{{address != ''}}">{{address.address}}</view>
+						<view wx:else>请选择配送地址</view>
+					</view>
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="address-detail-info">
@@ -73,35 +79,37 @@
 			<Icon name="jinqv"></Icon>
 		</view>
 	</view>
-	<view class="notes-box">
+	<view class="notes-box" bind:tap="changeNotesBoxDialog" data-flag="{{true}}">
 		<view>备注特殊需求</view>
-		<Icon name="jinqv"></Icon>
+		<view style="display: flex;align-items: center;">
+			<view class="note">{{computedNote}}</view>
+			<Icon name="jinqv"></Icon>
+		</view>
 	</view>
-	<view class="notes-box-dialog">
-		<view class="mask"></view>
+	<view class="notes-box-dialog" wx:if="{{notesBoxDialogVisiablity}}">
+		<view class="mask" bind:tap="changeNotesBoxDialog" data-flag="{{false}}"></view>
 		<view class="dialog">
-			<view class="top">订单备注</view>
+			<view class="top">
+				<view style="margin-right: auto;width: 100%;">订单备注</view>
+				<Icon name="cuo" style="margin-left: auto;" bind:tap="changeNotesBoxDialog" data-flag="{{false}}"></Icon>
+			</view>
 			<view class="center">
 				<view class="meta">
-					<view class="meta-item">
-						<view class="left">无接触配送：</view>
-						<view class="right">
-							<view class="right-item">不需要</view>
-							<view class="right-item">需要</view>
+					<block wx:for="{{noteMetaList}}" wx:for-item="meta" wx:key="id">
+						<view class="meta-item">
+							<view class="left">{{meta.name}}：</view>
+							<view class="right">
+								<block wx:for="{{meta.value}}" wx:key="id">
+									<view class="right-item {{meta.checkedValueId == item.id ? 'selected' : ''}}" bind:tap="changeNoteValue" data-meta-id="{{meta.id}}" data-item-id="{{item.id}}">{{item.name}}</view>
+								</block>
+							</view>
 						</view>
-					</view>
-					<view class="meta-item">
-						<view class="left">纸巾：</view>
-						<view class="right">
-							<view class="right-item">不需要</view>
-							<view class="right-item">需要</view>
-						</view>
-					</view>
+					</block>
 				</view>
-				<textarea value="" placeholder="请备注内容(口味备注不在此留言)"/>
+				<textarea value="{{note}}" placeholder="请备注内容(口味备注不在此留言)" bind:input="handlerInputNote" />
 			</view>
 			<view class="bottom">
-				<LuckinButton type="primary">确定</LuckinButton>
+				<LuckinButton type="primary" bind:tap="confirmNote">确定</LuckinButton>
 			</view>
 		</view>
 	</view>

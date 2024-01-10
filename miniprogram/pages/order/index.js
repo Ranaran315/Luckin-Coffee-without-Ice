@@ -12,7 +12,84 @@ Page({
     // 门店信息
     store: {},
     // 地址信息
-    address: {}
+    address: {},
+    // 订单商品信息
+    goods: [{
+      "sku": {
+        "id": 6,
+        "metaList": [{
+          "id": 1,
+          "name": "杯型",
+          "value": {
+            "id": 1,
+            "name": "大杯",
+            "price": 0
+          }
+        }, {
+          "id": 2,
+          "name": "温度",
+          "value": {
+            "id": 2,
+            "name": "热",
+            "price": 0
+          }
+        }, {
+          "id": 3,
+          "name": "糖度",
+          "value": {
+            "id": 3,
+            "name": "标准糖",
+            "price": 0
+          }
+        }]
+      },
+      "name": "马斯卡彭生酪拿铁",
+      "coverImageUrl": "../../images/coffee01.png",
+      "price_sale": 20,
+      "price_face": 32,
+      "number": 1
+    }, {
+      "sku": {
+        "id": 1,
+        "metaList": [{
+          "id": 1,
+          "name": "杯型",
+          "value": {
+            "id": 1,
+            "name": "大杯",
+            "price": 0
+          }
+        }, {
+          "id": 2,
+          "name": "温度",
+          "value": {
+            "id": 1,
+            "name": "冰",
+            "price": 0
+          }
+        }, {
+          "id": 3,
+          "name": "糖度",
+          "value": {
+            "id": 1,
+            "name": "不另外加糖",
+            "price": 0
+          }
+        }]
+      },
+      "name": "马斯卡彭生酪拿铁",
+      "coverImageUrl": "../../images/coffee01.png",
+      "price_sale": 20,
+      "price_face": 32,
+      "number": 2
+    }]
+  },
+
+  // 改变配送方式
+  changeIsSelf(e) {
+    this.setData({
+      isSelf: e.detail.value
+    })
   },
 
   /**

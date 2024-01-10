@@ -231,7 +231,7 @@
 .main .right .right-item .coffee-item .sale-info>.price {
 	width: 100%;
 	display: flex;
-	align-items: flex-start;
+	align-items: flex-end;
 	color: var(--color-03);
 	margin-top: 20rpx;
 	white-space: pre-wrap;

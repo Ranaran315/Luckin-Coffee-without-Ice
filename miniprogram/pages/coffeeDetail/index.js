@@ -350,7 +350,8 @@ Page({
     // 获取spu商品名称，封面图
     const {
       name,
-      coverImageUrl
+      coverImageUrl,
+      price_face
     } = this.data.spu
     // 查找SKU
     let sku
@@ -393,6 +394,7 @@ Page({
           name,
           coverImageUrl,
           price_sale: this.data.priceComputed,
+          price_face,
           number: this.data.goodsNumber
         }
       ]

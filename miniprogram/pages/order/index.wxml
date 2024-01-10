@@ -12,16 +12,110 @@
 		<view class="left">
 			<view wx:if="{{isSelf}}">
 				<view class="store-name">
-					<view>环球中心E3店aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+					<view class="name">环球中心E3店aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="store-detail-address">
 					武侯区锦悦西路147号新世纪环球购物中心E3一层大堂
 				</view>
 			</view>
+			<view wx:else>
+				<view class="address-name">
+					<view class="name">{{address.address}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+				<view class="address-detail-info">
+					<view class="phone" style="margin-right: 20rpx;">{{address.phone}}</view>
+					<view class="name">{{address.name}}</view>
+					<view class="gender">{{address.gender.name}}</view>
+				</view>
+			</view>
 		</view>
 		<view class="right">
-			<SwitchTab leftText="自提" rightText="外送" value="{{isSelf}}"></SwitchTab>	
+			<SwitchTab leftText="自提" rightText="外送" value="{{isSelf}}" bind:change="changeIsSelf"></SwitchTab>
+		</view>
+	</view>
+	<view class="goods-info-box">
+		<block wx:for="{{goods}}" wx:for-item="good" wx:key="id">
+			<view class="good-item">
+				<view class="left cover-image">
+					<image src="{{good.coverImageUrl}}" mode="heightFix" />
+				</view>
+				<view class="center detail-info">
+					<view class="name" style="font-weight: 700;">{{good.name}}</view>
+					<view class="meta">
+						<block wx:for="{{good.sku.metaList}}" wx:for-item="meta" wx:key="id">
+							<view class="meta-item">{{meta.value.name}}</view>
+						</block>
+					</view>
+				</view>
+				<view class="right price">
+					<view class="price-sale" style="font-size: 1.2rem; color: var(--color-04);">￥{{good.price_sale}}</view>
+					<view class="price-face" style="font-size: .9rem; text-decoration: line-through; color: var(--color-03);">￥{{good.price_face}}</view>
+					<view class="number" style="color: var(--color-03);">×{{good.number}}</view>
+				</view>
+			</view>
+		</block>
+		<view class="preferential">
+			<text>瑞幸优惠</text>
+			<view class="price" style="font-weight: 700; color: var(--color-04);">-￥16</view>
+		</view>
+		<view class="hr"></view>
+		<view class="payment-may">
+			应付<view class="price">￥16</view>
+		</view>
+	</view>
+	<view class="payment-type-box">
+		<view>支付方式</view>
+		<view>
+			<Icon name="weixin" style="color: var(--wx-color);"></Icon>
+			微信支付
+			<Icon name="jinqv"></Icon>
+		</view>
+	</view>
+	<view class="notes-box">
+		<view>备注特殊需求</view>
+		<Icon name="jinqv"></Icon>
+	</view>
+	<view class="notes-box-dialog">
+		<view class="mask"></view>
+		<view class="dialog">
+			<view class="top">订单备注</view>
+			<view class="center">
+				<view class="meta">
+					<view class="meta-item">
+						<view class="left">无接触配送：</view>
+						<view class="right">
+							<view class="right-item">不需要</view>
+							<view class="right-item">需要</view>
+						</view>
+					</view>
+					<view class="meta-item">
+						<view class="left">纸巾：</view>
+						<view class="right">
+							<view class="right-item">不需要</view>
+							<view class="right-item">需要</view>
+						</view>
+					</view>
+				</view>
+				<textarea value="" placeholder="请备注内容(口味备注不在此留言)"/>
+			</view>
+			<view class="bottom">
+				<LuckinButton type="primary">确定</LuckinButton>
+			</view>
+		</view>
+	</view>
+	<view class="payment-box">
+		<view class="left">
+			<view class="payment-may">
+				应付<view class="price" style="font-weight: 700; font-size: 1.2rem; margin-left: 10rpx;">￥41.05</view>
+			</view>
+			<view class="preferential" style="font-size: .7rem; color: var(--color-04);">
+				总计优惠<view class="price">￥31.95</view>
+			</view>
+		</view>
+		<view class="right">
+			<LuckinButton type="pay">去支付</LuckinButton>
 		</view>
 	</view>
 </view>

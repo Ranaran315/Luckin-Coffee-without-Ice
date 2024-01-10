@@ -26,6 +26,12 @@
 	color: var(--color-01);
 }
 
+.pay {
+	background-color: var(--color-04);
+	color: var(--color-02);
+	font-weight: 700;
+}
+
 /* 大小 */
 .normal {
 	padding: 30rpx 20rpx;

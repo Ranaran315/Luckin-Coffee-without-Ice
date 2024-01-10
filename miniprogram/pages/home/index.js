@@ -6,26 +6,7 @@ Page({
    */
   data: {
     swiperList: [
-      {
-        id: 1,
-        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper01.png",
-      },
-      {
-        id: 2,
-        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper03.png"
-      },
-      {
-        id: 3,
-        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper01.gif"
-      },
-      {
-        id: 4,
-        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper03.gif"
-      },
-      {
-        id: 5,
-        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper05.gif"
-      }
+      
     ],
   },
 
@@ -33,6 +14,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getLbt',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
+    }).then(res => {
+      console.log("云函数返回的结果",res)
+      this.setData({
+        swiperList:res.result.lbt.data
+      })
+      that.setData({
+        result:res.result
+      })
+    }).catch(err => {
+      console.log("云函数",err)
+    })
 
   },
 

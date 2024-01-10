@@ -199,7 +199,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
     // 设置预计时间
     let time = options.time
     let minute = time.substring(3)

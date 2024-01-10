@@ -1,2 +1,4 @@
 <!--pages/shop/index.wxml-->
-<text>pages/shop/index.wxml</text>
+<view class="container">
+	Sorry!This page is currently under development😣
+</view>

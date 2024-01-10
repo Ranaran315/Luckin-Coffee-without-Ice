@@ -80,7 +80,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
           {
             id: 2,
@@ -88,7 +88,7 @@ Page({
             desc: "含丹麦芝士，奶味提升24%",
             price_face: 29,
             price_sale: 18,
-            coverImg: "../../images/coffee02.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee02.png"
           },
           {
             id: 3,
@@ -96,7 +96,7 @@ Page({
             desc: "含当季褚橙果汁*，新年限量供应",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee03.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee03.png"
           }
         ]
       },
@@ -110,7 +110,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
           {
             id: 2,
@@ -118,7 +118,7 @@ Page({
             desc: "含丹麦芝士，奶味提升24%",
             price_face: 29,
             price_sale: 18,
-            coverImg: "../../images/coffee02.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee02.png"
           },
           {
             id: 3,
@@ -126,7 +126,7 @@ Page({
             desc: "含当季褚橙果汁*，新年限量供应",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee03.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee03.png"
           }
         ]
       },
@@ -140,7 +140,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
           {
             id: 2,
@@ -148,7 +148,7 @@ Page({
             desc: "含丹麦芝士，奶味提升24%",
             price_face: 29,
             price_sale: 18,
-            coverImg: "../../images/coffee02.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee02.png"
           },
           {
             id: 3,
@@ -156,7 +156,7 @@ Page({
             desc: "含当季褚橙果汁*，新年限量供应",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee03.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee03.png"
           }
         ]
       },
@@ -170,7 +170,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
         ]
       },
@@ -184,7 +184,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
         ]
       },
@@ -198,7 +198,7 @@ Page({
             desc: "易烊千玺同款，冬天喝烤椰",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee01.png",
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
           },
           {
             id: 2,
@@ -206,7 +206,7 @@ Page({
             desc: "含丹麦芝士，奶味提升24%",
             price_face: 29,
             price_sale: 18,
-            coverImg: "../../images/coffee02.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee02.png"
           },
           {
             id: 3,
@@ -214,7 +214,7 @@ Page({
             desc: "含当季褚橙果汁*，新年限量供应",
             price_face: 32,
             price_sale: 19,
-            coverImg: "../../images/coffee03.png"
+            coverImg: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee03.png"
           }
         ]
       },

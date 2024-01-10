@@ -13,31 +13,31 @@
 		</view>
 		<view class="function-panel main-item">
 			<view class="function-panel-item">
-				<image src="../../images/我的订单.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/我的订单.png" mode="aspectFill" class="function-icon" />
 				<text>我的订单</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/优惠券.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/优惠券.png" mode="aspectFill" class="function-icon" />
 				<text>优惠券</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/招商加盟.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/招商加盟.png" mode="aspectFill" class="function-icon" />
 				<text>招商加盟</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/账户余额.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/账户余额.png" mode="aspectFill" class="function-icon" />
 				<text>账户余额</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/账户余额.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/账户余额.png" mode="aspectFill" class="function-icon" />
 				<text>账户余额</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/账户余额.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/账户余额.png" mode="aspectFill" class="function-icon" />
 				<text>账户余额</text>
 			</view>
 			<view class="function-panel-item">
-				<image src="../../images/账户余额.png" mode="aspectFill" class="function-icon" />
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/账户余额.png" mode="aspectFill" class="function-icon" />
 				<text>账户余额</text>
 			</view>
 		</view>

@@ -1,21 +1,12 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const db = wx.cloud.database() //申明一个变量，简化后面的写法
-
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  db.collection('lbt')
-  .get()
-  .then(res => {
-    console.log(res.data)
-  })
-  .catch(err => {
-    console.error(err)
-  })
+
   return {
     event,
     openid: wxContext.OPENID,

@@ -27,7 +27,7 @@
 		</FormItem>
 		<FormItem class="address-form-item" label="标签">
 			<block wx:for="{{tagList}}" wx:key="id">
-				<view class="tag {{address.tagId == item.id ? 'selected' : ''}}" bind:tap="chooseTag" data-id="{{item.id}}">{{item.name}}</view>
+				<view class="tag {{address.tag.id == item.id ? 'selected' : ''}}" bind:tap="chooseTag" data-item="{{item}}">{{item.name}}</view>
 			</block>
 		</FormItem>
 		<FormItem class="address-form-item" class="address-form-item" label="默认地址">

@@ -41,7 +41,8 @@ Page({
 
   // 一键登录
   async loginByOneClick() {
-    console.log(this.data.openid);
+    this.determineIsChecked().then(async() => {
+      console.log(this.data.openid);
     const user=await db.collection('user').where({_openid:this.data.openid}).get()
     console.log(user);
     if(user.data.length==0){
@@ -83,12 +84,11 @@ Page({
     }
     const userinfo=await db.collection('user').where({_openid:this.data.openid}).get()
     wx.setStorageSync("userinfo",userinfo.data)
+    wx.navigateBack()
+    })
+    
     // console.log(user);
-    // this.determineIsChecked().then(() => {
-    //   wx.navigateTo({
-    //     url: '',
-    //   })
-    // })
+    
   },
 
   /**

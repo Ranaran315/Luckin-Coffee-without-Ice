@@ -1,21 +1,22 @@
 // pages/addAddress/index.js
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    addressList: [],
     address: {
       name: "",
       genderId: 1,
       phone: "",
       address: "",
       houseNumber: "",
-      tagId: 0,
+      tag: {},
       isDefault: false
     },
-    gender: [
-      {
+    gender: [{
         id: 1,
         name: "先生"
       },
@@ -24,8 +25,7 @@ Page({
         name: "女士"
       }
     ],
-    tagList: [
-      {
+    tagList: [{
         id: 1,
         name: "公司"
       },
@@ -52,9 +52,8 @@ Page({
 
   // 选择标签
   chooseTag(e) {
-    console.log(e.currentTarget.dataset.id);
     this.setData({
-      "address.tagId": e.currentTarget.dataset.id
+      "address.tag": e.currentTarget.dataset.item
     })
   },
 
@@ -73,7 +72,7 @@ Page({
         wx.showToast({
           title: '获取成功',
           icon: 'none',
-          duration:  1000
+          duration: 1000
         })
         _this.setData({
           "address.address": res.address
@@ -86,8 +85,7 @@ Page({
           duration: 1000
         })
       },
-      complete: function () {
-      }
+      complete: function () {}
     })
   },
 
@@ -103,7 +101,14 @@ Page({
     const _this = this
     wx.chooseAddress({
       success: res => {
-        const {userName,telNumber,provinceName,countyName,cityName,detailInfo} = res
+        const {
+          userName,
+          telNumber,
+          provinceName,
+          countyName,
+          cityName,
+          detailInfo
+        } = res
         _this.setData({
           "address.name": userName,
           "address.phone": telNumber,
@@ -122,15 +127,54 @@ Page({
   },
 
   // 保存
-  save() {
+  async save() {
     // TODO：保存新增地址
+    console.log(this.data.address);
+    const userinfo = wx.getStorageSync("userinfo")
+    console.log(userinfo[0]._openid, 111111111111);
+    
+    console.log(this.data.addressList, 222222222);
+    // 在页面中调用云数据库API
+    const db = wx.cloud.database()
+    //获取所以address数据
+    const user=await db.collection('user').where({_openid:userinfo[0]._openid}).get()
+    console.log(user,"aaaaaaaaaaaaa");
+    console.log(user.addressList,"bbbbbbbbbbbbb");
+    if(!user.data[0].addressList)user.addressList=[]
+    console.log(this.data.address.isDefault);
+    for (let i of user.data[0].addressList){
+      console.log(this.data.address.isDefault);
+      if(this.data.address.isDefault){
+        console.log(11111111111111111111111111111111111111)
+        
+        i.isDefault=false
+      }
+      console.log(i)
+      this.data.addressList.push(i)
+    }
+    this.data.addressList.push(this.data.address)
+    await db.collection('user').where({
+      _openid:userinfo._openid
+    }).update({
+      data: {
+        addressList:this.data.addressList
+      },
+      success: res => {
+        console.log('更新成功', res)
+        wx.navigateBack()
+      },
+      fail: err => {
+        console.error('更新失败', err)
+      }
+    })
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+
   },
 
   /**

@@ -1,4 +1,5 @@
 // pages/chooseAddress/index.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -6,38 +7,7 @@ Page({
    */
   data: {
     addressList: [
-      {
-        id: 1,
-        address: "四川轻化工大学宜宾校区",
-        phone: "12345678910",
-        name: "Rikka",
-        houseNumber: "123456",
-        gender: {
-          id: 1,
-          name: "先生"
-        },
-        tag: {
-          id: 1,
-          name: "学校"
-        },
-        isDefault: true
-      },
-      {
-        id: 2,
-        address: "四川轻化工大学宜宾校区宜宾校区宜宾校区宜宾校区宜宾校区",
-        phone: "12345678910",
-        name: "Rikka",
-        houseNumber: "123456",
-        gender: {
-          id: 2,
-          name: "女士"
-        },
-        tag: {
-          id: 1,
-          name: "学校"
-        },
-        isDefault: false
-      },
+      
     ],
     // 是否自提
     isSelf: false
@@ -54,6 +24,16 @@ Page({
   chooseAddress(e) {
     wx.setStorageSync('address', e.currentTarget.dataset.item)
     wx.navigateBack()
+  },
+
+  async getaddress(){
+    const userinfo =wx.getStorageSync('userinfo')
+    const user=await db.collection('user').where({
+      _openid:userinfo._openid
+    }).get()
+    this.setData({
+      addressList:user.data[0].addressList
+    })
   },
 
   /**
@@ -76,7 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getaddress()
   },
 
   /**

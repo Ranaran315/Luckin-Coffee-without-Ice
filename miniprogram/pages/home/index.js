@@ -8,23 +8,23 @@ Page({
     swiperList: [
       {
         id: 1,
-        src: "../../images/swiper01.png",
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper01.png",
       },
       {
         id: 2,
-        src: "../../images/swiper03.png"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper03.png"
       },
       {
         id: 3,
-        src: "../../images/swiper01.gif"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper01.gif"
       },
       {
         id: 4,
-        src: "../../images/swiper03.gif"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper03.gif"
       },
       {
         id: 5,
-        src: "../../images/swiper05.gif"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/swiper05.gif"
       }
     ],
   },

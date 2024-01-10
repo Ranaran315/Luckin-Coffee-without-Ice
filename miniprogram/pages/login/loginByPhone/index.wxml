@@ -1,7 +1,7 @@
 <!--pages/loginByPhone/index.wxml-->
 <view class="container">
 	<view class="logo">
-		<image src="../../../images/logo1.png" mode="aspectFit" />
+		<image src="../cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/logo1.png" mode="aspectFit" />
 	</view>
 	<view class="form">
 		<view class="form-item">

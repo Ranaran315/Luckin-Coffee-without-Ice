@@ -15,27 +15,27 @@
 			<view class="main">
 				<view class="main-row">
 					<navigator url="../menu/index" open-type="switchTab"  class="main-row-item">
-						<image src="../../images/operation01.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation01.png" mode="aspectFill" />
 					</navigator>
 					<navigator url="../menu/index" open-type="switchTab" class="main-row-item">
-						<image src="../../images/operation02.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation02.png" mode="aspectFill" />
 					</navigator>
 					<navigator url="../shop/index" open-type="switchTab" class="main-row-item">
-						<image src="../../images/operation03.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation03.png" mode="aspectFill" />
 					</navigator>
 				</view>
 				<view class="main-row">
 					<view class="main-row-item">
-						<image src="../../images/operation-small01.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation-small01.png" mode="aspectFill" />
 					</view>
 					<view class="main-row-item">
-						<image src="../../images/operation-small02.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation-small02.png" mode="aspectFill" />
 					</view>
 					<view class="main-row-item">
-						<image src="../../images/operation-small03.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation-small03.png" mode="aspectFill" />
 					</view>
 					<view class="main-row-item">
-						<image src="../../images/operation-small04.png" mode="aspectFill" />
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/operation-small04.png" mode="aspectFill" />
 					</view>
 				</view>
 			</view>

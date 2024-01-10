@@ -1,7 +1,7 @@
 <!--pages/login/index.wxml-->
 <view class="container">
 	<view class="main">
-		<image class="background" src="../../images/img_login_bg1.png" mode="aspectFit" />
+		<image class="background" src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/img_login_bg1.png" mode="aspectFit" />
 		<button class="phone-safe-login-btn" bind:tap="loginByPhone">手机号安全登录</button>
 		<button class="one-click-login-btn" bind:tap="loginByOneClick">一键登录</button>
 	</view>

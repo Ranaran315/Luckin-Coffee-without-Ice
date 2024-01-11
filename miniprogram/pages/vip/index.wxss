@@ -18,6 +18,7 @@
 }
 .price{
   display: flex;
+  background-color: white;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -49,7 +50,7 @@
   border-radius: var(--br);
   width: 95%;
   margin-top: 20rpx;
-  margin-bottom: 100rpx;
+  margin-bottom: 240rpx;
   justify-content: space-between;
 }
 .setitem{
@@ -59,5 +60,26 @@
   display: flex;
   justify-content: space-between;
 }
+.nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 200rpx;
+  background-color: white;
+  padding: 20rpx 20rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.footer {
+	display: flex;
+	align-items: center;
+	font-size: .7rem;
+	white-space: nowrap;
+}
 
-
+.selected {
+  border: 4rpx solid var(--color-01);
+  background-color: rgba(243, 232, 171, 0.473);
+}

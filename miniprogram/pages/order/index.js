@@ -44,7 +44,7 @@ Page({
         }]
       },
       "name": "马斯卡彭生酪拿铁",
-      "coverImageUrl": "../../images/coffee01.png",
+      "coverImageUrl": "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
       "price_sale": 20,
       "price_face": 32,
       "number": 1
@@ -78,7 +78,7 @@ Page({
         }]
       },
       "name": "马斯卡彭生酪拿铁",
-      "coverImageUrl": "../../images/coffee01.png",
+      "coverImageUrl": "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
       "price_sale": 20,
       "price_face": 32,
       "number": 2

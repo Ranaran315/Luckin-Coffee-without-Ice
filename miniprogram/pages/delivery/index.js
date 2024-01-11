@@ -12,30 +12,7 @@ Page({
 
     ],
     storeList: [
-      {
-        id: 1,
-        name: "宜宾市APM广场店",
-        detailAddress: "四川省宜宾市临港区化工路265号，临港中央临港中央8栋1层103号商铺",
-        businessHours: "08:30-21:30"
-      },
-      {
-        id: 2,
-        name: "宜宾市APM广场店",
-        detailAddress: "四川省宜宾市临港区化工路265号，临港中央临港中央8栋1层103号商铺",
-        businessHours: "08:30-21:30"
-      },
-      {
-        id: 3,
-        name: "宜宾市APM广场店",
-        detailAddress: "四川省宜宾市临港区化工路265号，临港中央临港中央8栋1层103号商铺",
-        businessHours: "08:30-21:30"
-      },
-      {
-        id: 4,
-        name: "宜宾市APM广场店",
-        detailAddress: "四川省宜宾市临港区化工路265号，临港中央临港中央8栋1层103号商铺",
-        businessHours: "08:30-21:30"
-      },
+      
     ],
     // 当前选中的门店索引
     currentStoreIndex: 0
@@ -55,11 +32,10 @@ Page({
     wx.navigateBack()
   },
 
-  // 获取地址
-  async getaddress() {
-    const userinfo = wx.getStorageSync('userinfo')
-    const user = await db.collection('user').where({
-      _openid: userinfo._openid
+  async getaddress(){
+    const userinfo =wx.getStorageSync('userinfo')
+    const user=await db.collection('user').where({
+      _openid:userinfo[0]._openid
     }).get()
     this.setData({
       addressList: user.data[0].addressList
@@ -89,12 +65,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.getStore()
     this.setData({
       isSelf: options.isSelf == "true" ? true : false
     })
     this.getLocation()
+    
   },
-
+  getStore(){
+    console.log(1111111111111111111111111111111111111111)
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getStore',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
+    }).then(res => {
+      console.log("云函数返回的结果",res)
+      this.setData({
+        storeList:res.result.store.data
+      })
+      that.setData({
+        result:res.result
+      })
+    }).catch(err => {
+      console.log("云函数",err)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

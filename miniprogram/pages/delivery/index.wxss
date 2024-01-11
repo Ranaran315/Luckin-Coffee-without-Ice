@@ -33,7 +33,6 @@
 .self-pickup-main .self-pickup .map {
 	width: 100%;
 	height: var(--map-height);
-	background-color: var(--primary-color);
 }
 
 .self-pickup-main .self-pickup .self-pickup_main .header {

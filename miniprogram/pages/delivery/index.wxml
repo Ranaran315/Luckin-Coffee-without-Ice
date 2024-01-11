@@ -6,7 +6,9 @@
 	<!-- 自提 -->
 	<view class="self-pickup-main" wx:if="{{isSelf}}">
 		<view class="self-pickup">
-			<view class="map"></view>
+			<view class="map">
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/map.png" mode="widthFix" />
+			</view>
 			<view class="self-pickup_main">
 				<view class="header">
 					<view class="header-item">附近</view>
@@ -34,7 +36,7 @@
 	</view>
 	<!-- 外送 -->
 	<scroll-view class="provide-home-main" wx:else scroll-y="true">
-		<view scroll-y="true" class="provide-home" >
+		<view scroll-y="true" class="provide-home">
 			<view class="no-address" wx:if="{{addressList.length === 0}}">
 				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/bg_location_fail.png" mode="widthFix" />
 			</view>

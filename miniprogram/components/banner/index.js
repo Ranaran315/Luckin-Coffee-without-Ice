@@ -15,11 +15,11 @@ Component({
     bannerList: [
       {
         id: 1,
-        src: "../../images/CtwiPGVj5kyABrQZAAJIfoE5CU073.png"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/CtwiPGVj5kyABrQZAAJIfoE5CU073.png"
       },
       {
         id: 2,
-        src: "../../images/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
+        src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
       }
     ]
   },

@@ -8,6 +8,20 @@ Page({
     userInfo: {}
   },
 
+  // 退出登录
+  logout() {
+    wx.removeStorageSync('userinfo')
+    wx.showToast({
+      title: '退出登录成功',
+      icon: "none"
+    })
+    setTimeout(() => {
+      wx.switchTab({
+        url: '../home/index',
+      })
+    },500)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

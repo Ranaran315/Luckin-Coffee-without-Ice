@@ -58,6 +58,7 @@
 	justify-content: center;
 	align-items: center;
 	margin: 10rpx;
+	width: 120rpx;
 }
 
 .function-panel-item:last-child {

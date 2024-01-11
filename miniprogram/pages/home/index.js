@@ -8,6 +8,14 @@ Page({
   data: {
     swiperList: [
     ],
+    userInfo: ''
+  },
+
+  // 登录
+  login() {
+    wx.navigateTo({
+      url: '../login/index',
+    })
   },
 
   /**
@@ -40,7 +48,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userInfoList = wx.getStorageSync('userinfo')
+    this.setData({
+      userInfo: userInfoList == '' ? '' : userInfoList[0]
+    })
   },
 
   /**

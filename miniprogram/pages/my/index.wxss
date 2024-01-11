@@ -70,4 +70,10 @@
 	width: var(--size);
 	height: var(--size);
 	margin-bottom: 10rpx;
+	border-radius: var(--br);
+}
+
+.main .gift-card {
+	background-color: var(--bg-02);
+	padding: 30rpx 20rpx;
 }

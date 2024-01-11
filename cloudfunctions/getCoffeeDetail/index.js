@@ -44,14 +44,21 @@ exports.main = async (event, context) => {
 
     // 为每个商品规格添加 meta 信息
     for (let sku of skuGetFromDatabase.data) {
+      
       for (let meta of sku.metaList_id) {
+        console.log("循环开始");
         let metaYouNeed = metaList.data.find(m => m._id === meta.meta_id)
         let metaValueYouNeed = metaValueList.data.find(mv => mv._id === meta.metaValue_id)
         metaValueYouNeed.id = metaValueYouNeed._id
         metaYouNeed.id = metaYouNeed._id
-        metaYouNeed.value.push(metaValueYouNeed)
-        sku.metaList.push(metaYouNeed)
+        const {id,name} = metaYouNeed
+        sku.metaList.push({
+          id,
+          name,
+          value: metaValueYouNeed
+        })
       }
+      
     }
 
     // 将商品规格列表添加到商品信息中

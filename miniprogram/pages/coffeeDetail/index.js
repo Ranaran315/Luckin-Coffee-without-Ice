@@ -24,7 +24,8 @@ Page({
     reduceNumberLimit: 1,
     addNumberLimit: 50,
     // 当前的sku商品
-    currentSku: {}
+    currentSku: {},
+    isLoading: false
   },
 
   // 选择规格
@@ -99,6 +100,7 @@ Page({
     // 查找SKU
     let sku
     for (let sku_1 of this.data.spu.skuList) {
+      console.log(sku_1);
       // 所有条件是否满足的表示
       let match = true
       skuMeta: for (let skuMeta of sku_1.metaList) {
@@ -129,6 +131,7 @@ Page({
       price_face
     } = this.data.spu
     // 获取sku
+    this.getSku()
     const sku = this.data.currentSku
     // 获取本地存取的购物车商品
     const cart = wx.getStorageSync('cart')
@@ -201,7 +204,8 @@ Page({
   onLoad(options) {
     // TODO 根据id获取详情数据 options.id
     this.setData({
-      options:options
+      options:options,
+      isLoading: true
     })
     wx.cloud.callFunction({
       name:"getCoffeeDetail",
@@ -211,11 +215,12 @@ Page({
     }).then(res=>{
       // console.log(res.result)
       this.setData({
-        spu:res.result
+        spu:res.result,
+        isLoading: false
       })
       this.computedPrice()
+      this.getSku()
     })
-
   },
 
   /**
@@ -241,8 +246,13 @@ Page({
     //   })
     //   this.computedPrice()
     // })
-    
-
+    this.computedPrice()
+    this.getSku()
+    if (wx.getStorageSync('userinfo') == '') {
+      wx.navigateTo({
+        url: '../login/index',
+      })
+    }
   },
 
   /**

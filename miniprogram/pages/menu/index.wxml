@@ -63,7 +63,7 @@
 					<block wx:for="{{data.coffeeList}}" wx:for-item="coffee" wx:key="id">
 						<view class="coffee-item" bind:tap="checkCoffee" data-id="{{coffee.id}}">
 							<view class="cover-image">
-								<image src="{{coffee.coverImg}}" mode="aspectFill">
+								<image src="{{coffee.coverImageUrl}}" mode="aspectFill">
 								</image>
 								<view class="after"></view>
 							</view>
@@ -139,3 +139,4 @@
 		</view>
 	</view>
 </view>
+<Loading isLoading="{{isLoading}}"></Loading>

@@ -38,7 +38,8 @@ Page({
     // 总价
     totalPrice: 0,
     // 控制展示购物车详细信息
-    cartDetailInfoVisiablity: false       
+    cartDetailInfoVisiablity: false,
+    isLoading: false       
   },
 
   // 选择配送方式
@@ -232,6 +233,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const _this = this
+    _this.setData({
+      isLoading: true
+    })
     // 动态设置导航栏的位置
     const {
       top,
@@ -278,7 +283,8 @@ Page({
       name:"getDataSpu",
     }).then(res =>{
       this.setData({
-        dataList: res.result
+        dataList: res.result,
+        isLoading: false
       })
       // console.log(this.data.dataList)
     })

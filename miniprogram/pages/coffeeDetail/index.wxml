@@ -67,3 +67,4 @@
 		</view>
 	</view>
 </view>
+<Loading isLoading="{{isLoading}}"></Loading>

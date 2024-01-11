@@ -5,6 +5,12 @@
 	background-color: var(--bg-01);
 }
 
+.login-btn {
+	width: 100rpx !important;
+	height: 50rpx !important;
+	margin-left: auto !important;
+}
+
 .main-item {
 	margin-bottom: 20rpx;
 }

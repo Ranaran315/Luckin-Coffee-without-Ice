@@ -14,7 +14,7 @@
 					<text>Lucky you~跟幸运打个招呼</text>
 				</block>
 				<block wx:else>
-					<LuckinButton bind:tap="login" type="gold-plus" style="margin-left: auto;">登录/注册</LuckinButton>
+					<view bind:tap="login" style="margin-left: auto;">登录/注册</view>
 				</block>
 			</view>
 			<view class="main">

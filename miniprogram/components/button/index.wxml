@@ -1,4 +1,4 @@
 <!--components/button/index.wxml-->
-<view class="button {{type}} {{size}}">
+<view class="button {{type}} {{size}}" style="{{style}}">
 	<slot></slot>
 </view>

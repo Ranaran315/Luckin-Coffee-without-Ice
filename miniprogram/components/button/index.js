@@ -12,7 +12,8 @@ Component({
     size: {
       type: String,
       value: "normal"
-    }
+    },
+    style: String
   },
 
   /**

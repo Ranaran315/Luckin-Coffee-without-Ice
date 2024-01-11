@@ -129,22 +129,16 @@ Page({
   // 保存
   async save() {
     // TODO：保存新增地址
-    console.log(this.data.address);
     const userinfo = wx.getStorageSync("userinfo")
-    console.log(userinfo[0]._openid, 111111111111);
-    console.log(this.data.addressList, 222222222);
     // 在页面中调用云数据库API
     const db = wx.cloud.database()
     //获取所以address数据
     const user=await db.collection('user').where({_openid:userinfo[0]._openid}).get()
-    console.log(user,"aaaaaaaaaaaaa");
-    console.log(user.addressList,"bbbbbbbbbbbbb");
     if(!user.data[0].addressList)user.addressList=[]
     console.log(this.data.address.isDefault);
     for (let i of user.data[0].addressList){
       console.log(this.data.address.isDefault);
       if(this.data.address.isDefault){
-        console.log(11111111111111111111111111111111111111)
         
         i.isDefault=false
       }

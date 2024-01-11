@@ -140,7 +140,19 @@ Page({
 
       // 修改指定索引的元素
       addressList[index] = this.data.address;
-
+      if(this.data.address.isDefault){
+        let id=0;
+        for (let i of addressList){
+          if(id==index){
+            id++;
+            continue;
+          }
+          if(this.data.address.isDefault){
+            i.isDefault=false
+          }
+          id++;
+        }
+      }
       // 更新 user 对象中的 addressList 字段
       db.collection('user').doc(user._id).update({
         data: {

@@ -62,6 +62,25 @@ hr {
 .container .order-box .order-item .center .goods-item .left.cover-image {
 	width: var(--cover-width);
 	margin-right: 20rpx;
+	position: relative;
+	z-index: 1;
+}
+
+.container .order-box .order-item .center .goods-item .left.cover-image image {
+	position: relative;
+	z-index: 2;
+}
+
+.container .order-box .order-item .center .goods-item .left.cover-image .after {
+	width: calc(var(--cover-width) / 1.2);
+	height: calc(var(--cover-width) / 1.2);
+	background-color: var(--color-01);
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	z-index: 1;
 }
 
 .container .order-box .order-item .center .goods-item .center.detail-info {

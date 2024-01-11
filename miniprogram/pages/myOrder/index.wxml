@@ -28,6 +28,7 @@
 						<view class="goods-item">
 							<view class="left cover-image">
 								<image src="{{good.coverImageUrl}}" mode="widthFix" />
+								<view class="after"></view>
 							</view>
 							<view class="center detail-info">
 								<view class="name" style="font-weight: 700;">{{good.name}}</view>

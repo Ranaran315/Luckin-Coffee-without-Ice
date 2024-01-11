@@ -132,7 +132,6 @@ Page({
     console.log(this.data.address);
     const userinfo = wx.getStorageSync("userinfo")
     console.log(userinfo[0]._openid, 111111111111);
-    
     console.log(this.data.addressList, 222222222);
     // 在页面中调用云数据库API
     const db = wx.cloud.database()
@@ -154,20 +153,19 @@ Page({
     }
     this.data.addressList.push(this.data.address)
     await db.collection('user').where({
-      _openid:userinfo._openid
+      _openid:userinfo[0]._openid
     }).update({
       data: {
         addressList:this.data.addressList
       },
       success: res => {
         console.log('更新成功', res)
-        wx.navigateBack()
       },
       fail: err => {
         console.error('更新失败', err)
       }
     })
-    
+    wx.navigateBack()
   },
 
   /**

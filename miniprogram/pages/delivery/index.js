@@ -29,7 +29,7 @@ Page({
   async getaddress(){
     const userinfo =wx.getStorageSync('userinfo')
     const user=await db.collection('user').where({
-      _openid:userinfo._openid
+      _openid:userinfo[0]._openid
     }).get()
     this.setData({
       addressList:user.data[0].addressList

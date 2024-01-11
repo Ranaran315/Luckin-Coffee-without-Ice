@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    index: "",
     address: {
       name: "",
       genderId: 1,
@@ -126,12 +127,74 @@ Page({
   // 保存
   async save() {
     // TODO：保存新增地址
-   
+    const userinfo = wx.getStorageSync('userinfo');
+    const openid = userinfo[0]._openid;
+    const index = this.data.index;
+
+    // 获取当前用户的 addressList 数据
+    db.collection('user').where({
+      _openid: openid
+    }).get().then(res => {
+      const user = res.data[0];
+      const addressList = user.addressList;
+
+      // 修改指定索引的元素
+      addressList[index] = this.data.address;
+
+      // 更新 user 对象中的 addressList 字段
+      db.collection('user').doc(user._id).update({
+        data: {
+          addressList: addressList
+        },
+        success: function (res) {
+          console.log(res);
+          wx.navigateBack()
+        },
+        fail: function (err) {
+          console.error(err);
+        }
+      });
+    }).catch(err => {
+      console.error(err);
+    });
+
   },
 
   // 删除
   delete() {
     // TODO 删除
+    const userinfo = wx.getStorageSync('userinfo');
+    const openid = userinfo[0]._openid;
+    const index = this.data.index;
+
+    // 获取当前用户的 addressList 数据
+    db.collection('user').where({
+      _openid: openid
+    }).get().then(res => {
+      const user = res.data[0];
+      const addressList = user.addressList;
+
+      // 删除指定索引的元素
+      addressList.splice(index, 1);
+
+      // 更新 user 对象中的 addressList 字段
+      db.collection('user').doc(user._id).update({
+        data: {
+          addressList: addressList
+        },
+        success: function (res) {
+          console.log(res);
+          wx.navigateBack()
+        },
+        fail: function (err) {
+          console.error(err);
+        }
+      });
+    }).catch(err => {
+      console.error(err);
+    });
+
+
   },
 
   /**
@@ -139,7 +202,7 @@ Page({
    */
   onLoad(options) {
     const address = JSON.parse(decodeURIComponent(options.address))
-    const index = options.index
+    this.data.index = options.index
     this.setData({
       address: address
     })

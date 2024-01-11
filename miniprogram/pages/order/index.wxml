@@ -124,7 +124,7 @@
 			</view>
 		</view>
 		<view class="right">
-			<LuckinButton type="pay">去支付</LuckinButton>
+			<LuckinButton type="pay" bindtap="zhifu">去支付</LuckinButton>
 		</view>
 	</view>
 </view>

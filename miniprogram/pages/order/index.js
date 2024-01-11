@@ -1,4 +1,5 @@
 // pages/order/index.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -135,7 +136,26 @@ Page({
       url: '/pages/delivery/index?isSelf=' + value,
     })
   },
-
+  //支付
+  async zhifu(){
+    console.log(this.data)
+    db.collection('goods').add({
+      data: {
+        goods:this.data.goods
+      }
+    }).then((res) => {
+      wx.showToast({
+        title: '支付成功',
+        icon: 'none',
+        position: 'top', // 设置弹窗位置为页面上部
+        duration: 2000 ,// 设置弹窗持续时间为2秒
+        top:20
+      })
+      console.log(res,"11111111111111");
+    }).catch((err) => {
+      console.error('添加数据失败:', err)
+    })
+  },
   // 改变订单弹窗展示
   changeNotesBoxDialog(e) {
     this.setData({

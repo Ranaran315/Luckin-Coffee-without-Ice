@@ -3,10 +3,33 @@
 	<view class="header">
 		<SwitchTab leftText="门店自提" rightText="送货上门" value="{{isSelf}}" bind:change="switchDeliveryType"></SwitchTab>
 	</view>
-	<view class="main">
+	<view class="main {{isSelf ? 'no-padding' : ''}}">
 		<!-- 自提 -->
 		<view class="self-pickup" wx:if="{{isSelf}}">
-			自提
+			<view class="map"></view>
+			<view class="self-pickup_main">
+				<view class="header">
+					<view class="header-item">附近</view>
+				</view>
+				<scroll-view scroll-y="true" class="store-box">
+					<block wx:for="{{storeList}}" wx:key="id">
+						<view class="store-item {{currentStoreIndex == index ? 'selected' : ''}}" bind:tap="chooseStore" data-item="{{item}}">
+							<view class="name">
+								{{item.name}}
+								<view class="current" wx:if="{{currentStoreIndex == index}}">当前选择</view>
+							</view>
+							<view class="detail-address">
+								<Icon name="dingwei" style="margin-right: 10rpx;"></Icon>
+								{{item.detailAddress}}
+							</view>
+							<view class="business-hours">
+								<Icon name="shijian" style="margin-right: 10rpx;"></Icon>
+								{{item.businessHours}}
+							</view>
+						</view>
+					</block>
+				</scroll-view>
+			</view>
 		</view>
 		<!-- 外送 -->
 		<view class="provide-home" wx:else>
@@ -19,25 +42,25 @@
 					<view class="address-item" bind:tap="chooseAddress" data-item="{{item}}">
 						<view class="left">
 							<view class="address">
-							{{item.address}}
-						</view>
-						<view class="meta">
-							<view class="meta-item tag">
-								{{item.tag.name}}
+								{{item.address}}
 							</view>
-							<view class="meta-item">
-								{{item.phone}}
+							<view class="meta">
+								<view class="meta-item tag">
+									{{item.tag.name}}
+								</view>
+								<view class="meta-item">
+									{{item.phone}}
+								</view>
+								<view class="meta-item">
+									{{item.name}}
+								</view>
+								<view class="meta-item">
+									{{item.gender.name}}
+								</view>
+								<view class="meta-item default" wx:if="{{item.isDefault}}">
+									默认地址
+								</view>
 							</view>
-							<view class="meta-item">
-								{{item.name}}
-							</view>
-							<view class="meta-item">
-								{{item.gender.name}}
-							</view>
-							<view class="meta-item default" wx:if="{{item.isDefault}}">
-								默认地址
-							</view>
-						</view>
 						</view>
 						<view class="right">
 							<Icon name="xiugai"></Icon>

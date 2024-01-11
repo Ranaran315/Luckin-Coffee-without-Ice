@@ -38,7 +38,7 @@
     "condition": false
   },
   "appid": "wx733d4a7fce6dcc87",
-  "projectname": "quickstart-wx-cloud",
+  "projectname": "luckin-coffee",
   "libVersion": "2.20.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "condition": {

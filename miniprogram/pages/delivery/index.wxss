@@ -1,12 +1,13 @@
 /* pages/chooseAddress/index.wxss */
 
 .container {
-	--height: 100rpx;
+	--header-height: 100rpx;
+	--map-height: 600rpx;
 }
 
 .header {
 	width: 100%;
-	height: var(--height);
+	height: var(--header-height);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,10 +16,14 @@
 
 .main {
 	width: 100%;
-	height: calc(100vh - 2 * var(--height));
+	height: calc(100vh - 2 * var(--header-height));
 	background-color: var(--bg-01);
 	padding: var(--page-padding);
 	padding-top: 20rpx;
+}
+
+.no-padding {
+	padding: 0;
 }
 
 .main .self-pickup , .main .provide-home {
@@ -28,6 +33,78 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.main .self-pickup .map {
+	width: 100%;
+	height: var(--map-height);
+	background-color: var(--primary-color);
+}
+
+.main .self-pickup .self-pickup_main .header {
+	display: flex;
+	justify-content: flex-start;
+	padding: 20rpx 30rpx;
+	font-weight: 700;
+}
+
+.main .self-pickup .self-pickup_main .header .header-item {
+	position: relative;
+	padding: 10rpx;
+}
+
+.main .self-pickup .self-pickup_main .header .header-item::before {
+	content: "";
+	width: 30rpx;
+	height: 5rpx;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	background-color: var(--bg-03);
+}
+
+.main .self-pickup .self-pickup_main .store-box {
+	height: calc(100vh - var(--header-height) * 2 - var(--map-height));
+}
+
+.main .self-pickup .self-pickup_main .store-item {
+	padding: 20rpx 30rpx;
+}
+
+.main .self-pickup .self-pickup_main .store-item.selected {
+	background-color: var(--thrid-color);
+}
+
+.main .self-pickup .self-pickup_main .store-item .name {
+	font-size: .9rem;
+	font-weight: 700;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 15rpx;
+	display: flex;
+	align-items: center;
+}
+
+.main .self-pickup .self-pickup_main .store-item .name .current {
+	font-weight: 500;
+	font-size: .8rem;
+	background-color: var(--primary-color);
+	color: var(--color-02);
+	border-radius: 20rpx;
+	border-bottom-left-radius: 0;
+	padding: 5rpx 10rpx;
+	margin-left: 20rpx;
+}
+
+.main .self-pickup .self-pickup_main .store-item .detail-address,
+.main .self-pickup .self-pickup_main .store-item .business-hours {
+	display: flex;
+	font-size: .8rem;
+	color: var(--color-03);
+	margin-bottom: 15rpx;
 }
 
 .main .provide-home .no-address {

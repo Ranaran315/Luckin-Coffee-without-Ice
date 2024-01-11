@@ -69,5 +69,16 @@
     "LuckinButton": "./components/button/index",
     "Tab": "./components/tab/index",
     "NumberCount": "./components/numberCount/index"
+  },
+  "plugins": {
+    "citySelector": {
+      "version": "1.0.2",
+      "provider": "wx63ffb7b7894e99ae"
+    }
+  },
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
   }
 }

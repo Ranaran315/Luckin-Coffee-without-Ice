@@ -76,6 +76,13 @@
 	white-space: nowrap;
 }
 
+.center .left .store-desc {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .center .left .store-desc,
 .center .left .meta {
 	color: var(--color-03);

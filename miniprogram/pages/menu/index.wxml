@@ -21,7 +21,7 @@
 					</view>
 					<Icon name="jinqv"></Icon>
 				</view>
-				<view class="store-desc">{{store.desc}}</view>
+				<view class="store-desc">{{store.detailAddress}}</view>
 			</navigator>
 			<navigator url="../delivery/index?isSelf=false" class="address" wx:else>
 				<view class="address-name">
@@ -75,7 +75,7 @@
 									<text class="price-face">(面价<text style="text-decoration: line-through;">￥{{coffee.price_face}}</text>)</text>
 								</view>
 							</view>
-							<image class="icon-add" src="../../images/icon_add.png" mode="aspectFill" />
+							<image class="icon-add" src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/icon_add.png" mode="aspectFill" />
 						</view>
 					</block>
 				</view>
@@ -84,7 +84,7 @@
 		<!-- 购物车 -->
 		<view class="cart {{cartIsShowing ? '' : 'hidden-cart'}}">
 			<view class="cart-left" bind:tap="showCart">
-				<image class="cart-icon" src="../../images/cart_icon.png" mode="aspectFill" />
+				<image class="cart-icon" src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/cart_icon.png" mode="aspectFill" />
 				<view class="superscript">
 					<view>{{cartNumber}}</view>
 				</view>

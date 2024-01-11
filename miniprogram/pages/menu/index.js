@@ -468,6 +468,7 @@ Page({
   onShow() {
     this.setData({
       address: wx.getStorageSync('address'),
+      store: wx.getStorageSync('store'),
       cart: wx.getStorageSync("cart")
     })
     // 计算购物车商品中的数量

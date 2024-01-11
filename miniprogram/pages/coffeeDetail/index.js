@@ -8,270 +8,14 @@ Page({
    */
   data: {
     // 商品详情
-    spu: {
-      id: 1,
-      coverImageUrl: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
-      bannerList: [{
-          id: 1,
-          src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetail02.png",
-        },
-        {
-          id: 2,
-          src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetail01.png"
-        },
-      ],
-      name: "马斯卡彭生酪拿铁",
-      skuList: [{
-          id: 1,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 1,
-                name: "冰",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 1,
-                name: "不另外加糖",
-                price: 0
-              }
-            }
-          ]
-        },
-        {
-          id: 2,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 2,
-                name: "热",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 1,
-                name: "不另外加糖",
-                price: 0
-              }
-            }
-          ]
-        },
-        {
-          id: 2,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 1,
-                name: "冰",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 2,
-                name: "加糖",
-                price: 0
-              }
-            }
-          ]
-        },
-        {
-          id: 4,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 2,
-                name: "热",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 2,
-                name: "加糖",
-                price: 0
-              }
-            }
-          ]
-        },
-        {
-          id: 5,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 1,
-                name: "冷",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 3,
-                name: "标准糖",
-                price: 0
-              }
-            }
-          ]
-        },
-        {
-          id: 6,
-          metaList: [{
-              id: 1,
-              name: "杯型",
-              value: {
-                id: 1,
-                name: "大杯",
-                price: 0
-              }
-            },
-            {
-              id: 2,
-              name: "温度",
-              value: {
-                id: 2,
-                name: "热",
-                price: 0
-              }
-            },
-            {
-              id: 3,
-              name: "糖度",
-              value: {
-                id: 3,
-                name: "标准糖",
-                price: 0
-              }
-            }
-          ]
-        }
-      ],
-      metaList: [{
-          id: 1,
-          name: "杯型",
-          value: [{
-            id: 1,
-            name: "大杯",
-            price: 0
-          }],
-          checkedValue: {
-            id: 1,
-            name: "大杯",
-            price: 0
-          },
-        },
-        {
-          id: 2,
-          name: "温度",
-          value: [{
-              id: 1,
-              name: "冰",
-              price: 0
-            },
-            {
-              id: 2,
-              name: "热",
-              price: 0
-            }
-          ],
-          checkedValue: {
-            id: 1,
-            name: "冰",
-            price: 0
-          },
-        },
-        {
-          id: 3,
-          name: "糖度",
-          value: [{
-              id: 1,
-              name: "不另外加糖",
-              price: 0
-            },
-            {
-              id: 2,
-              name: "加糖",
-              price: 0
-            },
-            {
-              id: 3,
-              name: "标准糖",
-              price: 0
-            }
-          ],
-          checkedValue: {
-            id: 1,
-            name: "不另外加糖",
-            price: 0
-          },
-        }
-      ],
-      price_sale: 20,
-      price_face: 32,
-      detailImage: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffeeDetailLongImg01.png",
-      rawMaterial: "纯牛奶、马斯卡彭风味厚奶（配置型含乳饮料）、浓缩咖啡"
+    spu:{
+      bannerList:[],
+      skuList:[],
+      metaList:[]
+
+    },
+    options:{
+      id:""
     },
     // 计算后的商品价格
     priceComputed: 0,
@@ -455,9 +199,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.computedPrice()
-    this.getSku()
     // TODO 根据id获取详情数据 options.id
+    this.setData({
+      options:options
+    })
+    wx.cloud.callFunction({
+      name:"getCoffeeDetail",
+      data:{
+        id:parseInt(options.id)
+      }
+    }).then(res=>{
+      // console.log(res.result)
+      this.setData({
+        spu:res.result
+      })
+      this.computedPrice()
+    })
+
   },
 
   /**
@@ -471,6 +229,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // wx.cloud.callFunction({
+    //   name:"getCoffeeDetail",
+    //   data:{
+    //     id:parseInt(this.options.id)
+    //   }
+    // }).then(res=>{
+    //   // console.log(res.result)
+    //   this.setData({
+    //     spu:res.result
+    //   })
+    //   this.computedPrice()
+    // })
+    
 
   },
 

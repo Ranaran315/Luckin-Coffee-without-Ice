@@ -1,0 +1,4 @@
+<!--pages/record/index.wxml-->
+<view class="container">
+  <image src="../../images/QQ图片20240111110614.jpg" mode=""/>
+</view>

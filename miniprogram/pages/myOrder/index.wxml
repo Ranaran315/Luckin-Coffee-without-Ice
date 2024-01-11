@@ -1,0 +1,25 @@
+<!--pages/myOrder/index.wxml-->
+<view class="container">
+	<scroll-view scroll-y="true" class="order-box">
+		<block wx:for="{{orderList}}" wx:key="id">
+			<view class="order-item">
+			<view class="top">
+				<view class="tag">外卖</view>
+				<view class="title">四川轻化工大学宜宾校区（B8-A423）</view>
+				<view class="type">已完成</view>
+			</view>
+			<view class="center">
+				<view class="left cover-image"></view>
+				<view class="center detail-info">
+					<view class="name">生椰拿铁</view>
+					<view class="meta">
+						
+					</view>
+				</view>
+				<view class="right number"></view>
+			</view>
+			<view class="bottom"></view>
+		</view>
+		</block>
+	</scroll-view>
+</view>

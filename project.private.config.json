@@ -7,6 +7,13 @@
       "list": [
         {
           "name": "",
+          "pathName": "pages/profile/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/order/index",
           "query": "",
           "launchMode": "default",

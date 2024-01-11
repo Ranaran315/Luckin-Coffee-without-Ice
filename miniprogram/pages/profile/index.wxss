@@ -1,0 +1,35 @@
+/* pages/profile/index.wxss */
+.container {
+	padding: var(--page-padding);
+	padding-bottom: 20rpx;
+	background-color: var(--bg-01);
+	height: 100vh;
+	justify-content: space-between;
+}
+
+.container .main,
+.container .logout {
+	width: 100%;
+}
+
+.avatar {
+	--avatar-size: 60rpx;
+	width: var(--avatar-size);
+	height: var(--avatar-size);
+}
+
+.main {
+	width: 100%;
+	background-color: var(--bg-02);
+	border-radius: var(--br);
+	padding: 30rpx 20rpx;
+}
+
+.main .main_form .main_form_right {
+	display: flex;
+	align-items: center;
+}
+
+.main .main_form .main_form_right .main_form_right_left {
+	margin-right: 10rpx;
+}

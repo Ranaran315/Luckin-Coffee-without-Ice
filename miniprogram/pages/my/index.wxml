@@ -3,8 +3,9 @@
 	<view class="profile">
 		<image src="{{userInfo.backgroundImage}}" mode="aspectFill" class="background" />
 		<view class="info">
-			<Avatar src="" class="avatar" />
+			<Avatar src="{{userInfo.avatar}}" class="avatar" />
 			<text>{{userInfo.nickname}}</text>
+			<Icon name="jinqv"></Icon>
 		</view>
 	</view>
 	<view class="main">

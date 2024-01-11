@@ -9,7 +9,10 @@ Component({
   properties: {
     // 提示文本
     label: String,
+    // 提示文本宽度
     labelWidth: "",
+    // 样式
+    style: ""
   },
 
   /**

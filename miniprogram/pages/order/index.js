@@ -6,7 +6,7 @@ Page({
    */
   data: {
     // 预计时间
-    estimatedTime: "14:30",
+    estimatedTime: "",
     // 配送方式：是否自提
     isSelf: true,
     // 门店信息

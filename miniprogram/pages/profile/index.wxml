@@ -1,0 +1,47 @@
+<!--pages/profile/index.wxml-->
+<view class="container">
+	<view class="main">
+		<Form class="main_form">
+			<FormItem label="头像" style="justify-content: space-between;">
+				<view class="main_form_right">
+					<Avatar src="{{userInfo.avatar}}" class="avatar main_form_right_left"></Avatar>
+					<Icon name="jinqv"></Icon>
+				</view>
+			</FormItem>
+			<FormItem label="用户名" style="justify-content: space-between;">
+				<view class="main_form_right">
+					<view class="main_form_right_left">{{userInfo.username}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+			</FormItem>
+			<FormItem label="性别" style="justify-content: space-between;">
+				<view class="main_form_right">
+					<view class="main_form_right_left">{{userInfo.gender}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+			</FormItem>
+			<FormItem label="我的幸运日" style="justify-content: space-between;">
+				<view class="main_form_right">
+					<view class="main_form_right_left">{{userInfo.lucky_day}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+			</FormItem>
+			<FormItem label="关联手机" style="justify-content: space-between;">
+				<view class="main_form_right">
+					<view class="main_form_right_left">{{userInfo.phone}}</view>
+					<Icon name="jinqv"></Icon>
+				</view>
+			</FormItem>
+			<FormItem label="收货地址" style="justify-content: space-between;">
+				<Icon name="jinqv"></Icon>
+			</FormItem>
+			<FormItem label="账号管理" style="justify-content: space-between;">
+				<Icon name="jinqv"></Icon>
+			</FormItem>
+			<FormItem label="协议与说明" style="justify-content: space-between;">
+				<Icon name="jinqv"></Icon>
+			</FormItem>
+		</Form>
+	</view>
+	<LuckinButton type="primary" class="logout">退出登录</LuckinButton>
+</view>

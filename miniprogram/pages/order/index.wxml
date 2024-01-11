@@ -19,7 +19,7 @@
 					<Icon name="jinqv"></Icon>
 				</view>
 				<view class="store-detail-address">
-					{{store.desc}}
+					{{store.detailAddress}}
 				</view>
 			</navigator>
 			<navigator url="../delivery/index?isSelf=false" wx:else>

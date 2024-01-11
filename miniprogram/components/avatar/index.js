@@ -15,7 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    defaultAvatar: "../../images/default_avatar.png",
+    defaultAvatar: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/default_avatar.png",
     avatarSrc: ""
   },
 

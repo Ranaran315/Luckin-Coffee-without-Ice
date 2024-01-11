@@ -1,5 +1,6 @@
 // pages/order/index.js
 const db = wx.cloud.database()
+import {getCureentDetailTime} from "../../utils/timeFormat"
 Page({
 
   /**
@@ -8,6 +9,8 @@ Page({
   data: {
     // 预计时间
     estimatedTime: "",
+    //支付时间
+    zhifutime:"",
     // 配送方式：是否自提
     isSelf: true,
     // 门店信息
@@ -139,9 +142,10 @@ Page({
   //支付
   async zhifu(){
     console.log(this.data)
+    this.data.zhifutime=getCureentDetailTime()
     db.collection('goods').add({
       data: {
-        goods:this.data.goods
+        data:this.data
       }
     }).then((res) => {
       wx.showToast({

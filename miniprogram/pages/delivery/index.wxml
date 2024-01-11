@@ -63,7 +63,7 @@
 							</view>
 						</view>
 						<view class="right">
-							<Icon name="xiugai"></Icon>
+							<Icon name="xiugai" catch:tap="updateAddress" data-item="{{item}}" data-index="{{index}}"></Icon>
 						</view>
 					</view>
 				</block>

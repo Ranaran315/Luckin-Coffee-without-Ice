@@ -5,14 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {
-      nickname: "luckin coffee",
-      backgroundImage: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/header_bg.png",
-      level: {
-        level: "LV.0",
-        name: "小迷鹿"
-      }
-    },
+    userInfo: "",
+    backgroundImage: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/header_bg.png",
     bannerList: [
       {
         id: 1,
@@ -23,6 +17,13 @@ Page({
         src: "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/CtwiPGWRSYeANkR5AAG_Fqf8qT885.png"
       }
     ]
+  },
+
+  // 登录
+  login() {
+    wx.navigateTo({
+      url: '../login/index',
+    })
   },
 
   /**
@@ -43,7 +44,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userInfoList = wx.getStorageSync('userinfo')
+    this.setData({
+      userInfo: userInfoList == '' ? '' : userInfoList[0]
+    })
   },
 
   /**

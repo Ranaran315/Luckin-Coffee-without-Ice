@@ -10,12 +10,17 @@
 }
 
 /* 样式 */
+.default {
+	background-color: var(--bg-02);
+	color: var(--color-05);
+}
+
 .primary {
 	background-color: var(--primary-color);
 	color: var(--color-02);
 }
 
-.default {
+.wx {
 	background-color: var(--wx-color);
 	color: var(--color-02);
 }

@@ -1,12 +1,20 @@
 <!--pages/my/index.wxml-->
 <view class="container">
-  <view class="profile">
-		<image src="{{userInfo.backgroundImage}}" mode="aspectFill" class="background" />
-		<view class="info">
-			<Avatar src="{{userInfo.avatar}}" class="avatar" />
-			<text>{{userInfo.nickname}}</text>
-			<Icon name="jinqv"></Icon>
-		</view>
+	<view class="profile">
+		<image src="{{userInfo.backgroundImage || backgroundImage}}" mode="aspectFill" class="background" />
+			<block wx:if="{{userInfo != ''}}">
+				<navigator url="../profile/index" class="info">
+					<Avatar src="{{userInfo.avatar}}" class="avatar" />
+					<text>{{userInfo.username}}</text>
+					<Icon name="jinqv"></Icon>
+				</navigator>
+			</block>
+			<block wx:else>
+				<navigator class="info" url="../login/index" style="font-size: 1.5rem;">
+					登陆/注册
+					<Icon name="jinqv"></Icon>
+				</navigator>
+			</block>
 	</view>
 	<view class="main">
 		<view class="level-card main-item">

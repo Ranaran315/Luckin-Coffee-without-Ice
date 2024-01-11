@@ -43,5 +43,5 @@
 			</FormItem>
 		</Form>
 	</view>
-	<LuckinButton type="primary" class="logout">退出登录</LuckinButton>
+	<LuckinButton type="primary" class="logout" bind:tap="logout">退出登录</LuckinButton>
 </view>

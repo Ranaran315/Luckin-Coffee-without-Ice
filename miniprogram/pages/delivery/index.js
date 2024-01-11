@@ -61,6 +61,16 @@ Page({
     wx.navigateBack()
   },
 
+  // 修改地址
+  updateAddress(e) {
+    const address = e.currentTarget.dataset.item
+    const index = e.currentTarget.dataset.index
+    const paramStr = JSON.stringify(address)
+    wx.navigateTo({
+      url: `../updateAddress/index?address=${encodeURIComponent(paramStr)}&index=${index}`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -101,6 +111,12 @@ Page({
    */
   onShow() {
     this.getaddress()
+    const userInfoList = wx.getStorageSync('userinfo')
+    if (userInfoList == '') {
+      wx.navigateTo({
+        url: '../login/index',
+      })
+    }
   },
 
   /**

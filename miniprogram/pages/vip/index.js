@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    vipImagesList: [
-      {
+    vipImagesList: [{
         id: 1,
         src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage0.jpg'
       },
@@ -24,15 +23,15 @@ Page({
       }
     ]
   },
-  onLoad(){
- 
+  onLoad() {
+
   },
-  yhj(){
-  wx.showModal({
-    title:'兑换会员卡',
-    editable:true,
-    placeholderText:'请输入兑换码',
-    confirmColor:'blue',
-  })
+  yhj() {
+    wx.showModal({
+      title: '兑换会员卡',
+      editable: true,
+      placeholderText: '请输入兑换码',
+      confirmColor: 'blue',
+    })
   }
 })

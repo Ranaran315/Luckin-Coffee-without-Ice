@@ -3,6 +3,7 @@
 .container {
 	--header-height: 100rpx;
 	--map-height: 600rpx;
+	--button-height: 200rpx;
 }
 
 .header {
@@ -14,19 +15,13 @@
 	background-color: var(--bg-02);
 }
 
-.main {
+.self-pickup-main {
 	width: 100%;
 	height: calc(100vh - 2 * var(--header-height));
 	background-color: var(--bg-01);
-	padding: var(--page-padding);
-	padding-top: 20rpx;
 }
 
-.no-padding {
-	padding: 0;
-}
-
-.main .self-pickup , .main .provide-home {
+.self-pickup-main .self-pickup , .main .provide-home {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -35,25 +30,25 @@
 	align-items: center;
 }
 
-.main .self-pickup .map {
+.self-pickup-main .self-pickup .map {
 	width: 100%;
 	height: var(--map-height);
 	background-color: var(--primary-color);
 }
 
-.main .self-pickup .self-pickup_main .header {
+.self-pickup-main .self-pickup .self-pickup_main .header {
 	display: flex;
 	justify-content: flex-start;
 	padding: 20rpx 30rpx;
 	font-weight: 700;
 }
 
-.main .self-pickup .self-pickup_main .header .header-item {
+.self-pickup-main .self-pickup .self-pickup_main .header .header-item {
 	position: relative;
 	padding: 10rpx;
 }
 
-.main .self-pickup .self-pickup_main .header .header-item::before {
+.self-pickup-main .self-pickup .self-pickup_main .header .header-item::before {
 	content: "";
 	width: 30rpx;
 	height: 5rpx;
@@ -64,19 +59,19 @@
 	background-color: var(--bg-03);
 }
 
-.main .self-pickup .self-pickup_main .store-box {
+.self-pickup-main .self-pickup .self-pickup_main .store-box {
 	height: calc(100vh - var(--header-height) * 2 - var(--map-height));
 }
 
-.main .self-pickup .self-pickup_main .store-item {
+.self-pickup-main .self-pickup .self-pickup_main .store-item {
 	padding: 20rpx 30rpx;
 }
 
-.main .self-pickup .self-pickup_main .store-item.selected {
+.self-pickup-main .self-pickup .self-pickup_main .store-item.selected {
 	background-color: var(--thrid-color);
 }
 
-.main .self-pickup .self-pickup_main .store-item .name {
+.self-pickup-main .self-pickup .self-pickup_main .store-item .name {
 	font-size: .9rem;
 	font-weight: 700;
 	width: 100%;
@@ -88,7 +83,7 @@
 	align-items: center;
 }
 
-.main .self-pickup .self-pickup_main .store-item .name .current {
+.self-pickup-main .self-pickup .self-pickup_main .store-item .name .current {
 	font-weight: 500;
 	font-size: .8rem;
 	background-color: var(--primary-color);
@@ -99,15 +94,26 @@
 	margin-left: 20rpx;
 }
 
-.main .self-pickup .self-pickup_main .store-item .detail-address,
-.main .self-pickup .self-pickup_main .store-item .business-hours {
+.self-pickup-main .self-pickup .self-pickup_main .store-item .detail-address,
+.self-pickup-main .self-pickup .self-pickup_main .store-item .business-hours {
 	display: flex;
 	font-size: .8rem;
 	color: var(--color-03);
 	margin-bottom: 15rpx;
 }
 
-.main .provide-home .no-address {
+.provide-home-main {
+	width: 100%;
+	height: calc(100vh - var(--header-height) - var(--button-height));
+	background-color: var(--bg-01);
+	padding: 20rpx;
+}
+
+.provide-home-main .provide-home {
+	margin: 0 20rpx;
+}
+
+.provide-home-main .provide-home .no-address {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -115,19 +121,22 @@
 	align-items: center;
 }
 
-.main .provide-home .no-address image {
+.provide-home-main .provide-home .no-address image {
 	width: 50%;
 }
 
-.main .provide-home .address-add-btn {
+.provide-home-main .provide-home .address-add-btn {
 	width: 90%;
+	height: var(--button-height);
 	position: fixed;
 	left: 50%;
 	bottom: 0;
 	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
 }
 
-.address-box {
+.provide-home-main .provide-home .address-box {
 	width: 100%;
 	display: flex;
 	flex-direction: column;

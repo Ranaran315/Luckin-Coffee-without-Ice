@@ -2,23 +2,26 @@
 <view class="container">
 	<view class="profile">
 		<image src="{{userInfo.backgroundImage || backgroundImage}}" mode="aspectFill" class="background" />
-			<block wx:if="{{userInfo != ''}}">
-				<navigator url="../profile/index" class="info">
-					<Avatar src="{{userInfo.avatar}}" class="avatar" />
-					<text>{{userInfo.username}}</text>
-					<Icon name="jinqv"></Icon>
-				</navigator>
-			</block>
-			<block wx:else>
-				<navigator class="info" url="../login/index" style="font-size: 1.5rem;">
-					登陆/注册
-					<Icon name="jinqv"></Icon>
-				</navigator>
-			</block>
+		<block wx:if="{{userInfo != ''}}">
+			<navigator url="../profile/index" class="info">
+				<Avatar src="{{userInfo.avatar}}" class="avatar" />
+				<text>{{userInfo.username}}</text>
+				<Icon name="jinqv"></Icon>
+			</navigator>
+		</block>
+		<block wx:else>
+			<navigator class="info" url="../login/index" style="font-size: 1.5rem;">
+				登陆/注册
+				<Icon name="jinqv"></Icon>
+			</navigator>
+		</block>
 	</view>
 	<view class="main">
 		<view class="level-card main-item">
-			<text>{{userInfo.level.level}} {{userInfo.level.name}}</text>
+			<view>
+				<text style="font-size: 1.2rem;">LV.0</text>
+				小迷鹿
+			</view>
 		</view>
 		<view class="function-panel main-item">
 			<view class="function-panel-item">

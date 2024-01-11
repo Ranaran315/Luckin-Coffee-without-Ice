@@ -3,9 +3,9 @@
 	<view class="header">
 		<SwitchTab leftText="门店自提" rightText="送货上门" value="{{isSelf}}" bind:change="switchDeliveryType"></SwitchTab>
 	</view>
-	<view class="main {{isSelf ? 'no-padding' : ''}}">
-		<!-- 自提 -->
-		<view class="self-pickup" wx:if="{{isSelf}}">
+	<!-- 自提 -->
+	<view class="self-pickup-main" wx:if="{{isSelf}}">
+		<view class="self-pickup">
 			<view class="map"></view>
 			<view class="self-pickup_main">
 				<view class="header">
@@ -31,8 +31,10 @@
 				</scroll-view>
 			</view>
 		</view>
-		<!-- 外送 -->
-		<view class="provide-home" wx:else>
+	</view>
+	<!-- 外送 -->
+	<scroll-view class="provide-home-main" wx:else scroll-y="true">
+		<view scroll-y="true" class="provide-home" >
 			<view class="no-address" wx:if="{{addressList.length === 0}}">
 				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/bg_location_fail.png" mode="widthFix" />
 			</view>
@@ -68,9 +70,11 @@
 					</view>
 				</block>
 			</view>
-			<LuckinButton class="address-add-btn" type="primary">
-				<navigator url="../addAddress/index">+ 新增收获地址</navigator>
-			</LuckinButton>
+			<view class="address-add-btn">
+				<LuckinButton type="primary" style="width: 100%;">
+					<navigator url="../addAddress/index">+ 新增收获地址</navigator>
+				</LuckinButton>
+			</view>
 		</view>
-	</view>
+	</scroll-view>
 </view>

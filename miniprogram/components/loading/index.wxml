@@ -1,0 +1,7 @@
+<!--components/loading/index.wxml-->
+<view class="loading" wx:if="{{isLoading}}">
+	<view class="mask"></view>
+	<view class="loading-icon">
+		<image src="../../images/loading.gif" mode=""/>
+	</view>
+</view>

@@ -37,6 +37,7 @@ Page({
         name: "学校"
       }
     ],
+    isLoading: false
   },
 
   // 处理输入框事件
@@ -126,6 +127,10 @@ Page({
 
   // 保存
   async save() {
+    const _this = this
+    this.setData({
+      isLoading: true
+    })
     // TODO：保存新增地址
     const userinfo = wx.getStorageSync('userinfo');
     const openid = userinfo[0]._openid;
@@ -159,21 +164,45 @@ Page({
           addressList: addressList
         },
         success: function (res) {
-          console.log(res);
-          wx.navigateBack()
+          _this.setData({
+            isLoading: false
+          })
+          wx.showToast({
+            title: '保存成功',
+            icon: "none"
+          })
+          setTimeout(() => {
+            wx.navigateBack()
+          },500)
         },
         fail: function (err) {
-          console.error(err);
+          _this.setData({
+            isLoading: false
+          })
+          wx.showToast({
+            title: '修改错误',
+            icon: 'error'
+          })
         }
       });
     }).catch(err => {
-      console.error(err);
+      _this.setData({
+        isLoading: false
+      })
+      wx.showToast({
+        title: '修改错误',
+        icon: 'error'
+      })
     });
 
   },
 
   // 删除
   delete() {
+    const _this = this
+    _this.setData({
+      isLoading: true
+    })
     // TODO 删除
     const userinfo = wx.getStorageSync('userinfo');
     const openid = userinfo[0]._openid;
@@ -195,15 +224,35 @@ Page({
           addressList: addressList
         },
         success: function (res) {
-          console.log(res);
-          wx.navigateBack()
+          _this.setData({
+            isLoading: false
+          })
+          wx.showToast({
+            title: '删除成功',
+            icon: "none"
+          })
+          setTimeout(() => {
+            wx.navigateBack()
+          },500)
         },
         fail: function (err) {
-          console.error(err);
+          _this.setData({
+            isLoading: false
+          })
+          wx.showToast({
+            title: '错误',
+            icon: "error"
+          })
         }
       });
     }).catch(err => {
-      console.error(err);
+      _this.setData({
+        isLoading: false
+      })
+      wx.showToast({
+        title: '错误',
+        icon: "error"
+      })
     });
 
 

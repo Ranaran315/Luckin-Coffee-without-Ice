@@ -21,10 +21,18 @@ Page({
         id: 4,
         src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage3.jpg'
       }
-    ]
+    ],
+    isLoading: false
   },
   onLoad() {
-
+    this.setData({
+      isLoading: true
+    })
+    setTimeout(() => {
+      this.setData({
+        isLoading: false
+      })
+    },1000)
   },
   yhj() {
     wx.showModal({

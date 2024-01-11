@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
   },
 
   // 退出登录
@@ -29,7 +29,6 @@ Page({
     this.setData({
       userInfo: wx.getStorageSync('userinfo')[0]
     })
-    console.log(111111111);
   },
 
   /**

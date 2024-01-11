@@ -15,7 +15,8 @@ Page({
       
     ],
     // 当前选中的门店索引
-    currentStoreIndex: 0
+    currentStoreIndex: 0,
+    isLoading: false
   },
 
   // 更改配送方式
@@ -32,13 +33,18 @@ Page({
     wx.navigateBack()
   },
 
+  // 获取地址
   async getaddress(){
+    this.setData({
+      isLoading: true
+    })
     const userinfo =wx.getStorageSync('userinfo')
     const user=await db.collection('user').where({
       _openid:userinfo[0]._openid
     }).get()
     this.setData({
-      addressList: user.data[0].addressList
+      addressList: user.data[0].addressList,
+      isLoading: false
     })
   },
 
@@ -82,13 +88,19 @@ Page({
     this.getLocation()
     
   },
+
+  // 获取门店地址
   getStore(){
-    console.log(1111111111111111111111111111111111111111)
+    this.setData({
+      isLoading: true
+    })
     const that = this
     wx.cloud.callFunction({
       name: 'getStore',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
     }).then(res => {
-      console.log("云函数返回的结果",res)
+      this.setData({
+        isLoading: false
+      })
       this.setData({
         storeList:res.result.store.data
       })

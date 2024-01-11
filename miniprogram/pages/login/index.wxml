@@ -12,3 +12,4 @@
 		<navigator class="agreement" url="">《支付协议》</navigator>
 	</view>
 </view>
+<Loading isLoading="{{isLoading}}"></Loading>

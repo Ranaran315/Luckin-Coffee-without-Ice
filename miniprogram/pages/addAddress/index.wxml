@@ -38,3 +38,4 @@
 	</Form>
 	<LuckinButton class="save-btn" type="primary" bind:tap="save">保存</LuckinButton>
 </view>
+<Loading isLoading="{{isLoading}}"></Loading>

@@ -71,7 +71,8 @@
     "FormItem": "./components/form/form-item/index",
     "LuckinButton": "./components/button/index",
     "Tab": "./components/tab/index",
-    "NumberCount": "./components/numberCount/index"
+    "NumberCount": "./components/numberCount/index",
+    "Loading": "./components/loading/index"
   },
   "plugins": {
     "citySelector": {

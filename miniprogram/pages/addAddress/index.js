@@ -38,6 +38,7 @@ Page({
         name: "学校"
       }
     ],
+    isLoading: false
   },
 
   // 处理输入框事件
@@ -128,6 +129,9 @@ Page({
 
   // 保存
   async save() {
+    this.setData({
+      isLoading: true
+    })
     // TODO：保存新增地址
     const userinfo = wx.getStorageSync("userinfo")
     // 在页面中调用云数据库API
@@ -153,13 +157,24 @@ Page({
         addressList:this.data.addressList
       },
       success: res => {
-        console.log('更新成功', res)
+        wx.showToast({
+          title: '添加成功',
+          icon: "none"
+        })
       },
       fail: err => {
-        console.error('更新失败', err)
+        wx.showToast({
+          title: '失败',
+          icon: "none"
+        })
       }
     })
-    wx.navigateBack()
+    setTimeout(() => {
+      this.setData({
+        isLoading: false
+      })
+      wx.navigateBack()
+    },500)
   },
 
   /**

@@ -8,7 +8,8 @@ Page({
   data: {
     swiperList: [
     ],
-    userInfo: ''
+    userInfo: '',
+    isLoading: false
   },
 
   // 登录
@@ -22,19 +23,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.setData({
+      isLoading: true
+    })
     const that = this
     wx.cloud.callFunction({
       name: 'getLbt',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
     }).then(res => {
-      console.log("云函数返回的结果",res)
       this.setData({
         swiperList:res.result.lbt.data
       })
       that.setData({
-        result:res.result
+        result:res.result,
+        isLoading: false
       })
     }).catch(err => {
-      console.log("云函数",err)
     })
   },
   /**

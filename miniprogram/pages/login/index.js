@@ -8,7 +8,8 @@ Page({
   data: {
     // 是否已同意用户协议等
     isChecked: false,
-    openid:""
+    openid:"",
+    isLoading: false
   },
 
   // 处理单选框事件
@@ -41,8 +42,10 @@ Page({
 
   // 一键登录
   async loginByOneClick() {
+    this.setData({
+      isLoading: true
+    })
     this.determineIsChecked().then(async() => {
-      console.log(this.data.openid);
     const user=await db.collection('user').where({_openid:this.data.openid}).get()
     console.log(user);
     if(user.data.length==0){
@@ -56,6 +59,9 @@ Page({
           addressList: [],
         }
       }).then((res) => {
+        this.setData({
+          isLoading: false
+        })
         wx.showToast({
           title: '登录成功',
           icon: 'none',
@@ -63,17 +69,14 @@ Page({
           duration: 2000 ,// 设置弹窗持续时间为2秒
           top:20
         })
-        console.log(res,"11111111111111");
-        console.log(user)
       }).catch((err) => {
-        console.error('添加数据失败:', err)
       })
-      
-      
-      console.log(user,"3333333333333")
       wx.setStorageSync("userinfo",user.data)
     }
     else{
+      this.setData({
+        isLoading: false
+      })
       wx.showToast({
         title: '登录成功',
         icon: 'none',

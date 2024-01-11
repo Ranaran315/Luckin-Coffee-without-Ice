@@ -30,17 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const that = this
-    wx.cloud.callFunction({
-      name: 'getGoods',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
-    }).then(res => {
-      console.log("云函数返回的结果1",res)
-      that.setData({
-        result:res.result
-      })
-    }).catch(err => {
-      console.log("云函数",err)
-    })
+    
   },
 
   /**

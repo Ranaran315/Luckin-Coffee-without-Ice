@@ -24,10 +24,10 @@
 			</view>
 		</view>
 		<view class="function-panel main-item">
-			<view class="function-panel-item">
+			<navigator url="../myOrder/index" class="function-panel-item">
 				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/我的订单.png" mode="aspectFill" class="function-icon" />
 				<text>我的订单</text>
-			</view>
+			</navigator>
 			<view class="function-panel-item">
 				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/优惠券.png" mode="aspectFill" class="function-icon" />
 				<text>优惠券</text>

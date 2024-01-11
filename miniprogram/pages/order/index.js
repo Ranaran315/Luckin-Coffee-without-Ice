@@ -1,6 +1,8 @@
 // pages/order/index.js
 const db = wx.cloud.database()
-import {getCureentDetailTime} from "../../utils/timeFormat"
+import {
+  getCureentDetailTime
+} from "../../utils/timeFormat"
 Page({
 
   /**
@@ -10,7 +12,7 @@ Page({
     // 预计时间
     estimatedTime: "",
     //支付时间
-    zhifutime:"",
+    zhifutime: "",
     // 配送方式：是否自提
     isSelf: true,
     // 门店信息
@@ -18,115 +20,47 @@ Page({
     // 地址信息
     address: {},
     // 订单商品信息
-    goods: [{
-      "sku": {
-        "id": 6,
-        "metaList": [{
-          "id": 1,
-          "name": "杯型",
-          "value": {
-            "id": 1,
-            "name": "大杯",
-            "price": 0
-          }
-        }, {
-          "id": 2,
-          "name": "温度",
-          "value": {
-            "id": 2,
-            "name": "热",
-            "price": 0
-          }
-        }, {
-          "id": 3,
-          "name": "糖度",
-          "value": {
-            "id": 3,
-            "name": "标准糖",
-            "price": 0
-          }
-        }]
-      },
-      "name": "马斯卡彭生酪拿铁",
-      "coverImageUrl": "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
-      "price_sale": 20,
-      "price_face": 32,
-      "number": 1
-    }, {
-      "sku": {
-        "id": 1,
-        "metaList": [{
-          "id": 1,
-          "name": "杯型",
-          "value": {
-            "id": 1,
-            "name": "大杯",
-            "price": 0
-          }
-        }, {
-          "id": 2,
-          "name": "温度",
-          "value": {
-            "id": 1,
-            "name": "冰",
-            "price": 0
-          }
-        }, {
-          "id": 3,
-          "name": "糖度",
-          "value": {
-            "id": 1,
-            "name": "不另外加糖",
-            "price": 0
-          }
-        }]
-      },
-      "name": "马斯卡彭生酪拿铁",
-                     "coverImageUrl": "cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/coffee01.png",
-      "price_sale": 20,
-      "price_face": 32,
-      "number": 2
-    }],
+    goods: [],
     // 应付价格
     computedPrice: 0,
     // 订单备注展示
     notesBoxDialogVisiablity: false,
     // 订单备注项
-    noteMetaList: [
+    noteMetaList: [{
+        id: 1,
+        name: "无接触配送",
+        value: [{
+            id: 1,
+            name: "不需要",
+          },
+          {
+            id: 2,
+            name: "需要"
+          }
+        ],
+        checkedValueId: 1
+      },
       {
-      id: 1,
-      name: "无接触配送",
-      value: [{
-          id: 1,
-          name: "不需要",
-        },
-        {
-          id: 2,
-          name: "需要"
-        }
-      ],
-      checkedValueId: 1 
-    },
-    {
-      id: 2,
-      name: "纸巾",
-      value: [{
-          id: 1,
-          name: "不需要"
-        },
-        {
-          id: 2,
-          name: "需要"
-        }
-      ],
-      checkedValueId: 1 
-    }
+        id: 2,
+        name: "纸巾",
+        value: [{
+            id: 1,
+            name: "不需要"
+          },
+          {
+            id: 2,
+            name: "需要"
+          }
+        ],
+        checkedValueId: 1
+      }
     ],
     // 订单备注内容
     note: "",
     computedNote: "",
     // 优惠价格
-    preferential: 16
+    preferential: 16,
+    isLoading: false
   },
 
   // 改变配送方式
@@ -140,23 +74,42 @@ Page({
     })
   },
   //支付
-  async zhifu(){
+  async zhifu() {
+    const _this = this
+    _this.setData({
+      isLoading: true
+    })
     console.log(this.data)
-    this.data.zhifutime=getCureentDetailTime()
+    this.data.zhifutime = getCureentDetailTime()
+    let number = 0
+    this.data.goods.forEach(item => {
+      number += item.number
+    })
     db.collection('goods').add({
       data: {
-        data:this.data
+        ...this.data,
+        number: number
       }
     }).then((res) => {
+      _this.setData({
+        isLoading: false
+      })
       wx.showToast({
         title: '支付成功',
         icon: 'none',
         position: 'top', // 设置弹窗位置为页面上部
-        duration: 2000 ,// 设置弹窗持续时间为2秒
-        top:20
+        duration: 2000, // 设置弹窗持续时间为2秒
+        top: 20
       })
-      console.log(res,"11111111111111");
+      setTimeout(() => {
+        wx.redirectTo({
+          url: '../myOrder/index',
+        })
+      }, 500)
     }).catch((err) => {
+      _this.setData({
+        isLoading: false
+      })
       console.error('添加数据失败:', err)
     })
   },
@@ -172,10 +125,10 @@ Page({
     const metaId = e.currentTarget.dataset.metaId
     const itemId = e.currentTarget.dataset.itemId
     const newNoteMetaList = this.data.noteMetaList.map(meta => {
-       if (metaId == meta.id) {
-         meta.checkedValueId = itemId
-       }
-       return meta
+      if (metaId == meta.id) {
+        meta.checkedValueId = itemId
+      }
+      return meta
     })
     this.setData({
       noteMetaList: newNoteMetaList
@@ -204,7 +157,13 @@ Page({
     })
 
     // 关闭弹窗
-    this.changeNotesBoxDialog({currentTarget: {dataset: {flag: false}}})
+    this.changeNotesBoxDialog({
+      currentTarget: {
+        dataset: {
+          flag: false
+        }
+      }
+    })
   },
 
   // 计算价格
@@ -227,7 +186,7 @@ Page({
     let time = options.time
     let minute = time.substring(3)
     time = time.split('')
-    time.splice(3,2,new Number(minute) + 30 + '')
+    time.splice(3, 2, new Number(minute) + 30 + '')
     this.setData({
       estimatedTime: time.join(''),
       goods: JSON.parse(decodeURIComponent(options.goods))

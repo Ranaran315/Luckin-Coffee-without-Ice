@@ -8,7 +8,7 @@ Page({
   data: {
     // 是否已同意用户协议等
     isChecked: false,
-    openid:"",
+    openid: "",
     isLoading: false
   },
 
@@ -45,20 +45,40 @@ Page({
     this.setData({
       isLoading: true
     })
-    this.determineIsChecked().then(async() => {
-    const user=await db.collection('user').where({_openid:this.data.openid}).get()
-    console.log(user);
-    if(user.data.length==0){
-      db.collection('user').add({
-        data: {
-          username: "Rikka",
-          lucky_day: "",
-          phone: "",
-          gender: "男",
-          avatar: "https://636c-cloud1-5gya1gnp983b86b0-1323577987.tcb.qcloud.la/default_avatar.png?sign=96e5d539144095f5b1c9ad3e9aac9045&t=1704869741",
-          addressList: [],
-        }
-      }).then((res) => {
+    this.determineIsChecked()
+    .then(async () => {
+      const user = await db.collection('user').where({
+        _openid: this.data.openid
+      }).get()
+      console.log(user);
+      if (user.data.length == 0) {
+        db.collection('user').add({
+          data: {
+            username: "Rikka",
+            lucky_day: "",
+            phone: "",
+            gender: "男",
+            avatar: "https://636c-cloud1-5gya1gnp983b86b0-1323577987.tcb.qcloud.la/default_avatar.png?sign=96e5d539144095f5b1c9ad3e9aac9045&t=1704869741",
+            addressList: [],
+          }
+        }).then((res) => {
+          this.setData({
+            isLoading: false
+          })
+          wx.showToast({
+            title: '登录成功',
+            icon: 'none',
+            position: 'top', // 设置弹窗位置为页面上部
+            duration: 2000, // 设置弹窗持续时间为2秒
+            top: 20
+          })
+        }).catch((err) => {
+          this.setData({
+            isLoading: false
+          })
+        })
+        wx.setStorageSync("userinfo", user.data)
+      } else {
         this.setData({
           isLoading: false
         })
@@ -66,32 +86,24 @@ Page({
           title: '登录成功',
           icon: 'none',
           position: 'top', // 设置弹窗位置为页面上部
-          duration: 2000 ,// 设置弹窗持续时间为2秒
-          top:20
+          duration: 2000, // 设置弹窗持续时间为2秒
+          top: 20
         })
-      }).catch((err) => {
-      })
-      wx.setStorageSync("userinfo",user.data)
-    }
-    else{
+      }
+      const userinfo = await db.collection('user').where({
+        _openid: this.data.openid
+      }).get()
+      wx.setStorageSync("userinfo", userinfo.data)
+      wx.navigateBack()
+    })
+    .catch(() => {
       this.setData({
         isLoading: false
       })
-      wx.showToast({
-        title: '登录成功',
-        icon: 'none',
-        position: 'top', // 设置弹窗位置为页面上部
-        duration: 2000 ,// 设置弹窗持续时间为2秒
-        top:20
-      })
-    }
-    const userinfo=await db.collection('user').where({_openid:this.data.openid}).get()
-    wx.setStorageSync("userinfo",userinfo.data)
-    wx.navigateBack()
     })
-    
+
     // console.log(user);
-    
+
   },
 
   /**
@@ -100,17 +112,17 @@ Page({
   onLoad(options) {
     const that = this
     wx.cloud.callFunction({
-      name: 'getOpenid',//上面这个云函数并不需要我们传递参数（也就不需要data属性）
+      name: 'getOpenid', //上面这个云函数并不需要我们传递参数（也就不需要data属性）
     }).then(res => {
-      console.log("云函数返回的结果",res)
+      console.log("云函数返回的结果", res)
       this.setData({
-        openid:res.result.openid
+        openid: res.result.openid
       })
       that.setData({
-        result:res.result
+        result: res.result
       })
     }).catch(err => {
-      console.log("云函数",err)
+      console.log("云函数", err)
     })
   },
 

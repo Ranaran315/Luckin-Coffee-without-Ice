@@ -1,1 +1,91 @@
 /* pages/myOrder/index.wxss */
+.container {
+	padding: var(--page-padding);
+	background-color: var(--bg-01);
+}
+
+hr {
+	display: block;
+	width: 100%;
+	height: 0;
+	border: 1rpx dashed var(--bg-03);
+	margin: 20rpx 0;
+}
+
+.container .order-box .order-item {
+	background-color: var(--bg-02);
+	padding: 30rpx 20rpx;
+	border-radius: var(--br);
+	margin: 20rpx 0;
+}
+
+.container .order-box .order-item .top {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+}
+
+.container .order-box .order-item .top .tag {
+	background-color: var(--color-01);
+	color: var(--color-02);
+	padding: 5rpx 10rpx;
+	margin-right: 20rpx;
+}
+
+.container .order-box .order-item .top .title {
+	width: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.container .order-box .order-item .top .type {
+	margin-left: auto;
+}
+
+.container .order-box .order-item .center {
+	display: flex;
+	flex-direction: column;
+}
+
+.container .order-box .order-item .center .goods-item {
+	--cover-width: 150rpx;
+	display: flex;
+	align-items: center;
+	background-color: var(--thrid-color);
+	padding: 20rpx;
+	margin-bottom: 20rpx;
+	border-radius: var(--br);
+}
+
+.container .order-box .order-item .center .goods-item .left.cover-image {
+	width: var(--cover-width);
+	margin-right: 20rpx;
+}
+
+.container .order-box .order-item .center .goods-item .center.detail-info {
+	flex: 1;
+}
+
+.container .order-box .order-item .center .goods-item .center.detail-info .meta {
+	display: flex;
+	font-size: .8rem;
+	color: var(--color-03);
+}
+
+.container .order-box .order-item .center .goods-item .center.detail-info .meta .meta-item::after {
+	content: "/";
+}
+
+.container .order-box .order-item .center .goods-item .center.detail-info .meta .meta-item:last-child:after {
+	content: "";
+}
+
+.container .order-box .order-item .bottom	{
+	display: flex;
+	justify-content: space-between;
+	font-size: .8rem;
+	color: var(--color-03);
+}
+

@@ -5,8 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    vipImagesList: [
+    vipList: [{
+        id: 1,
+        title: "30天连续包月",
+        price_sale: 9.90,
+        price_face: 19.90
+      },
       {
+        id: 2,
+        title: "30天单月",
+        price_sale: 15.90,
+        price_face: 19.90
+      },
+    ],
+    vipImagesList: [{
         id: 1,
         src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage0.jpg'
       },
@@ -22,17 +34,23 @@ Page({
         id: 4,
         src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage3.jpg'
       }
-    ]
+    ],
+    currentVipId: 1
   },
-  onLoad(){
- 
+  onLoad() {
+
   },
-  yhj(){
-  wx.showModal({
-    title:'兑换会员卡',
-    editable:true,
-    placeholderText:'请输入兑换码',
-    confirmColor:'blue',
-  })
+  yhj() {
+    wx.showModal({
+      title: '兑换会员卡',
+      editable: true,
+      placeholderText: '请输入兑换码',
+      confirmColor: 'blue',
+    })
+  },
+  changeVip(e) {
+    this.setData({
+      currentVipId: e.currentTarget.dataset.item.id
+    })
   }
 })

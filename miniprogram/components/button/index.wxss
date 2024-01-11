@@ -26,10 +26,16 @@
 	color: var(--color-01);
 }
 
+<<<<<<< HEAD
 .pay {
 	background-color: var(--color-04);
 	color: var(--color-02);
 	font-weight: 700;
+=======
+.gold-plus {
+  background-image: linear-gradient(to right,rgba(231, 215, 121, 0.616),var(--color-01) );
+  font-weight: 700;
+>>>>>>> 05703086a9a8fe96314d2c75bb687c317eb7fbec
 }
 
 /* 大小 */

@@ -6,20 +6,15 @@
   </view>
   <!--套餐选择-->
   <view class="vipchoose">
-    <view class="price" data-price="1" style="background-color: white;">
-      <text style="font-size:medium;">30天连续包月</text>
-      <view><text>￥</text>
-        <text style="font-size: 60rpx;">9.90</text>
+    <block wx:for="{{vipList}}" wx:key="id">
+      <view class="price {{currentVipId == item.id ? 'selected' : ''}}" data-item="{{item}}" bind:tap="changeVip">
+        <text style="font-size:medium;">{{item.title}}</text>
+        <view><text>￥</text>
+          <text style="font-size: 60rpx;">{{item.price_sale}}</text>
+        </view>
+        <text style="text-decoration: line-through">￥{{item.price_face}}</text>
       </view>
-      <text style="text-decoration: line-through">￥19,90</text>
-    </view>
-    <view class="price" data-price="2" style="background-color: white;">
-      <text style="font-size:medium;">30天单月</text>
-      <view><text>￥</text>
-        <text style="font-size: 60rpx;">15.90</text>
-      </view>
-      <text style="text-decoration: line-through">￥19,90</text>
-    </view>
+    </block>
   </view>
   <!--特权图片列表-->
   <view class="vip">
@@ -47,12 +42,19 @@
         <Icon name="jinqv"></Icon>
       </view>
     </navigator>
-  <view class="setitem">
-    <text>自动续费管理</text>
-    <Icon name="jinqv"></Icon>
+    <view class="setitem">
+      <text>自动续费管理</text>
+      <Icon name="jinqv"></Icon>
+    </view>
   </view>
-</view>
-<view>
-  
-</view>
+  <!--支付-->
+  <view class="nav">
+    <view class="footer">
+      <Radio value="{{isChecked}}" size="25" bind:change="handlerChange" />我已阅读并同意
+      <navigator class="agreement" url="">《付费会员协议》</navigator>
+      <navigator class="agreement" url="">《隐私协议》</navigator>
+      <navigator class="agreement" url="">《支付协议》</navigator>
+    </view>
+    <LuckinButton type="gold-plus">购买</LuckinButton>
+  </view>
 </view>

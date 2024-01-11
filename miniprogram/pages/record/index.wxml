@@ -1,0 +1,4 @@
+<!--pages/record/index.wxml-->
+<view class="container">
+  <image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/QQ图片20240111110614.jpg" mode=""/>
+</view>

@@ -1,2 +1,58 @@
 <!--pages/vip/index.wxml-->
-<text>pages/vip/index.wxml</text>
+<view class="container">
+  <!--标题图片-->
+  <view class="titleimage">
+    <image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/viptitleimage .jpg" mode="" />
+  </view>
+  <!--套餐选择-->
+  <view class="vipchoose">
+    <view class="price" data-price="1" style="background-color: white;">
+      <text style="font-size:medium;">30天连续包月</text>
+      <view><text>￥</text>
+        <text style="font-size: 60rpx;">9.90</text>
+      </view>
+      <text style="text-decoration: line-through">￥19,90</text>
+    </view>
+    <view class="price" data-price="2" style="background-color: white;">
+      <text style="font-size:medium;">30天单月</text>
+      <view><text>￥</text>
+        <text style="font-size: 60rpx;">15.90</text>
+      </view>
+      <text style="text-decoration: line-through">￥19,90</text>
+    </view>
+  </view>
+  <!--特权图片列表-->
+  <view class="vip">
+    <block wx:for="{{vipImagesList}}" wx:key="id">
+      <image src="{{item.src}}" mode="" />
+    </block>
+  </view>
+  <!--底部-->
+  <view class="set">
+    <view class="setitem" bind:tap="yhj">
+      <text>兑换优惠</text>
+      <Icon name="jinqv"></Icon>
+    </view>
+    <view class="setitem">
+      <text>使用规则</text>
+      <Icon name="jinqv"></Icon>
+    </view>
+    <view class="setitem">
+      <text>常见问题</text>
+      <Icon name="jinqv"></Icon>
+    </view>
+    <navigator url="../record/index">
+      <view class="setitem">
+        <text>购买记录</text>
+        <Icon name="jinqv"></Icon>
+      </view>
+    </navigator>
+  <view class="setitem">
+    <text>自动续费管理</text>
+    <Icon name="jinqv"></Icon>
+  </view>
+</view>
+<view>
+  
+</view>
+</view>

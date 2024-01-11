@@ -1,6 +1,6 @@
 <!--pages/my/index.wxml-->
 <view class="container">
-	<view class="profile">
+  <view class="profile">
 		<image src="{{userInfo.backgroundImage}}" mode="aspectFill" class="background" />
 		<view class="info">
 			<Avatar src="{{userInfo.avatar}}" class="avatar" />

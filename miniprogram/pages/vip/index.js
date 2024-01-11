@@ -5,62 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    vipImagesList: [
+      {
+        id: 1,
+        src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage0.jpg'
+      },
+      {
+        id: 2,
+        src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage1.jpg'
+      },
+      {
+        id: 3,
+        src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage2.jpg'
+      },
+      {
+        id: 4,
+        src: 'cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/vip/image/vipimage3.jpg'
+      }
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad(){
+ 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  yhj(){
+  wx.showModal({
+    title:'兑换会员卡',
+    editable:true,
+    placeholderText:'请输入兑换码',
+    confirmColor:'blue',
+  })
   }
 })

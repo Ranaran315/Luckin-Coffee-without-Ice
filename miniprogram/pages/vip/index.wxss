@@ -1,1 +1,63 @@
-/* pages/vip/index.wxss */
+.titleimage{
+  width: 90%;
+  height: 350rpx;
+  /* border: 1px solid red; */
+}
+.titleimage image{
+  box-shadow: 1px 5px 10px rgba(121, 120, 120, 0.5);
+  border-radius: var(--br);
+}
+.vipchoose{
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+  width: 90%;
+  height: 200rpx;
+  font-family: 华文细黑;
+}
+.price{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 48%;
+  border-radius: var(--br)
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.vip{
+  margin-top: 20rpx;
+  width: 95%;
+}
+.vip image{
+  border-radius: var(--br);
+  margin-top: 20rpx;
+  height: 175rpx;
+}
+
+.vip image:nth-child(3) {
+  height: 470rpx;
+}
+.set{
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  border-radius: var(--br);
+  width: 95%;
+  margin-top: 20rpx;
+  margin-bottom: 100rpx;
+  justify-content: space-between;
+}
+.setitem{
+  width: 100%;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  margin-left: 5rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+

@@ -94,6 +94,7 @@ Page({
       _this.setData({
         isLoading: false
       })
+      wx.removeStorageSync('cart')
       wx.showToast({
         title: '支付成功',
         icon: 'none',

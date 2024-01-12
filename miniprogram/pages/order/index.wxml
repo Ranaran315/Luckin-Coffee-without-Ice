@@ -65,7 +65,7 @@
 		</block>
 		<view class="preferential">
 			<text>瑞幸优惠</text>
-			<view class="price" style="font-weight: 700; color: var(--color-04);">-￥16</view>
+			<view class="price" style="font-weight: 700; color: var(--color-04);">-￥{{preferential}}</view>
 		</view>
 		<view class="hr"></view>
 		<view class="payment-may">

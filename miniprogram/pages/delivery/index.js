@@ -15,7 +15,7 @@ Page({
       
     ],
     // 当前选中的门店索引
-    currentStoreIndex: 0,
+    currentStoreId: 0,
     isLoading: false
   },
 
@@ -129,6 +129,10 @@ Page({
         url: '../login/index',
       })
     }
+    const storeId = wx.getStorageSync('store')._id
+    this.setData({
+      currentStoreId: storeId
+    })
   },
 
   /**

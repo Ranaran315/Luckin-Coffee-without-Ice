@@ -59,7 +59,7 @@ Page({
     note: "",
     computedNote: "",
     // 优惠价格
-    preferential: 16,
+    preferential: 4,
     isLoading: false
   },
 

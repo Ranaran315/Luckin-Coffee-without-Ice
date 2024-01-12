@@ -46,6 +46,24 @@
 			</view>
 		</view>
 		<Banner></Banner>
+		<view class="main-item">
+			<view class="top">
+				<view class="title">新人专区</view>
+				<view class="sub-title">查看全部</view>
+			</view>
+			<view class="center">
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/新人专区.png" mode="widthFix"></image>
+			</view>
+		</view>
+		<view class="main-item">
+			<view class="top">
+				<view class="title">福利中心</view>
+				<view class="sub-title">查看全部</view>
+			</view>
+			<view class="center">
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/福利中心.png" mode="widthFix"/>
+			</view>
+		</view>
 	</view>
 
 </view>

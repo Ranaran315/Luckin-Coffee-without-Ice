@@ -51,11 +51,17 @@
 					<view class="left time">
 						{{order.zhifutime}}
 					</view>
-					<view class="right" style="display: flex; align-items: flex-end;">
-						<view style="margin-right: 20rpx;">
-							共{{order.number}}件商品
+					<view class="right" style="display: flex; flex-direction: column; align-items: flex-end;">
+						<view class="top" style="display: flex; align-items: flex-end;">
+							<view style="margin-right: 20rpx;">
+								共{{order.number}}件商品
+							</view>
+							<view style="display: flex; align-items: flex-end;">合计：<view style="font-size: 1.2rem; font-weight: 700; color: var(--color-05);">￥{{order.computedPrice}}</view>
+							</view>
 						</view>
-						<view style="display: flex; align-items: flex-end;">合计：<view style="font-size: 1.2rem; font-weight: 700; color: var(--color-05);">￥{{order.computedPrice}}</view>
+						<view class="bottom" style="display: flex;align-items: center;">
+							<LuckinButton type="gold" size="mini" style="margin-right: 20rpx;">删除订单</LuckinButton>
+							<LuckinButton type="primary" size="mini">再来一单</LuckinButton>
 						</view>
 					</view>
 				</view>

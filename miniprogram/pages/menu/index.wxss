@@ -264,7 +264,7 @@
 }
 
 .main .right .right-item .coffee-item .sale-info>.price>.price-sale {
-	letter-spacing: -.2rem;
+	letter-spacing: -.1rem;
 	font-size: 1rem;
 	font-weight: 700;
 	color: var(--color-04);

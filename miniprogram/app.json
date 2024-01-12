@@ -39,12 +39,6 @@
         "selectedIconPath": "images/icons/menu-selected.png"
       },
       {
-        "pagePath": "pages/shop/index",
-        "text": "电商",
-        "iconPath": "images/icons/shop.png",
-        "selectedIconPath": "images/icons/shop-selected.png"
-      },
-      {
         "pagePath": "pages/vip/index",
         "text": "会员卡",
         "iconPath": "images/icons/vip.png",

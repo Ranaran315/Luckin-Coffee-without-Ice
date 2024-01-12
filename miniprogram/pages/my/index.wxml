@@ -18,9 +18,22 @@
 	</view>
 	<view class="main">
 		<view class="level-card main-item">
-			<view>
+			<view class="level">
 				<text style="font-size: 1.2rem;">LV.0</text>
 				小迷鹿
+			</view>
+			<view class="level-navbar">
+				<view class="level-navbar-info">
+					<view class="left">
+						<text style="font-size: 1.5rem;">0</text>
+						<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/咖啡豆.png" mode="widthFix" style="width: 20rpx;" />
+					</view>
+					<view class="right" style="font-size: .8rem; color: var(--color-03);">
+						去喝一杯，加入luckin
+						<Icon name="jinqv"></Icon>
+					</view>
+				</view>
+				<view class="level-bar"></view>
 			</view>
 		</view>
 		<view class="function-panel main-item">
@@ -56,10 +69,13 @@
 		<view class="main-item">
 			<Banner></Banner>
 		</view>
-		<view class="gift-card">
-			<view class="title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20rpx;">我的礼品卡</view>
+		<view class="gift-card main-item">
+			<view class="top" style="display: flex;justify-content: space-between;align-items: center;">
+				<view class="title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20rpx;">送礼品卡</view>
+				<view class="sub-title" style="font-size: .8rem; color: var(--color-03);">查看全部</view>
+			</view>
 			<view class="gift-card-item">
-				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/CtwhAmWRkUyAIBuDAAGBIkSRN2Q156.png" mode="widthFix"/>
+				<image src="cloud://cloud1-5gya1gnp983b86b0.636c-cloud1-5gya1gnp983b86b0-1323577987/CtwhAmWRkUyAIBuDAAGBIkSRN2Q156.png" mode="widthFix" />
 			</view>
 		</view>
 	</view>

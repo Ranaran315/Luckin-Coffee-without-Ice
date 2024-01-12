@@ -12,7 +12,32 @@
 }
 
 .main-item {
+	width: 100%;
 	margin-bottom: 20rpx;
+	background-color: var(--bg-02);
+	border-radius: var(--br);
+	padding: 30rpx 20rpx;
+}
+
+.main-item .top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20rpx;
+}
+
+.main-item .top .title {
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+.main-item .top .sub-title {
+	font-size: .8rem;
+	color: var(--color-03);
+}
+
+.main-item .center {
+	width: 100%;
 }
 
 .home-main-swiper {
@@ -21,11 +46,12 @@
 }
 
 .home-operation {
+	--row-first-height: 210rpx;
 	height: 450rpx;
 	background-color: var(--bg-02);
-	--row-first-height: 210rpx;
 	position: relative;
 	border-radius: var(--br);
+	padding: 0;
 }
 
 .home-operation > .profile-card {

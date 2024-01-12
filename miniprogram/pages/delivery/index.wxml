@@ -15,10 +15,10 @@
 				</view>
 				<scroll-view scroll-y="true" class="store-box">
 					<block wx:for="{{storeList}}" wx:key="id">
-						<view class="store-item {{currentStoreIndex == index ? 'selected' : ''}}" bind:tap="chooseStore" data-item="{{item}}">
+						<view class="store-item {{currentStoreId == item._id ? 'selected' : ''}}" bind:tap="chooseStore" data-item="{{item}}">
 							<view class="name">
 								{{item.name}}
-								<view class="current" wx:if="{{currentStoreIndex == index}}">当前选择</view>
+								<view class="current" wx:if="{{currentStoreId == item._id}}">当前选择</view>
 							</view>
 							<view class="detail-address">
 								<Icon name="dingwei" style="margin-right: 10rpx;"></Icon>

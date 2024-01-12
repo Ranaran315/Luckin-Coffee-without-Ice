@@ -51,7 +51,8 @@ video {
   font-display: swap;
 }
 
-.price {
+.price,
+.level-card {
   font-family: "alimamafangyuanti";
   font-weight: 700;
 }
